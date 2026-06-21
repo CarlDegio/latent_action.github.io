@@ -1,0 +1,2396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embodied-R1.5</title>
+  <link rel="icon" href="./logo/ER1.5-logo3.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=STIX+Two+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Progress Sidebar -->
+  <nav class="progress-sidebar" aria-label="Page progress">
+    <div class="progress-track">
+      <div class="progress-line"></div>
+      <div class="progress-line-fill"></div>
+      <div class="progress-item" data-section="hero">
+        <a href="#">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Intro</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="highlight">
+        <a href="#highlight">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Highlight</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="models">
+        <a href="#models">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Models</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="multi-agent">
+        <a href="#multi-agent">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Multi-agent</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="results">
+        <a href="#results">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Results</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="realworld">
+        <a href="#realworld">
+          <span class="progress-dot"></span>
+          <span class="progress-label">Real-World</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="evalkit">
+        <a href="#evalkit">
+          <span class="progress-dot"></span>
+          <span class="progress-label">EvalKit</span>
+        </a>
+      </div>
+      <div class="progress-item" data-section="bibtex">
+        <a href="#bibtex">
+          <span class="progress-dot"></span>
+          <span class="progress-label">BibTeX</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <div class="hero-flow hero-compact">
+      <div class="hero-orb" aria-hidden="true"></div>
+      <div class="hero-title-line">
+        <span class="hero-title-art">Embodied-R1.5</span><span class="hero-title-sep">:</span>
+        <span class="hero-title-rest">Evolving <span class="hero-keyword">Physical Intelligence</span> via <span class="hero-keyword">Embodied Foundation Models</span></span>
+      </div>
+
+      <div class="hero-team-block expanded">
+        <div class="hero-team-header" onclick="this.parentElement.classList.toggle('expanded')">
+          <img class="hero-team-logo" src="./logo/Gemini_ER_alpha_clean.png?v=2" alt="ER1.5 logo">
+          <span class="hero-team-name">Embodied-R1.5 Team</span>
+          <svg class="hero-team-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="hero-team-expand">
+          <div class="hero-team-authors" style="font-family: 'STIX Two Text', serif; font-size: 18px; line-height: 2.4; color: var(--text-secondary); margin-top: 12px; max-width: 900px; margin-left: auto; margin-right: auto;">
+            <a href="https://yifu-yuan.github.io/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--text-muted);">Yifu Yuan</a><sup style="color: var(--honey-bronze); font-size: 13px; margin-left: 2px;">&#9830;</sup><sup style="color: var(--blue-energy); font-size: 13px;">,&#10043;</sup>,
+            Yaoting Huang,
+            Xianze Yao,
+            Yutong Li,
+            Shuoheng Zhang,
+            Linqi Han,
+            Pengyi Li,
+            Jiangeng Sun,
+            Wenting Jia,
+            Zhao Zhang,
+            Yuhao Liu,
+            Ruihao Liao,
+            Yucheng Hu,
+            Qiyu Wu,
+            Yuxiao Li,
+            Zibin Dong,
+            Fei Ni,
+            Yan Zheng,
+            Shuyang Gu<sup style="color: var(--blue-energy); font-size: 13px; margin-left: 2px;">&#10043;</sup>,
+            Yi Ma<sup style="color: var(--honey-bronze); font-size: 13px; margin-left: 2px;">&#9830;</sup><sup style="color: var(--blue-energy); font-size: 13px;">,&#10043;</sup>,
+            Hongyao Tang<sup style="color: var(--honey-bronze); font-size: 13px; margin-left: 2px;">&#9830;</sup><sup style="color: var(--blue-energy); font-size: 13px;">,&#10043;</sup>,
+            Han Hu,
+            Jianye Hao<sup style="color: var(--blue-energy); font-size: 13px; margin-left: 2px;">&#10043;</sup>
+          </div>
+          <div style="margin-top: 10px; font-size: 14px; color: var(--text-muted); line-height: 1.8; font-family: 'STIX Two Text', serif;">
+            <span style="color: var(--honey-bronze); font-size: 15px;">&#9830;</span> Project Leader &nbsp;&nbsp;
+            <span style="color: var(--blue-energy); font-size: 15px;">&#10043;</span> Corresponding Author
+          </div>
+          <div style="margin-top: 8px; font-size: 15px; color: var(--text-secondary); line-height: 1.8; font-family: 'STIX Two Text', serif;">
+            <sup style="font-size: 11px;">1</sup>&nbsp;Tianjin University &nbsp;&nbsp;&nbsp;<sup style="font-size: 11px;">2</sup>&nbsp;Tencent Hunyuan
+          </div>
+          <div style="margin-top: 6px; font-size: 14px; color: var(--text-muted); font-family: 'STIX Two Text', serif;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 4px; color: var(--text-muted);"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg><a href="mailto:yuanyf@tju.edu.cn" style="color: var(--text-muted); text-decoration: none;">yuanyf@tju.edu.cn</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-pill-row">
+        <span class="hero-pill">Embodied Foundation Model</span>
+        <span class="hero-pill">General Physical Intelligence</span>
+        <span class="hero-pill">Unified Embodied Reasoning</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="cta gray" href="https://embodied-r.github.io/" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+            style="vertical-align: -2px; margin-right: 6px;">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z" />
+          </svg>
+          Project Page
+        </a>
+        <a class="cta gray" href="https://github.com/pickxiguapi/Embodied-R1.5" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+            style="vertical-align: -3px; margin-right: 6px;">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+          Code
+        </a>
+        <a class="cta gray" href="https://github.com/pickxiguapi/EmbodiedEvalKit" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+            style="vertical-align: -2px; margin-right: 6px;">
+            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
+          </svg>
+          EmbodiedEvalKit
+        </a>
+        <a class="cta gray" href="https://huggingface.co/IffYuan/Embodied-R1.5" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+            style="vertical-align: -2px; margin-right: 6px;">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+          </svg>
+          Models
+        </a>
+        <a class="cta gray" href="https://huggingface.co/collections/IffYuan/embodied-r15" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+            style="vertical-align: -2px; margin-right: 6px;">
+            <path d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z" />
+          </svg>
+          Datasets
+        </a>
+        <a class="cta gray" href="https://huggingface.co/collections/IffYuan/embodiedevalkit" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+            style="vertical-align: -2px; margin-right: 6px;">
+            <path d="M5 9.2h3V19H5V9.2zM10.6 5h2.8v14h-2.8V5zm5.6 8H19v6h-2.8v-6z" />
+          </svg>
+          Benchmarks
+        </a>
+      </div>
+
+      <div class="hero-waves" aria-hidden="true">
+        <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+          </defs>
+          <g class="wave-parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(212,148,10,0.25)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(147,51,234,0.2)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(59,130,246,0.18)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(37,99,235,0.25)"></use>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Section: Video -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="card-surface" style="padding: 0; overflow: hidden; border-radius: 16px; margin-bottom: 0;">
+      <div style="position: relative; width: 100%; padding-bottom: 56.25%; background: #000;">
+        <iframe
+          src="https://www.youtube.com/embed/3KhSXrcA1ig"
+          title="Embodied-R1.5 Demo"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Section 1: Highlight -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="tagline" id="highlight">Highlight</div>
+
+    <!-- TL;DR + Key Contributions -->
+    <div class="card-surface" style="margin-bottom: 24px; padding: 28px 36px;">
+      <!-- TL;DR Header -->
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+        <span style="display: inline-block; padding: 4px 12px; border-radius: 6px; background: linear-gradient(135deg, #2563eb, #7c3aed); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-family: system-ui, sans-serif;">TL;DR</span>
+        <span style="font-size: 15px; font-family: system-ui, sans-serif; display: inline-flex; align-items: center; gap: 8px;">
+          <span style="color: #9ca3af; font-weight: 500; font-family: 'STIX Two Text', serif;">Embodied-R1</span>
+          <span style="display: inline-block; background: linear-gradient(135deg, #2563eb, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; font-size: 20px;">↗</span>
+          <span style="font-weight: 700; font-size: 19px; font-family: 'STIX Two Text', serif; background: linear-gradient(135deg, #2563eb, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Embodied-R1.5</span>
+        </span>
+      </div>
+      <p style="font-size: 17px; line-height: 1.75; color: var(--text-primary); margin: 0 0 24px 0; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;">Embodied-R1.5 is a unified Embodied Foundation Model (EFM) that integrates comprehensive embodied reasoning capabilities — spanning embodied cognition, task planning, correction, and pointing — within a single 8B-parameter architecture toward general physical intelligence. It achieves SOTA on 16 out of 24 embodied VLM benchmarks, surpassing Gemini-Robotics-ER-1.5 and GPT-5.4, and can be fine-tuned into a VLA that outperforms π₀.₅ across 4 popular manipulation benchmark suites.</p>
+
+      <!-- Key Contributions -->
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px;">
+        <div style="height: 1px; flex: 1; background: var(--border-subtle);"></div>
+        <span style="font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-secondary); font-family: system-ui, sans-serif;">Key Contributions</span>
+        <div style="height: 1px; flex: 1; background: var(--border-subtle);"></div>
+      </div>
+
+      <div class="kc-list">
+        <div class="kc-item">
+          <div class="kc-num">1</div>
+          <div class="kc-body">
+            <h3 class="kc-title">Unified Embodied Foundation Model</h3>
+            <p class="kc-desc">We formalize the capability requirements of an EFM and demonstrate that <strong>embodied cognition</strong>, <strong>task planning and correction</strong>, and <strong>pointing and location</strong> can coexist and reinforce each other within a single 8B-parameter architecture, eliminating the fragmented multi-model paradigm.</p>
+          </div>
+        </div>
+        <div class="kc-item">
+          <div class="kc-num">2</div>
+          <div class="kc-body">
+            <h3 class="kc-title">Large-Scale Data System & Multi-Task Balanced RL</h3>
+            <p class="kc-desc">Leveraging <strong>three automated data construction pipelines</strong>, we build a large-scale data system of over <strong>15B tokens</strong>, and design a <strong>multi-task balanced RL recipe</strong> with output-type-specific rewards that resolves interference inherent in heterogeneous multi-task training.</p>
+          </div>
+        </div>
+        <div class="kc-item">
+          <div class="kc-num">3</div>
+          <div class="kc-body">
+            <h3 class="kc-title">Planner-Grounder-Corrector Closed-Loop Framework</h3>
+            <p class="kc-desc">A <strong>Planner-Grounder-Corrector (PGC)</strong> closed-loop framework where a single model orchestrates the full autonomy stack — from <strong>high-level task decomposition</strong> and <strong>precise spatial grounding</strong> to <strong>autonomous self-correction</strong> over long-horizon tasks.</p>
+          </div>
+        </div>
+        <div class="kc-item">
+          <div class="kc-num">4</div>
+          <div class="kc-body">
+            <h3 class="kc-title">SOTA Results & Full Open-Source Ecosystem</h3>
+            <p class="kc-desc">Achieves <strong>SOTA on 16/24 embodied VLM benchmarks</strong>, surpassing Gemini-Robotics-ER-1.5 and GPT-5.4. Fine-tuned as a VLA, it outperforms π₀.₅ across <strong>4 manipulation benchmark suites</strong>. We fully open-source <strong>model weights</strong>, <strong>datasets</strong>, <strong>training code</strong>, and <strong>EmbodiedEvalKit</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-surface charts-section">
+      <div class="section-heading">Embodied VLM Evaluation</div>
+      <div id="vlm-overall-container"></div>
+      <div class="chart-legend" id="vlm-overall-legend"></div>
+
+      <p class="section-lead" style="margin-top: 20px;">Per-benchmark scores across all evaluated tasks.</p>
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow carousel-arrow-left" id="bench-carousel-left" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="carousel-viewport" id="bench-carousel-viewport">
+          <div class="carousel-track" id="bench-carousel-track"></div>
+        </div>
+        <button class="carousel-arrow carousel-arrow-right" id="bench-carousel-right" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+      <div class="carousel-dots" id="bench-carousel-dots"></div>
+      <div class="chart-legend" id="bench-carousel-legend"></div>
+
+      <div class="section-heading" style="margin-top: 24px;">VLA Benchmark Comparisons</div>
+      <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin-bottom: 16px;">
+        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">
+          Embodied-R1.5-VLA is built upon Embodied-R1.5 as the backbone, augmented with an action head for VLA training — <em>without</em> large-scale action pretraining. We demonstrate that broad improvements in embodied capabilities effectively transfer to downstream VLA manipulation performance.
+        </p>
+      </div>
+      <div id="vla-charts-container"></div>
+      <div class="chart-legend" id="vla-chart-legend"></div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Section 2: Models -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="tagline" id="models">Models</div>
+
+    <div class="card-surface" style="padding: 0; overflow: hidden;">
+      <img src="./framework.png" alt="Embodied-R1.5 Framework" style="width: 100%; height: auto; display: block;">
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Section 5: Multi-agent System -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="tagline" id="multi-agent">Closed-Loop Autonomy Framework for Long-horizon Tasks</div>
+
+    <div class="card-surface">
+      <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 0 0 24px 0;">
+        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Embodied-R1.5 integrates <strong>Planner</strong>, <strong>Grounder</strong>, and <strong>Corrector</strong> into a unified closed-loop pipeline, where a single model orchestrates the full autonomy stack &mdash; from <strong>high-level task decomposition</strong> and <strong>precise spatial grounding</strong> to <strong>autonomous reflection and self-correction</strong>. This enables complex, long-horizon embodied tasks across diverse robotic embodiments without human intervention.</p>
+      </div>
+      <div class="video-demo-wrapper" style="margin: 0;">
+        <video autoplay muted loop playsinline class="demo-video">
+          <source src="./videos/demo2_cropped.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Section 6: Results -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="tagline" id="results">Core Result</div>
+
+    <!-- Result Tabs -->
+    <div class="result-tabs">
+      <button class="result-tab active" data-tab="vlm-tab">Comprehensive Embodied VLM Evaluation<br><span class="tab-sub">(24+ Benchmarks)</span></button>
+      <button class="result-tab" data-tab="vla-tab">VLA Benchmarks<br><span class="tab-sub">(SIMPLER)</span></button>
+      <button class="result-tab" data-tab="libero-tab">VLA Benchmarks<br><span class="tab-sub">(LIBERO & LIBERO-Plus)</span></button>
+      <button class="result-tab" data-tab="afford-tab">Affordance Benchmarks<br><span class="tab-sub">(PartNet-Mobility)</span></button>
+    </div>
+
+    <!-- Tab 1: VLM -->
+    <div class="result-tab-content active" id="vlm-tab">
+
+    <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 20px 0 20px 0;">
+      <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Compared with its predecessor, Embodied-R1.5 features comprehensive advancements in <strong>cognition</strong>, <strong>planning</strong>, and <strong>error correction</strong>, while significantly refining its <strong>pointing and localization precision</strong>. It currently establishes a <strong>new SOTA across 10+ benchmarks</strong>, with its mean performance markedly exceeding that of leading general-purpose and embodied models. Notably, Embodied-R1.5 demonstrates a <strong>clear competitive advantage over Gemini-Robotics-ER-1.5</strong> across all evaluated capability domains.</p>
+    </div>
+
+    <!-- Leaderboard Table Section (Dynamic) -->
+    <section class="leaderboard-section" id="leaderboard">
+      <div class="section-heading">Embodied VLM Leaderboard</div>
+      <p class="section-lead">Comprehensive evaluation across Embodied Planning and Correction (4 Tasks), Embodied Pointing and Location (9 Tasks), and Embodied Cognition and Spatial Reasoning (8 Tasks).</p>
+      <div class="leaderboard-table-wrapper" id="vlm-full-table-wrapper">
+        <div id="vlm-full-table"></div>
+      </div>
+    </section>
+
+    <p class="section-lead" style="margin-top: 20px;">Visual trace prediction evaluation across ShareRobot-V (RMSE↓, DFD↓), VABench-V (RMSE↓, DFD↓), and PIO-S3 (GPT-Score↑).</p>
+    <div class="leaderboard-table-wrapper">
+      <div id="vlm-trace-table"></div>
+    </div>
+
+    <!-- General Vision Benchmarks -->
+    <section class="leaderboard-section" id="general-bench-section">
+      <div class="section-heading">General Vision Benchmarks</div>
+      <p class="section-lead">Embodied-R1.5 maintains strong general vision capabilities while acquiring comprehensive embodied skills, demonstrating minimal performance trade-off compared to its base model Qwen3-VL-8B.</p>
+      <div class="leaderboard-table-wrapper">
+        <div id="general-bench-table"></div>
+      </div>
+    </section>
+
+    </div><!-- end vlm-tab -->
+
+    <!-- Tab 2: VLA -->
+    <div class="result-tab-content" id="vla-tab">
+
+    <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 20px 0 20px 0;">
+      <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Demonstrating superior generalization performance, Embodied-R1.5-VLA <strong>excels in all three Simpler evaluation suites</strong>. In the rigorous Google Robot Benchmark, our model <strong>outperforms the leading baseline, pi0, by a substantial 20% margin</strong>, setting a <strong>new performance standard</strong> for embodied agents.</p>
+    </div>
+
+    <!-- VLA: Google Robot VM -->
+    <section class="leaderboard-section" id="vla-google-vm">
+      <div class="section-heading">Simpler-Google Robot Benchmark (Visual Matching)</div>
+      <div class="leaderboard-table-wrapper">
+        <table class="leaderboard-table vla-table">
+          <thead>
+            <tr>
+              <th class="sticky-col benchmark-header">Model</th>
+              <th>Pick Coke Can</th>
+              <th>Move Near</th>
+              <th>Open/Close Drawer</th>
+              <th>Open Top Drawer<br>& Place Apple</th>
+              <th>Overall</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sticky-col bench-name">RT-1-X</td>
+              <td>56.7</td><td>31.7</td><td>59.7</td><td>21.3</td><td>42.4</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">RT-2-X</td>
+              <td>78.7</td><td>77.9</td><td>25.0</td><td>3.7</td><td>46.3</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">OpenVLA</td>
+              <td>16.3</td><td>46.2</td><td>35.6</td><td>0.0</td><td>24.5</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">SpatialVLA</td>
+              <td>86.0</td><td>77.9</td><td>57.4</td><td>0.0</td><td>55.3</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0</td>
+              <td>97.9</td><td>78.7</td><td>62.3</td><td>46.6</td><td>71.4</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0-FAST</td>
+              <td>75.3</td><td>67.5</td><td>42.9</td><td>0.0</td><td>46.4</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">GR00T N1.5</td>
+              <td>51.7</td><td>54.0</td><td>27.8</td><td>7.4</td><td>35.2</td>
+            </tr>
+            <tr class="ours-row">
+              <td class="sticky-col bench-name ours-model">Embodied-R1.5-VLA</td>
+              <td class="ours-col">92.3</td><td class="ours-col">93.8</td><td class="ours-col">86.1</td><td class="ours-col">97.2</td><td class="ours-col">92.4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VLA: Google Robot VA -->
+    <section class="leaderboard-section" id="vla-google-va">
+      <div class="section-heading">Simpler-Google Robot Benchmark (Variant Aggregation)</div>
+      <div class="leaderboard-table-wrapper">
+        <table class="leaderboard-table vla-table">
+          <thead>
+            <tr>
+              <th class="sticky-col benchmark-header">Model</th>
+              <th>Pick Coke Can</th>
+              <th>Move Near</th>
+              <th>Open/Close Drawer</th>
+              <th>Open Top Drawer<br>& Place Apple</th>
+              <th>Overall</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sticky-col bench-name">RT-1-X</td>
+              <td>49.0</td><td>32.3</td><td>29.4</td><td>10.1</td><td>30.2</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">RT-2-X</td>
+              <td>82.3</td><td>79.2</td><td>35.3</td><td>20.6</td><td>54.4</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">OpenVLA</td>
+              <td>54.5</td><td>47.7</td><td>17.7</td><td>0.0</td><td>30.0</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">SpatialVLA</td>
+              <td>88.0</td><td>72.7</td><td>41.8</td><td>6.3</td><td>52.2</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0</td>
+              <td>90.1</td><td>80.7</td><td>27.6</td><td>20.5</td><td>54.7</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0-FAST</td>
+              <td>77.6</td><td>68.2</td><td>31.3</td><td>0.0</td><td>44.3</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">GR00T N1.5</td>
+              <td>69.3</td><td>68.7</td><td>35.8</td><td>4.0</td><td>44.5</td>
+            </tr>
+            <tr class="ours-row">
+              <td class="sticky-col bench-name ours-model">Embodied-R1.5-VLA</td>
+              <td class="ours-col">80.6</td><td class="ours-col">72.2</td><td class="ours-col">58.3</td><td class="ours-col">75.0</td><td class="ours-col">71.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VLA: WidowX -->
+    <section class="leaderboard-section" id="vla-widowx">
+      <div class="section-heading">Simpler-WidowX Benchmark (Visual Matching)</div>
+      <div class="leaderboard-table-wrapper">
+        <table class="leaderboard-table vla-table">
+          <thead>
+            <tr>
+              <th class="sticky-col benchmark-header">Model</th>
+              <th>Put Spoon<br>on Towel</th>
+              <th>Put Carrot<br>on Plate</th>
+              <th>Stack Blocks</th>
+              <th>Put Eggplant<br>in Basket</th>
+              <th>Overall</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sticky-col bench-name">RT-1-X</td>
+              <td>0.0</td><td>4.2</td><td>0.0</td><td>0.0</td><td>1.1</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">CogACT</td>
+              <td>71.7</td><td>50.8</td><td>15.0</td><td>67.5</td><td>51.3</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">OpenVLA</td>
+              <td>4.2</td><td>0.0</td><td>0.0</td><td>12.5</td><td>4.2</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">SpatialVLA</td>
+              <td>16.7</td><td>25.0</td><td>29.2</td><td>100.0</td><td>42.7</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0</td>
+              <td>29.1</td><td>0.0</td><td>16.6</td><td>62.5</td><td>27.1</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0-FAST</td>
+              <td>29.1</td><td>21.9</td><td>10.8</td><td>66.6</td><td>32.1</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">GR00T N1.5</td>
+              <td>75.3</td><td>54.3</td><td>57.0</td><td>61.3</td><td>62.0</td>
+            </tr>
+            <tr class="ours-row">
+              <td class="sticky-col bench-name ours-model">Embodied-R1.5-VLA</td>
+              <td class="ours-col">83.3</td><td class="ours-col">75.0</td><td class="ours-col">37.5</td><td class="ours-col">100.0</td><td class="ours-col">74.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="video-wall" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 20px 0;">
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/vm/success_obj_0.0_0.0_qpos_0.000.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/vm/success_obj_-0.05_-0.02_qpos_0.17963315546512604_is_drawer_open_True_has_contact_172.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/vm/success_obj_0.0_0.0_qpos_0.237.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/vm/success_obj_episode_8_all_obj_keep_height_True_moved_correct_obj_True_moved_wrong_obj_False_near_tgt_obj_True_is_closest_to_tgt_True.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/va/pickCan/success_obj_-0.12_-0.02_n_lift_significant_60_consec_grasp_True_grasped_True.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/va/pickCan/success_obj_-0.235_0.09_n_lift_significant_47_consec_grasp_True_grasped_True.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/va/moveNear/success_obj_episode_10_all_obj_keep_height_True_moved_correct_obj_True_moved_wrong_obj_False_near_tgt_obj_True_is_closest_to_tgt_True.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/va/moveNear/success_obj_episode_22_all_obj_keep_height_True_moved_correct_obj_True_moved_wrong_obj_False_near_tgt_obj_True_is_closest_to_tgt_True.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/va/drawer/success_obj_0.0_0.0_qpos_0.000.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/va/drawer/success_obj_0.0_0.0_qpos_0.191.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/va/place/success_obj_-0.02_-0.02_qpos_0.19694340229034424_is_drawer_open_True_has_contact_68.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/va/place/success_obj_-0.05_0.08_qpos_0.2165730744600296_is_drawer_open_True_has_contact_2.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/va/pickCan/success_obj_-0.2925_0.42_n_lift_significant_66_consec_grasp_True_grasped_True.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/va/moveNear/success_obj_episode_54_all_obj_keep_height_True_moved_correct_obj_True_moved_wrong_obj_False_near_tgt_obj_True_is_closest_to_tgt_True.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/1489_1771073995.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/1490_1771073996.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/1491_1771073998.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline style="width:100%; border-radius: 8px;"><source src="./simpler_videos/1492_1771073999.mp4" type="video/mp4"></video>
+    </div>
+
+    </div><!-- end vla-tab -->
+
+    <!-- Tab: LIBERO -->
+    <div class="result-tab-content" id="libero-tab">
+
+    <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 20px 0 20px 0;">
+      <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;"><strong>Efficient VLM-to-VLA Adaptation:</strong> Embodied-R1.5-VLA achieves high-performance control via direct fine-tuning from a VLM, successfully bypassing the conventional requirement for massive real-robot action pre-training.</p>
+      <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 8px 0 0 0; font-weight: 500;"><strong>Top-Tier Benchmark Dominance:</strong> The model demonstrates comprehensive task mastery across all LIBERO suites, reaching first-tier performance and significantly outperforming existing methods that lack action pre-training.</p>
+      <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 8px 0 0 0; font-weight: 500;"><strong>Superior Architectural Stability:</strong> Compared to native backbones like Qwen3-VL, Embodied-R1.5 delivers consistent and stable performance gains throughout the entire training curriculum.</p>
+    </div>
+
+    <section class="leaderboard-section" id="vla-libero">
+      <div class="section-heading">LIBERO Benchmark (40 Tasks)</div>
+      <div class="leaderboard-table-wrapper">
+        <table class="leaderboard-table vla-table">
+          <thead>
+            <tr>
+              <th class="sticky-col benchmark-header">Model</th>
+              <th>Pt.</th>
+              <th>Goal</th>
+              <th>Spatial</th>
+              <th>Object</th>
+              <th>Long</th>
+              <th>Overall</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="category-row"><td class="sticky-col category-label" colspan="7">W/ Action Pretraining</td></tr>
+            <tr>
+              <td class="sticky-col bench-name">SpatialVLA</td>
+              <td>Y</td><td>78.6</td><td>88.2</td><td>89.9</td><td>55.5</td><td>78.1</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">CoT-VLA</td>
+              <td>Y</td><td>87.6</td><td>87.5</td><td>91.6</td><td>69.0</td><td>83.9</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">GR00T N1</td>
+              <td>Y</td><td>93.0</td><td>94.4</td><td>97.6</td><td>90.6</td><td>93.9</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">GR00T N1.6</td>
+              <td>Y</td><td>97.5</td><td>97.7</td><td>98.5</td><td>94.4</td><td>97.0</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">OpenVLA</td>
+              <td>Y</td><td>79.2</td><td>84.7</td><td>88.4</td><td>53.7</td><td>76.5</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">OpenVLA-OFT</td>
+              <td>Y</td><td>97.9</td><td>97.6</td><td>98.4</td><td>94.5</td><td>97.1</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0</td>
+              <td>Y</td><td>95.8</td><td>96.8</td><td>98.8</td><td>85.2</td><td>94.2</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0-FAST</td>
+              <td>Y</td><td>88.6</td><td>96.4</td><td>96.8</td><td>60.2</td><td>85.5</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0.5</td>
+              <td>Y</td><td>98.0</td><td>98.8</td><td>98.2</td><td>92.4</td><td>96.9</td>
+            </tr>
+            <tr class="category-row"><td class="sticky-col category-label" colspan="7">W/O Action Pretraining</td></tr>
+            <tr>
+              <td class="sticky-col bench-name">Diffusion Policy</td>
+              <td>N</td><td>68.3</td><td>78.3</td><td>92.5</td><td>50.5</td><td>72.4</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">OpenVLA-OFT</td>
+              <td>N</td><td>91.7</td><td>94.3</td><td>95.2</td><td>86.5</td><td>91.9</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0-FAST</td>
+              <td>N</td><td>89.0</td><td>87.0</td><td>63.0</td><td>48.0</td><td>71.8</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">pi0.5</td>
+              <td>N</td><td>94.6</td><td>96.6</td><td>97.2</td><td>85.8</td><td>93.6</td>
+            </tr>
+            <tr class="ours-row">
+              <td class="sticky-col bench-name ours-model">Embodied-R1.5-VLA</td>
+              <td class="ours-col">N</td><td class="ours-col">97.4</td><td class="ours-col">97.8</td><td class="ours-col">99.2</td><td class="ours-col">93.2</td><td class="ours-col">97.3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- LIBERO-Plus Robustness Benchmark -->
+    <section class="leaderboard-section" id="vla-libero-plus">
+      <div class="section-heading">LIBERO-Plus Robustness Benchmark</div>
+      <p class="section-lead">Evaluating model robustness across 7 perturbation types: Camera, Robot, Language, Light, Background, Noise, and Layout changes.</p>
+      <div class="leaderboard-table-wrapper">
+        <div id="libero-plus-table"></div>
+      </div>
+    </section>
+
+    <div class="section-heading" style="margin-top: 24px;">VLM Backbone Comparison on LIBERO</div>
+    <p class="section-lead">Overall success rates across training steps with different VLM backbones and action experts.</p>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+      <div id="libero-line-groot" style="flex: 1; min-width: 280px; max-width: 420px; border: 1px solid #e5e7eb; border-radius: 12px; padding: 8px; background: #fff;"></div>
+      <div id="libero-line-oft" style="flex: 1; min-width: 280px; max-width: 420px; border: 1px solid #e5e7eb; border-radius: 12px; padding: 8px; background: #fff;"></div>
+    </div>
+    <div style="text-align: center; margin-top: 12px;"><div id="libero-line-legend" style="display: inline-flex; gap: 24px; padding: 8px 20px; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff;"></div></div>
+
+    </div><!-- end libero-tab -->
+
+    <!-- Tab 3: Affordance -->
+    <div class="result-tab-content" id="afford-tab">
+
+    <!-- ManiSkill PartNet: Combined -->
+    <section class="leaderboard-section" id="maniskill-seen">
+      <div class="section-heading">ManiSkill PartNet-Mobility — Affordance Prediction</div>
+
+      <!-- Row 1: Seen 1-15 -->
+      <div class="leaderboard-table-wrapper">
+        <table class="leaderboard-table vla-table icon-table">
+          <thead>
+            <tr>
+              <th class="sticky-col benchmark-header" rowspan="2">Model</th>
+              <th class="group-header" colspan="15">Seen Categories</th>
+            </tr>
+            <tr>
+              <th><img class="col-icon" src="./icon/safe.png" alt="Safe"><br>Safe</th>
+              <th><img class="col-icon" src="./icon/door.png" alt="Door"><br>Door</th>
+              <th><img class="col-icon" src="./icon/display.png" alt="Display"><br>Display</th>
+              <th><img class="col-icon" src="./icon/fridge.png" alt="Fridge"><br>Fridge</th>
+              <th><img class="col-icon" src="./icon/laptop.png" alt="Laptop"><br>Laptop</th>
+              <th><img class="col-icon" src="./icon/lighter.png" alt="Lighter"><br>Lighter</th>
+              <th><img class="col-icon" src="./icon/micro.png" alt="Microwave"><br>Micro.</th>
+              <th><img class="col-icon" src="./icon/mouse.png" alt="Mouse"><br>Mouse</th>
+              <th><img class="col-icon" src="./icon/box.png" alt="Box"><br>Box</th>
+              <th><img class="col-icon" src="./icon/trashcan.png" alt="TrashCan"><br>Trash</th>
+              <th><img class="col-icon" src="./icon/pot.png" alt="KitchenPot"><br>Pot</th>
+              <th><img class="col-icon" src="./icon/suitcase.png" alt="Suitcase"><br>Suitcase</th>
+              <th><img class="col-icon" src="./icon/pliers.png" alt="Pliers"><br>Pliers</th>
+              <th><img class="col-icon" src="./icon/storage.png" alt="Storage"><br>Storage</th>
+              <th><img class="col-icon" src="./icon/remote.png" alt="Remote"><br>Remote</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sticky-col bench-name">Where2Act</td>
+              <td>0.26</td><td>0.36</td><td>0.19</td><td>0.27</td><td>0.23</td><td>0.11</td><td>0.15</td><td>0.47</td><td>0.14</td><td>0.24</td><td>0.13</td><td>0.12</td><td>0.56</td><td>0.68</td><td>0.07</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">FlowBot3D</td>
+              <td>0.67</td><td>0.55</td><td>0.20</td><td>0.32</td><td>0.27</td><td>0.31</td><td>0.61</td><td>0.68</td><td>0.15</td><td>0.28</td><td>0.36</td><td>0.18</td><td>0.21</td><td>0.70</td><td>0.18</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">Implicit3D</td>
+              <td>0.53</td><td>0.58</td><td>0.35</td><td>0.55</td><td>0.28</td><td>0.66</td><td>0.58</td><td>0.51</td><td>0.52</td><td>0.57</td><td>0.45</td><td>0.34</td><td>0.41</td><td>0.54</td><td>0.39</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">ManipLLM</td>
+              <td>0.68</td><td>0.64</td><td>0.36</td><td>0.77</td><td>0.43</td><td>0.62</td><td>0.65</td><td>0.61</td><td>0.65</td><td>0.52</td><td>0.53</td><td>0.40</td><td>0.64</td><td>0.71</td><td>0.60</td>
+            </tr>
+            <tr class="ours-row">
+              <td class="sticky-col bench-name ours-model">Embodied-R1.5</td>
+              <td class="ours-col">0.96</td><td class="ours-col">0.92</td><td class="ours-col">0.92</td><td class="ours-col">0.88</td><td class="ours-col">0.90</td><td class="ours-col">0.80</td><td class="ours-col">0.96</td><td class="ours-col">0.59</td><td class="ours-col">0.94</td><td class="ours-col">0.33</td><td class="ours-col">1.00</td><td class="ours-col">0.50</td><td class="ours-col">0.28</td><td class="ours-col">1.00</td><td class="ours-col">0.58</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Row 2: Seen 16-20 + AVG(Seen) + Unseen 1-10 + AVG(Unseen) -->
+      <div class="leaderboard-table-wrapper" style="margin-top: 24px;">
+        <table class="leaderboard-table vla-table icon-table">
+          <thead>
+            <tr>
+              <th class="sticky-col benchmark-header" rowspan="2">Model</th>
+              <th class="group-header" colspan="5">Seen (cont.)</th>
+              <th class="avg-col" rowspan="2">AVG<br><span style="font-size:9px;color:#999">(Seen)</span></th>
+              <th class="group-header" colspan="10">Unseen Categories</th>
+              <th class="avg-col" rowspan="2">AVG<br><span style="font-size:9px;color:#999">(Unseen)</span></th>
+            </tr>
+            <tr>
+              <th><img class="col-icon" src="./icon/bottle.png" alt="Bottle"><br>Bottle</th>
+              <th><img class="col-icon" src="./icon/foldingchair.png" alt="FoldingChair"><br>Chair</th>
+              <th><img class="col-icon" src="./icon/toaster.png" alt="Toaster"><br>Toaster</th>
+              <th><img class="col-icon" src="./icon/lamp.png" alt="Lamp"><br>Lamp</th>
+              <th><img class="col-icon" src="./icon/dispenser.png" alt="Dispenser"><br>Disp.</th>
+              <th><img class="col-icon" src="./icon/toilet.png" alt="Toilet"><br>Toilet</th>
+              <th><img class="col-icon" src="./icon/scrissor.png" alt="Scissors"><br>Scissors</th>
+              <th><img class="col-icon" src="./icon/table.png" alt="Table"><br>Table</th>
+              <th><img class="col-icon" src="./icon/stapler.png" alt="Stapler"><br>Stapler</th>
+              <th><img class="col-icon" src="./icon/kettle.png" alt="Kettle"><br>Kettle</th>
+              <th><img class="col-icon" src="./icon/usb.png" alt="USB"><br>USB</th>
+              <th><img class="col-icon" src="./icon/washing.png" alt="WashingMachine"><br>Washer</th>
+              <th><img class="col-icon" src="./icon/oven.png" alt="Oven"><br>Oven</th>
+              <th><img class="col-icon" src="./icon/faucet.png" alt="Faucet"><br>Faucet</th>
+              <th><img class="col-icon" src="./icon/phone.png" alt="Phone"><br>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sticky-col bench-name">Where2Act</td>
+              <td>0.40</td><td>0.13</td><td>0.18</td><td>0.13</td><td>0.40</td>
+              <td class="avg-col">0.26</td>
+              <td>0.18</td><td>0.35</td><td>0.38</td><td>0.28</td><td>0.05</td><td>0.21</td><td>0.17</td><td>0.20</td><td>0.15</td><td>0.15</td>
+              <td class="avg-col">0.21</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">FlowBot3D</td>
+              <td>0.26</td><td>0.17</td><td>0.53</td><td>0.29</td><td>0.42</td>
+              <td class="avg-col">0.37</td>
+              <td>0.23</td><td>0.10</td><td>0.60</td><td>0.39</td><td>0.27</td><td>0.42</td><td>0.28</td><td>0.51</td><td>0.13</td><td>0.23</td>
+              <td class="avg-col">0.32</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">Implicit3D</td>
+              <td>0.43</td><td>0.27</td><td>0.65</td><td>0.20</td><td>0.33</td>
+              <td class="avg-col">0.46</td>
+              <td>0.45</td><td>0.17</td><td>0.80</td><td>0.53</td><td>0.15</td><td>0.69</td><td>0.41</td><td>0.31</td><td>0.30</td><td>0.31</td>
+              <td class="avg-col">0.41</td>
+            </tr>
+            <tr>
+              <td class="sticky-col bench-name">ManipLLM</td>
+              <td>0.64</td><td>0.41</td><td>0.75</td><td>0.44</td><td>0.67</td>
+              <td class="avg-col">0.59</td>
+              <td>0.38</td><td>0.22</td><td>0.81</td><td>0.86</td><td>0.38</td><td>0.85</td><td>0.42</td><td>0.83</td><td>0.26</td><td>0.38</td>
+              <td class="avg-col">0.54</td>
+            </tr>
+            <tr class="ours-row">
+              <td class="sticky-col bench-name ours-model">Embodied-R1.5</td>
+              <td class="ours-col">0.62</td><td class="ours-col">0.82</td><td class="ours-col">0.68</td><td class="ours-col">0.47</td><td class="ours-col">1.00</td>
+              <td class="ours-col avg-col">0.76</td>
+              <td class="ours-col">0.67</td><td class="ours-col">0.25</td><td class="ours-col">0.73</td><td class="ours-col">0.76</td><td class="ours-col">0.94</td><td class="ours-col">0.22</td><td class="ours-col">0.90</td><td class="ours-col">0.92</td><td class="ours-col">0.69</td><td class="ours-col">0.53</td>
+              <td class="ours-col avg-col">0.66</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Affordance Video Wall -->
+    <section class="leaderboard-section" id="affordance-videos">
+      <div class="afford-video-wall">
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/101611_Safe_5_pulling_10.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Safe</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/9263_Door_1_pulling_20.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Door</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/4541_Display_36_pulling_14.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Display</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/10144_Refrigerator_2_pulling_53.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Fridge</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/10270_Laptop_3_pulling_69.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Laptop</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/100310_Lighter_10_pulling_70.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Lighter</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/7119_Microwave_2_pulling_8.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Microwave</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/101416_Mouse_9_pulling_1.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Mouse</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/100191_Box_8_pulling_9.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Box</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/103013_TrashCan_2_pulling_16.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">TrashCan</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/100032_KitchenPot_3_pulling_68.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">KitchenPot</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/103770_Suitcase_13_pulling_57.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Suitcase</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/100172_Pliers_2_pulling_79.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Pliers</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/35059_StorageFurniture_0_pulling_14.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Storage</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/101117_Remote_63_pulling_48.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Remote</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/3593_Bottle_6_pulling_59.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Bottle</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/100526_FoldingChair_8_pulling_56.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Chair</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/103498_Toaster_3_pulling_10.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Toaster</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/15084_Lamp_4_pulling_61.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Lamp</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/101489_Dispenser_8_pulling_23.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Dispenser</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/101320_Toilet_1_pulling_46.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Toilet</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/10449_Scissors_3_pulling_2.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Scissors</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/20745_Table_1_pulling_5.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Table</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/103275_Stapler_10_pulling_43.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Stapler</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/101315_Kettle_11_pulling_67.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Kettle</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/100085_USB_2_pulling_10.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">USB</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/100283_WashingMachine_4_pulling_68.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Washer</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/101930_Oven_7_pulling_17.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Oven</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/1288_Faucet_1_pulling_27.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Faucet</span>
+        </div>
+        <div class="afford-video-item">
+          <video src="./affordance/video_sample_h264/103886_Phone_7_pulling_68.mp4" autoplay muted loop playsinline></video>
+          <span class="afford-video-label">Phone</span>
+        </div>
+      </div>
+      <p class="table-caption">Embodied-R1.5 predicts interaction affordances across 30 object categories in ManiSkill PartNet-Mobility.</p>
+    </section>
+
+    </div><!-- end afford-tab -->
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Section: Real-World Experiments -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="tagline" id="realworld">Real-World Experiments</div>
+
+    <div class="card-surface">
+      <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 0 0 20px 0;">
+        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Embodied-R1.5 demonstrates strong real-world manipulation capabilities across 5 diverse tasks, significantly outperforming prior models in both <strong>tool affordance understanding</strong> and <strong>complex multi-step reasoning</strong>.</p>
+      </div>
+
+      <section class="leaderboard-section" id="realworld-results">
+        <div class="section-heading">Real-World Manipulation Results</div>
+        <div class="leaderboard-table-wrapper">
+          <div id="realworld-table"></div>
+        </div>
+      </section>
+
+      <div class="rw-video-grid" style="margin-top: 24px;">
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Pick up [X] and put it on the plate (Pick&Place).mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Pick up [X] and put it on the plate<br>(Pick&Place)</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Put the third duck toy from the left on the plate (Spatial Reasoning).mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Put the third duck toy from the left on the plate<br>(Spatial Reasoning)</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Door Open (Articulated Object Manipulation).mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Door Open<br>(Articulated Object Manipulation)</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/1-Move [X] to the empty space on the right side of the table (Tool Affordance).mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Move [X] to the empty space on the right side of the table<br>(Tool Affordance) #1</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/2-Move [X] to the empty space on the right side of the table (Tool Affordance).mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Move [X] to the empty space on the right side of the table<br>(Tool Affordance) #2</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/3-Move [X] to the empty space on the right side of the table (Tool Affordance).mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Move [X] to the empty space on the right side of the table<br>(Tool Affordance) #3</p>
+        </div>
+      </div>
+
+      <div class="section-heading" style="margin-top: 28px;">Demo Videos</div>
+      <div class="rw-video-grid">
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Clean the vase.mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Clean the vase</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Open the Drawer.mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Open the Drawer</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Plug the charger into the socket.mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Plug the charger into the socket</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Put all the clutter on the table into the box.mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Put all the clutter on the table into the box</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Put the specified object into the empty space of t.mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Put the specified object into the empty space of the table</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Stack the cups into three layers.mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Stack the cups into three layers</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Sweep the garbage on the ground into the dustpan.mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Sweep the garbage on the ground into the dustpan</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Make the milk tea.mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Make the milk tea</p>
+        </div>
+        <div class="rw-video-item">
+          <video autoplay loop muted controls playsinline><source src="./assets/videos/Take out the blue cup and place it on the coaster.mp4" type="video/mp4"></video>
+          <p class="rw-video-caption">Take out the blue cup and place it on the coaster</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="tagline" id="evalkit">EmbodiedEvalKit</div>
+
+    <div class="card-surface evalkit-section">
+      <a href="https://github.com/pickxiguapi/EmbodiedEvalKit" target="_blank" style="display: block;">
+        <img src="./logo/EElogo.png" alt="EmbodiedEvalKit" class="evalkit-logo">
+      </a>
+      <p class="section-lead">A unified evaluation framework for assessing MLLM on embodied intelligence tasks. <a href="https://github.com/pickxiguapi/EmbodiedEvalKit" target="_blank" style="color: var(--blue-energy); font-weight: 600; text-decoration: none;">View on GitHub →</a></p>
+
+      <div class="evalkit-features">
+        <div class="evalkit-feature-item">
+          <div class="evalkit-feature-icon">🚀</div>
+          <div>
+            <h4>Multiple Inference Backends</h4>
+            <p>vLLM (tensor parallel & multi-GPU), HuggingFace Transformers, and API — switch backends in one config.</p>
+          </div>
+        </div>
+        <div class="evalkit-feature-item">
+          <div class="evalkit-feature-icon">🤖</div>
+          <div>
+            <h4>20+ Models Supported</h4>
+            <p>GPT, Gemini, Qwen, InternVL, Molmo, Magma and more — generalist and embodied-specialist families out of the box.</p>
+          </div>
+        </div>
+        <div class="evalkit-feature-item">
+          <div class="evalkit-feature-icon">📊</div>
+          <div>
+            <h4>20+ Embodied Benchmarks</h4>
+            <p>Embodied QA, Spatial Reasoning, Embodied Pointing, Affordance and Location, and Embodied Planning — all in one place.</p>
+          </div>
+        </div>
+        <div class="evalkit-feature-item">
+          <div class="evalkit-feature-icon">🗂️</div>
+          <div>
+            <h4>Standardized Dataset Format</h4>
+            <p>All benchmarks reorganized into HuggingFace Parquet — unified data pipeline for reproducible evaluation.</p>
+          </div>
+        </div>
+        <div class="evalkit-feature-item">
+          <div class="evalkit-feature-icon">🎯</div>
+          <div>
+            <h4>Unified Pointing Evaluation</h4>
+            <p>One interface for diverse pointing formats, coordinate systems, and model-specific conventions.</p>
+          </div>
+        </div>
+        <div class="evalkit-feature-item">
+          <div class="evalkit-feature-icon">🧩</div>
+          <div>
+            <h4>Modular & Decoupled Design</h4>
+            <p>Models, benchmarks, and metrics cleanly separated — easy to extend, swap, or customize independently.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="evalkit-benchmarks">
+        <div class="evalkit-sub-heading">Supported Benchmarks (20+)</div>
+        <div class="evalkit-bench-tags">
+          <span class="evalkit-tag">ERQA</span>
+          <span class="evalkit-tag">CV-Bench</span>
+          <span class="evalkit-tag">EmbSpatial</span>
+          <span class="evalkit-tag">SAT</span>
+          <span class="evalkit-tag">RoboSpatial</span>
+          <span class="evalkit-tag">RoboVQA</span>
+          <span class="evalkit-tag">VABench-P</span>
+          <span class="evalkit-tag">Where2Place</span>
+          <span class="evalkit-tag">RefSpatial</span>
+          <span class="evalkit-tag">Part-Afford</span>
+          <span class="evalkit-tag">RoboRefit</span>
+          <span class="evalkit-tag">RoboAfford</span>
+          <span class="evalkit-tag">VSI-Bench</span>
+          <span class="evalkit-tag">OpenEQA</span>
+          <span class="evalkit-tag">EgoPlan2</span>
+          <span class="evalkit-tag">PIOBench</span>
+          <span class="evalkit-tag">PointBench</span>
+          <span class="evalkit-tag">Pixmo Points</span>
+          <span class="evalkit-tag">Cosmos-Reason</span>
+          <span class="evalkit-tag">BLINK</span>
+          <span class="evalkit-tag">RoboFAC</span>
+          <span class="evalkit-tag">VABench-V</span>
+          <span class="evalkit-tag">PIO-S3</span>
+          <span class="evalkit-tag">VLABench</span>
+          <span class="evalkit-tag ellipsis">...</span>
+        </div>
+      </div>
+
+      <div class="evalkit-models">
+        <div class="evalkit-sub-heading">Evaluated Models (20+)</div>
+        <div class="evalkit-model-grid">
+          <div class="evalkit-model-group">
+            <div class="evalkit-model-group-label">Generalist</div>
+            <span class="evalkit-model-tag">GPT</span>
+            <span class="evalkit-model-tag">Gemini</span>
+            <span class="evalkit-model-tag">Qwen</span>
+            <span class="evalkit-model-tag">InternVL</span>
+            <span class="evalkit-model-tag">Molmo</span>
+            <span class="evalkit-model-tag ellipsis">...</span>
+          </div>
+          <div class="evalkit-model-group">
+            <div class="evalkit-model-group-label">Embodied</div>
+            <span class="evalkit-model-tag ours">Embodied-R1.5</span>
+            <span class="evalkit-model-tag ours">Embodied-R1</span>
+            <span class="evalkit-model-tag">RoboBrain</span>
+            <span class="evalkit-model-tag">Mimo</span>
+            <span class="evalkit-model-tag">Pelican</span>
+            <span class="evalkit-model-tag">Magma</span>
+            <span class="evalkit-model-tag">VeBrain</span>
+            <span class="evalkit-model-tag ellipsis">...</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Section: Acknowledgements -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="tagline">Acknowledgements and Contribution List</div>
+
+    <div class="card-surface acknowledgements-section">
+      <div class="ack-content" style="font-family: 'STIX Two Text', serif; font-size: 15.5px; line-height: 1.8;">
+        <p><strong>Yifu Yuan</strong> proposed the methodology and research direction, developed the complete training dataset, and was responsible for the entire pipeline, including algorithm implementation, model training, inference, and experimental analysis. Yifu Yuan also led the design of the EmbodiedEvalKit framework for evaluation and the drafting of the manuscript.</p>
+        <p style="margin-top: 14px;"><strong>Yifu Yuan</strong>, <strong>Hongyao Tang</strong>, and <strong>Yi Ma</strong> served as co-project leads, overseeing the overall execution of the project. The corresponding authors are <strong>Shuyang Gu</strong>, <strong>Yi Ma</strong>, <strong>Hongyao Tang</strong>, and <strong>Jianye Hao</strong>.</p>
+        <p style="margin-top: 14px;">The success of the Embodied-R1.5 project is a collective effort of all contributors. <strong>Yaoting Huang</strong>, <strong>Linqi Han</strong>, and <strong>Jiangeng Sun</strong> contributed to model evaluation. Data construction and cleaning were performed by <strong>Yaoting Huang</strong>, <strong>Linqi Han</strong>, <strong>Pengyi Li</strong>, <strong>Jiangeng Sun</strong>, <strong>Wenting Jia</strong>, <strong>Yucheng Hu</strong>, <strong>Zhao Zhang</strong>, and <strong>Yuxiao Li</strong>. The real-world robotic platform setup and experiments were conducted by <strong>Shuoheng Zhang</strong>, <strong>Xianze Yao</strong>, <strong>Pengyi Li</strong>, <strong>Yuhao Liu</strong>, <strong>Yutong Li</strong>, <strong>Ruihao Liao</strong>, <strong>Qiyu Wu</strong>, and <strong>Yuxiao Li</strong>. Research guidance and supervision were provided by <strong>Shuyang Gu</strong>, <strong>Zibin Dong</strong>, <strong>Fei Ni</strong>, <strong>Yan Zheng</strong>, <strong>Han Hu</strong>, and <strong>Jianye Hao</strong>.</p>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Section: Bibtex -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="tagline" id="bibtex">BibTeX</div>
+
+    <div class="bibtex-card">
+      <div class="bibtex-card-header">
+        <div class="bibtex-card-title">Embodied-R1.5</div>
+        <button class="bibtex-copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('bib-er15').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>{this.textContent='Copy'},2000)})">Copy</button>
+      </div>
+      <pre><code id="bib-er15">@article{yuan2026embodiedr15,
+  title={Embodied-R1.5: Evolving Physical Intelligence via Embodied Foundation Models},
+  author={Yuan, Yifu and Huang, Yaoting and Yao, Xianze and Li, Yutong and Zhang, Shuoheng and Han, Linqi and Li, Pengyi and Sun, Jiangeng and Jia, Wenting and Zhang, Zhao and Liu, Yuhao and Liao, Ruihao and Hu, Yucheng and Wu, Qiyu and Li, Yuxiao and Dong, Zibin and Ni, Fei and Zheng, Yan and Gu, Shuyang and Ma, Yi and Tang, Hongyao and Hu, Han and Hao, Jianye},
+  journal={arXiv preprint},
+  year={2026}
+}</code></pre>
+    </div>
+
+    <div class="bibtex-card">
+      <div class="bibtex-card-header">
+        <div class="bibtex-card-title">Embodied-R1 <span class="bibtex-venue">ICLR 2026</span></div>
+        <button class="bibtex-copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('bib-er1').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>{this.textContent='Copy'},2000)})">Copy</button>
+      </div>
+      <pre><code id="bib-er1">@article{yuan2025embodied,
+  title={Embodied-R1: Reinforced Embodied Reasoning for General Robotic Manipulation},
+  author={Yuan, Yifu and Cui, Haiqin and Huang, Yaoting and Chen, Yibin and Ni, Fei and Dong, Zibin and Li, Pengyi and Zheng, Yan and Hao, Jianye},
+  journal={ICLR 2026},
+  year={2025}
+}</code></pre>
+    </div>
+
+    <div class="bibtex-card">
+      <div class="bibtex-card-header">
+        <div class="bibtex-card-title">From Seeing to Doing <span class="bibtex-venue">ICLR 2026</span></div>
+        <button class="bibtex-copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('bib-s2d').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>{this.textContent='Copy'},2000)})">Copy</button>
+      </div>
+      <pre><code id="bib-s2d">@article{yuan2025seeing,
+  title={From Seeing to Doing: Bridging Reasoning and Decision for Robotic Manipulation},
+  author={Yuan, Yifu and Cui, Haiqin and Chen, Yibin and Dong, Zibin and Ni, Fei and Kou, Longxin and Liu, Jinyi and Li, Pengyi and Zheng, Yan and Hao, Jianye},
+  journal={ICLR 2026},
+  year={2025}
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="footer">
+    Template inspired by <a href="https://polaris-evals.github.io/" target="_blank">PolaRiS</a> and <a href="https://video-mimic.github.io/" target="_blank">VideoMimic</a>.<br>
+    Source code is available <a href="https://github.com/polaris-evals/polaris-evals.github.io" target="_blank">here</a>.
+  </div>
+
+  <script>
+    // Result Tab Switching
+    document.querySelectorAll('.result-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.result-tab').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.result-tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        const panel = document.getElementById(btn.dataset.tab);
+        panel.classList.add('active');
+        // Trigger play on videos that became visible
+        panel.querySelectorAll('video').forEach(v => {
+          v.playbackRate = 4;
+          v.play().catch(() => {});
+        });
+      });
+    });
+    // Set 4x speed on all affordance videos when they load
+    document.querySelectorAll('.afford-video-wall video').forEach(v => {
+      v.playbackRate = 4;
+      v.addEventListener('loadedmetadata', () => { v.playbackRate = 4; });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- Dynamic Table Renderers (VLM-Full, Trace, General, LIBERO-Plus, Real-World, Training Data) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script>
+  (function() {
+    // ─── Utility: format number for display ───
+    function fmt(v) {
+      if (v === null || v === undefined) return '—';
+      if (typeof v === 'string') return v === '-' ? '—' : v;
+      // Round to max 2 decimal places, drop trailing zeros
+      return parseFloat(v.toFixed(2)).toString();
+    }
+
+    // ─── Utility: highlight best per column ───
+    function highlightBest(tableEl, lowerBetter) {
+      const tbody = tableEl.querySelector('tbody');
+      if (!tbody) return;
+      const rows = Array.from(tbody.querySelectorAll('tr:not(.category-row):not(.overall-row)'));
+      if (rows.length === 0) return;
+      const nCols = rows[0] ? rows[0].querySelectorAll('td').length : 0;
+      for (let c = 1; c < nCols; c++) {
+        let bestVal = lowerBetter ? Infinity : -Infinity;
+        let bestCells = [];
+        const isLower = Array.isArray(lowerBetter) ? lowerBetter[c - 1] : lowerBetter;
+        rows.forEach(row => {
+          const cells = row.querySelectorAll('td');
+          if (c >= cells.length) return;
+          const cell = cells[c];
+          const v = parseFloat(cell.textContent);
+          if (isNaN(v)) return;
+          if (isLower ? v < bestVal : v > bestVal) {
+            bestVal = v;
+            bestCells = [cell];
+          } else if (v === bestVal) {
+            bestCells.push(cell);
+          }
+        });
+        bestCells.forEach(cell => cell.classList.add('score-best'));
+      }
+    }
+
+    // Also highlight best in overall rows
+    function highlightOverallBest(tableEl) {
+      tableEl.querySelectorAll('tr.overall-row').forEach(row => {
+        const cells = Array.from(row.querySelectorAll('td')).slice(1);
+        let bestVal = -Infinity;
+        let bestCells = [];
+        cells.forEach(cell => {
+          const v = parseFloat(cell.textContent);
+          if (!isNaN(v) && v > bestVal) { bestVal = v; bestCells = [cell]; }
+          else if (v === bestVal) bestCells.push(cell);
+        });
+        bestCells.forEach(cell => cell.classList.add('score-best-overall'));
+      });
+    }
+
+    // ─── 1. VLM-Full Table ───
+    fetch('./assets/data/vlm_full.json')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('vlm-full-table');
+        if (!container) return;
+
+        const bms = data.benchmarks;
+        const cats = data.categories;
+        // Reorder: Planning → Pointing → Cognition
+        const catsOrdered = [cats[2], cats[1], cats[0]];
+
+        // Only show these 9 models, in this order and grouping
+        const SELECTED = [
+          { name: 'Embodied-R1.5',        display: 'Embodied-R1.5', inst: 'ER',         group: 'Ours' },
+          { name: 'Gemini-2.5-Pro',        display: 'Gemini-2.5-Pro', inst: 'Google',     group: 'Generalist' },
+          { name: 'GPT-5.4',              display: 'GPT-5.4',        inst: 'OpenAI',     group: 'Generalist' },
+          { name: 'GPT-5',                 display: 'GPT-5',          inst: 'OpenAI',     group: 'Generalist' },
+          { name: 'Gemini-Robotics-ER-1.5',display: 'Gemini-ER-1.5',  inst: 'Google',     group: 'Generalist' },
+          { name: 'RoboBrain2.0-7B',       display: 'RoboBrain2.0',   inst: 'BAAI',       group: 'Embodied' },
+          { name: 'Mimo-Embodied',         display: 'Mimo-Embodied',  inst: 'Xiaomi',     group: 'Embodied' },
+          { name: 'Pelican-VL 1.0',        display: 'Pelican-VL',     inst: 'X-Humanoid', group: 'Embodied' },
+          { name: 'Embodied-R1',           display: 'Embodied-R1',    inst: 'ER',         group: 'Embodied' },
+        ];
+
+        // Build a lookup from all models in data
+        const modelMap = {};
+        data.groups.forEach(g => g.models.forEach(m => { modelMap[m.name] = m; }));
+
+        // Resolve selected models with their scores
+        const allModels = SELECTED.map(s => {
+          const m = modelMap[s.name];
+          return { ...s, scores: m ? m.scores : [] };
+        });
+
+        // Group headers
+        const groupLabels = [
+          { name: 'Ours', count: SELECTED.filter(s => s.group === 'Ours').length },
+          { name: 'Generalist', count: SELECTED.filter(s => s.group === 'Generalist').length },
+          { name: 'Embodied', count: SELECTED.filter(s => s.group === 'Embodied').length },
+        ];
+
+        // Build table HTML
+        let html = '<table class="leaderboard-table">';
+
+        // Header row 1: group spans
+        html += '<thead><tr><th class="sticky-col benchmark-header" rowspan="2">Benchmark</th>';
+        groupLabels.forEach(g => {
+          const cls = g.name === 'Ours' ? 'group-header ours-group' : 'group-header';
+          html += `<th class="${cls}" colspan="${g.count}">${g.name}</th>`;
+        });
+        html += '</tr>';
+
+        // Header row 2: model names
+        html += '<tr class="model-row">';
+        allModels.forEach(m => {
+          const isOurs = m.group === 'Ours';
+          const cls = isOurs ? 'model-name ours' : 'model-name';
+          html += `<th class="${cls}"><span class="m-name">${m.display}</span><span class="m-inst">${m.inst}</span></th>`;
+        });
+        html += '</tr></thead><tbody>';
+
+        // Data rows grouped by category
+        catsOrdered.forEach(cat => {
+          html += `<tr class="category-row"><td class="sticky-col category-label" colspan="${allModels.length + 1}">${cat.name}</td></tr>`;
+          for (let bi = cat.start; bi < cat.end; bi++) {
+            const bm = bms[bi];
+            const isOverall = bm.name === 'Overall';
+            const rowClass = isOverall ? ' class="overall-row"' : '';
+            html += `<tr${rowClass}>`;
+            const nameClass = isOverall ? 'bench-name overall-name' : 'bench-name';
+            const splitHtml = bm.split ? `<span class="bench-split">${bm.split}</span>` : '';
+            html += `<td class="sticky-col ${nameClass}">${bm.name}${splitHtml}</td>`;
+            allModels.forEach(m => {
+              const v = m.scores[bi];
+              const isOurs = m.group === 'Ours';
+              let cls = isOurs ? 'ours-col' : '';
+              if (isOverall) cls += (cls ? ' ' : '') + 'overall-val';
+              html += `<td${cls ? ' class="' + cls + '"' : ''}>${fmt(v)}</td>`;
+            });
+            html += '</tr>';
+          }
+        });
+
+        html += '</tbody></table>';
+        container.innerHTML = html;
+
+        // Highlight best per ROW (max value in each row gets bold blue)
+        const table = container.querySelector('table');
+        table.querySelectorAll('tbody tr:not(.category-row):not(.overall-row)').forEach(row => {
+          const cells = Array.from(row.querySelectorAll('td')).slice(1); // skip name col
+          let bestVal = -Infinity, bestCells = [];
+          cells.forEach(cell => {
+            const v = parseFloat(cell.textContent);
+            if (!isNaN(v) && v > bestVal) { bestVal = v; bestCells = [cell]; }
+            else if (v === bestVal) bestCells.push(cell);
+          });
+          bestCells.forEach(cell => cell.classList.add('score-best'));
+        });
+        // Overall rows: also highlight max
+        table.querySelectorAll('tbody tr.overall-row').forEach(row => {
+          const cells = Array.from(row.querySelectorAll('td')).slice(1);
+          let bestVal = -Infinity, bestCells = [];
+          cells.forEach(cell => {
+            const v = parseFloat(cell.textContent);
+            if (!isNaN(v) && v > bestVal) { bestVal = v; bestCells = [cell]; }
+            else if (v === bestVal) bestCells.push(cell);
+          });
+          bestCells.forEach(cell => cell.classList.add('score-best-overall'));
+        });
+      })
+      .catch(err => console.warn('VLM-Full data load failed:', err));
+
+    // ─── 2. VLM-Trace Table ───
+    fetch('./assets/data/vlm_trace.json')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('vlm-trace-table');
+        if (!container) return;
+
+        const bms = data.benchmarks;
+        // Flatten models, skip SFT row and Qwen variants
+        const allModels = [];
+        data.groups.forEach(g => g.models.forEach(m => {
+          if (m.name === 'Embodied-R1.5-SFT') return;
+          if (m.name === 'Qwen2.5VL-7B' || m.name === 'Qwen3VL-8b') return;
+          allModels.push({ ...m, group: g.group });
+        }));
+
+        // Reorder: Embodied-R1.5 first (Ours), then Generalist, then Embodied
+        const ours = allModels.filter(m => m.name === 'Embodied-R1.5');
+        const generalist = allModels.filter(m => m.group === 'Generlist' && m.name !== 'Embodied-R1.5');
+        const embodied = allModels.filter(m => m.group !== 'Generlist' && m.name !== 'Embodied-R1.5');
+        const orderedModels = [...ours, ...generalist, ...embodied];
+
+        // Transposed: benchmarks as rows, models as columns
+        // Group benchmarks by parent (ShareRobot-V, VABench-V, PIO-S3)
+        const bmGroups = [
+          { parent: 'ShareRobot-V', indices: [] },
+          { parent: 'VABench-V', indices: [] },
+          { parent: 'PIO-S3', indices: [] },
+        ];
+        bms.forEach((b, bi) => {
+          const g = bmGroups.find(g => b.name.startsWith(g.parent));
+          if (g) g.indices.push(bi);
+        });
+
+        let html = '<table class="leaderboard-table vla-table">';
+        // Group header row
+        html += '<thead><tr><th class="sticky-col benchmark-header" rowspan="2">Benchmark</th>';
+        html += `<th class="group-header ours-col" colspan="${ours.length}">Ours</th>`;
+        if (generalist.length) html += `<th class="group-header" colspan="${generalist.length}">Generalist</th>`;
+        if (embodied.length) html += `<th class="group-header" colspan="${embodied.length}">Embodied</th>`;
+        html += '</tr><tr>';
+        orderedModels.forEach(m => {
+          const isOurs = m.name === 'Embodied-R1.5';
+          const cls = isOurs ? ' class="ours-col"' : '';
+          html += `<th${cls}>${m.name}</th>`;
+        });
+        html += '</tr></thead><tbody>';
+
+        const dataRowBmIndices = [];
+        bmGroups.forEach(g => {
+          if (g.indices.length > 1) {
+            // Category row spanning all columns
+            html += `<tr class="category-row"><td class="sticky-col category-label" colspan="${orderedModels.length + 1}">${g.parent}</td></tr>`;
+            g.indices.forEach(bi => {
+              const b = bms[bi];
+              const arrow = b.lower_is_better ? ' ↓' : ' ↑';
+              const metric = b.name.replace(g.parent + ' ', '');
+              html += `<tr><td class="sticky-col bench-name" style="padding-left: 24px;">${metric}${arrow}</td>`;
+              orderedModels.forEach(m => {
+                const v = m.scores[bi];
+                const isOurs = m.name === 'Embodied-R1.5';
+                const cls = isOurs ? ' class="ours-col"' : '';
+                html += `<td${cls}>${fmt(v)}</td>`;
+              });
+              html += '</tr>';
+              dataRowBmIndices.push(bi);
+            });
+          } else if (g.indices.length === 1) {
+            const bi = g.indices[0];
+            const b = bms[bi];
+            const arrow = b.lower_is_better ? ' ↓' : ' ↑';
+            const metric = b.name.replace(g.parent + ' ', '');
+            html += `<tr class="category-row"><td class="sticky-col category-label" colspan="${orderedModels.length + 1}">${g.parent}</td></tr>`;
+            html += `<tr><td class="sticky-col bench-name" style="padding-left: 24px;">${metric}${arrow}</td>`;
+            orderedModels.forEach(m => {
+              const v = m.scores[bi];
+              const isOurs = m.name === 'Embodied-R1.5';
+              const cls = isOurs ? ' class="ours-col"' : '';
+              html += `<td${cls}>${fmt(v)}</td>`;
+            });
+            html += '</tr>';
+            dataRowBmIndices.push(bi);
+          }
+        });
+
+        html += '</tbody></table>';
+        container.innerHTML = html;
+
+        // Highlight specific best values — one per row
+        const table = container.querySelector('table');
+        const bestPerRow = ['13.23', '19.63', '7', '9.83', '49.56'];
+        const dataRows = Array.from(table.querySelectorAll('tbody tr:not(.category-row)'));
+        dataRows.forEach((row, ri) => {
+          if (ri >= bestPerRow.length) return;
+          const target = bestPerRow[ri];
+          Array.from(row.querySelectorAll('td')).slice(1).forEach(cell => {
+            if (cell.textContent.trim() === target) cell.classList.add('score-best');
+          });
+        });
+      })
+      .catch(err => console.warn('VLM-Trace data load failed:', err));
+
+    // ─── 3. General Benchmark Table ───
+    fetch('./assets/data/general_benchmark.json')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('general-bench-table');
+        if (!container) return;
+
+        let html = '<table class="leaderboard-table vla-table">';
+        html += '<thead><tr><th class="sticky-col benchmark-header">Model</th>';
+        data.benchmarks.forEach(b => {
+          const splitHtml = b.split ? `<br><span style="font-size:10px;color:#999">${b.split}</span>` : '';
+          html += `<th>${b.name}${splitHtml}</th>`;
+        });
+        html += '</tr></thead><tbody>';
+
+        data.models.forEach(m => {
+          const isOurs = m.name.includes('Embodied-R1.5');
+          const rowCls = isOurs ? ' class="ours-row"' : '';
+          const nameCls = isOurs ? 'bench-name ours-model' : 'bench-name';
+          html += `<tr${rowCls}><td class="sticky-col ${nameCls}">${m.name}</td>`;
+          m.scores.forEach(v => {
+            const cls = isOurs ? ' class="ours-col"' : '';
+            html += `<td${cls}>${fmt(v)}</td>`;
+          });
+          html += '</tr>';
+        });
+
+        html += '</tbody></table>';
+        container.innerHTML = html;
+        highlightBest(container.querySelector('table'), false);
+      })
+      .catch(err => console.warn('General benchmark data load failed:', err));
+
+    // ─── 4. LIBERO-Plus Table ───
+    fetch('./assets/data/vla_benchmarks.json')
+      .then(r => r.json())
+      .then(data => {
+        const lp = data.libero_plus;
+        if (!lp) return;
+        const container = document.getElementById('libero-plus-table');
+        if (!container) return;
+
+        let html = '<table class="leaderboard-table vla-table">';
+        html += '<thead><tr><th class="sticky-col benchmark-header">Model</th>';
+        lp.tasks.forEach(t => html += `<th>${t}</th>`);
+        html += '</tr></thead><tbody>';
+
+        Object.entries(lp.models).forEach(([name, scores]) => {
+          const isOurs = name.includes('Embodied-R1.5');
+          const rowCls = isOurs ? ' class="ours-row"' : '';
+          const nameCls = isOurs ? 'bench-name ours-model' : 'bench-name';
+          html += `<tr${rowCls}><td class="sticky-col ${nameCls}">${name}</td>`;
+          scores.forEach(v => {
+            const cls = isOurs ? ' class="ours-col"' : '';
+            html += `<td${cls}>${fmt(v)}</td>`;
+          });
+          html += '</tr>';
+        });
+
+        html += '</tbody></table>';
+        container.innerHTML = html;
+        highlightBest(container.querySelector('table'), false);
+      })
+      .catch(err => console.warn('LIBERO-Plus data load failed:', err));
+
+    // ─── 5. Real-World Table ───
+    fetch('./assets/data/realworld.json')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('realworld-table');
+        if (!container) return;
+
+        let html = '<table class="leaderboard-table vla-table">';
+        html += '<thead><tr><th class="sticky-col benchmark-header">Model</th>';
+        data.tasks.forEach(t => html += `<th>${t}</th>`);
+        html += '</tr></thead><tbody>';
+
+        data.models.forEach(m => {
+          const isOurs = m.name.includes('Embodied-R1.5');
+          const rowCls = isOurs ? ' class="ours-row"' : '';
+          const nameCls = isOurs ? 'bench-name ours-model' : 'bench-name';
+          html += `<tr${rowCls}><td class="sticky-col ${nameCls}">${m.name}</td>`;
+          m.scores.forEach(v => {
+            const cls = isOurs ? ' class="ours-col"' : '';
+            html += `<td${cls}>${fmt(v)}</td>`;
+          });
+          html += '</tr>';
+        });
+
+        html += '</tbody></table>';
+        container.innerHTML = html;
+        highlightBest(container.querySelector('table'), false);
+      })
+      .catch(err => console.warn('Real-world data load failed:', err));
+
+
+  })();
+  </script>
+
+  <script>
+    // ═══════════════════════════════════════════
+    // Grouped Benchmark Bar Chart Renderer
+    // ═══════════════════════════════════════════
+    document.addEventListener('DOMContentLoaded', () => {
+      const createEl = (tag, attrs) => {
+        const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+        Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+        return el;
+      };
+
+      function renderGroupedChart(svgContainer, legendContainer, benchmarkNames, models, allValues, colors, logos) {
+        const chartId = Math.random().toString(36).slice(2, 8);
+        const nBench = benchmarkNames.length;
+        const nModels = models.length;
+        const logoSize = 18;
+        const margin = { top: 36, right: 20, bottom: 40, left: 44 };
+        const w = 860;
+        const h = 200;
+        const innerW = w - margin.left - margin.right;
+        const innerH = h - margin.top - margin.bottom;
+
+        const svg = createEl('svg', {
+          viewBox: `0 0 ${w} ${h}`,
+          preserveAspectRatio: 'xMidYMid meet',
+          style: 'width:100%;display:block;'
+        });
+        const g = createEl('g', { transform: `translate(${margin.left},${margin.top})` });
+        svg.appendChild(g);
+
+        // Compute max value across all benchmarks
+        const allVals = allValues.flat().filter(v => !isNaN(v));
+        const maxVal = Math.ceil(Math.max(...allVals) / 10) * 10;
+
+        // Layout: each benchmark group gets equal width
+        const groupW = innerW / nBench;
+        const groupPad = groupW * 0.1;
+        const barsAreaW = groupW - groupPad * 2;
+        const barW = Math.min(barsAreaW / nModels * 0.94, 38);
+        const totalBarsW = barW * nModels;
+        const barGap = (barsAreaW - totalBarsW) / Math.max(nModels - 1, 1);
+
+        // Grid lines
+        for (let i = 1; i <= 4; i++) {
+          const y = innerH - (i / 4) * innerH;
+          g.appendChild(createEl('line', {
+            x1: 0, y1: y, x2: innerW, y2: y,
+            stroke: 'rgba(0,0,0,0.06)', 'stroke-width': 1, 'stroke-dasharray': '3 3'
+          }));
+        }
+
+        // Baseline
+        g.appendChild(createEl('line', {
+          x1: 0, y1: innerH, x2: innerW, y2: innerH,
+          stroke: '#d1d5db', 'stroke-width': 1
+        }));
+
+        // Y-axis labels
+        for (let i = 0; i <= 4; i++) {
+          const val = (i / 4) * maxVal;
+          const y = innerH - (i / 4) * innerH;
+          const t = createEl('text', {
+            x: -8, y: y + 4, 'text-anchor': 'end',
+            fill: '#9ca3af', 'font-size': '11', 'font-family': 'system-ui, sans-serif'
+          });
+          t.textContent = Math.round(val);
+          g.appendChild(t);
+        }
+
+        const animatedEls = [];
+
+        benchmarkNames.forEach((benchName, bi) => {
+          const groupX = bi * groupW;
+          const barsStartX = groupX + groupPad;
+          const values = allValues[bi];
+
+          // Benchmark label below x-axis
+          const lbl = createEl('text', {
+            x: groupX + groupW / 2, y: innerH + 26,
+            'text-anchor': 'middle', fill: '#374151',
+            'font-size': '12', 'font-weight': '600', 'font-family': 'system-ui, sans-serif'
+          });
+          lbl.textContent = benchName;
+          g.appendChild(lbl);
+
+          // Group separator (except first)
+          if (bi > 0) {
+            g.appendChild(createEl('line', {
+              x1: groupX, y1: -4, x2: groupX, y2: innerH,
+              stroke: 'rgba(0,0,0,0.06)', 'stroke-width': 1
+            }));
+          }
+
+          values.forEach((val, mi) => {
+            if (isNaN(val)) return;
+            const barH = (val / maxVal) * innerH;
+            const x = barsStartX + mi * (barW + barGap);
+            const color = colors[mi];
+
+            // Bar
+            const bar = createEl('rect', {
+              x, y: innerH - barH, width: barW, height: Math.max(barH, 1),
+              fill: color, rx: 3, 'fill-opacity': 0.88
+            });
+            bar.classList.add('bar-animated');
+            bar.style.animationDelay = `${(bi * nModels + mi) * 30}ms`;
+            animatedEls.push(bar);
+            g.appendChild(bar);
+
+            // Score value above bar — use bar color for labels (darken grays slightly for readability)
+            const graySet = ['#6b7280','#8b93a1','#a8b0bc','#c0c7d0','#d5dae2','#b5a89a'];
+            const labelColor = graySet.includes(color) ? '#5a6070' : color;
+            const valLabel = createEl('text', {
+              x: x + barW / 2, y: innerH - barH - 5,
+              'text-anchor': 'middle', fill: labelColor,
+              'font-size': '9', 'font-weight': '700', 'font-family': 'system-ui, sans-serif'
+            });
+            valLabel.textContent = val.toFixed(1);
+            valLabel.classList.add('bar-label-animated');
+            valLabel.style.animationDelay = `${(bi * nModels + mi) * 30 + 300}ms`;
+            animatedEls.push(valLabel);
+            g.appendChild(valLabel);
+
+            // Logo above score
+            const logoSrc = logos[mi];
+            if (logoSrc) {
+              const lx = x + (barW - logoSize) / 2;
+              const ly = innerH - barH - 5 - 12 - logoSize;
+              const clipId = `logo-clip-${chartId}-${bi}-${mi}`;
+              const defs = createEl('defs', {});
+              const clipPath = createEl('clipPath', { id: clipId });
+              clipPath.appendChild(createEl('rect', { x: lx, y: ly, width: logoSize, height: logoSize, rx: 3, ry: 3 }));
+              defs.appendChild(clipPath);
+              g.appendChild(defs);
+              // Warm yellow background
+              g.appendChild(createEl('rect', {
+                x: lx, y: ly, width: logoSize, height: logoSize,
+                rx: 3, ry: 3, fill: '#fdf6e3'
+              }));
+              const logoEl = createEl('image', {
+                href: logoSrc, x: lx, y: ly, width: logoSize, height: logoSize,
+                'clip-path': `url(#${clipId})`, preserveAspectRatio: 'xMidYMid slice'
+              });
+              logoEl.classList.add('bar-label-animated');
+              logoEl.style.animationDelay = `${(bi * nModels + mi) * 30 + 300}ms`;
+              animatedEls.push(logoEl);
+              g.appendChild(logoEl);
+            }
+          });
+        });
+
+        svgContainer.appendChild(svg);
+
+        // Build legend row: color dot + model name (logos are inside bars now)
+        if (legendContainer) {
+          legendContainer.innerHTML = '';
+          models.forEach((model, i) => {
+            const item = document.createElement('div');
+            item.className = 'chart-legend-item';
+            const colorDot = document.createElement('span');
+            colorDot.className = 'chart-legend-dot';
+            colorDot.style.background = colors[i];
+            item.appendChild(colorDot);
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'chart-legend-name';
+            nameSpan.textContent = model.name;
+            item.appendChild(nameSpan);
+            legendContainer.appendChild(item);
+          });
+        }
+
+        // Scroll animation
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animatedEls.forEach(el => el.classList.add('animate'));
+              obs.disconnect();
+            }
+          });
+        }, { threshold: 0.15 });
+        obs.observe(svgContainer);
+      }
+
+      // Overall chart: logos above scores, above bars
+      function renderOverallChart(svgContainer, legendContainer, benchmarkNames, models, allValues, colors, logos, chartOpts = {}) {
+        const chartId = Math.random().toString(36).slice(2, 8);
+        const nBench = benchmarkNames.length;
+        const nModels = models.length;
+        const logoSize = 18;
+        const hasMultiLine = benchmarkNames.some(n => n.includes('\n'));
+        const margin = { top: 36, right: 20, bottom: hasMultiLine ? 58 : 40, left: 44 };
+        const w = 860;
+        const h = chartOpts.h || 200;
+        const innerW = w - margin.left - margin.right;
+        const innerH = h - margin.top - margin.bottom;
+
+        const svg = createEl('svg', {
+          viewBox: `0 0 ${w} ${h}`,
+          preserveAspectRatio: 'xMidYMid meet',
+          style: 'width:100%;display:block;'
+        });
+        const g = createEl('g', { transform: `translate(${margin.left},${margin.top})` });
+        svg.appendChild(g);
+
+        const allVals = allValues.flat().filter(v => !isNaN(v));
+        const maxVal = Math.ceil(Math.max(...allVals) / 10) * 10;
+
+        // Weighted group widths: proportional to number of valid bars (min 2 to avoid too-narrow groups)
+        const validCounts = allValues.map(vals => Math.max(vals.filter(v => !isNaN(v)).length, 2));
+        const totalWeight = validCounts.reduce((a, b) => a + b, 0);
+        const groupWidths = validCounts.map(c => (c / totalWeight) * innerW);
+        const groupXPositions = [];
+        let cumX = 0;
+        for (let i = 0; i < nBench; i++) {
+          groupXPositions.push(cumX);
+          cumX += groupWidths[i];
+        }
+
+        const barW = Math.min(chartOpts.barW || 24, 38);
+
+        // Grid lines
+        for (let i = 1; i <= 4; i++) {
+          const y = innerH - (i / 4) * innerH;
+          g.appendChild(createEl('line', {
+            x1: 0, y1: y, x2: innerW, y2: y,
+            stroke: 'rgba(0,0,0,0.06)', 'stroke-width': 1, 'stroke-dasharray': '3 3'
+          }));
+        }
+        g.appendChild(createEl('line', {
+          x1: 0, y1: innerH, x2: innerW, y2: innerH,
+          stroke: '#d1d5db', 'stroke-width': 1
+        }));
+
+        // Y-axis labels
+        for (let i = 0; i <= 4; i++) {
+          const val = (i / 4) * maxVal;
+          const y = innerH - (i / 4) * innerH;
+          const t = createEl('text', {
+            x: -8, y: y + 4, 'text-anchor': 'end',
+            fill: '#9ca3af', 'font-size': '11', 'font-family': 'system-ui, sans-serif'
+          });
+          t.textContent = Math.round(val);
+          g.appendChild(t);
+        }
+
+        const animatedEls = [];
+
+        benchmarkNames.forEach((benchName, bi) => {
+          const groupX = groupXPositions[bi];
+          const groupW = groupWidths[bi];
+          const groupPad = groupW * 0.08;
+          const barsAreaW = groupW - groupPad * 2;
+          const values = allValues[bi];
+
+          // Benchmark label below x-axis
+          const lblLines = benchName.split('\n');
+          const lbl = createEl('text', {
+            x: groupX + groupW / 2, y: innerH + 22,
+            'text-anchor': 'middle', 'font-family': 'system-ui, sans-serif'
+          });
+          const tspan1 = createEl('tspan', {
+            x: groupX + groupW / 2, dy: '0',
+            fill: '#374151', 'font-size': '12', 'font-weight': '600'
+          });
+          tspan1.textContent = lblLines[0];
+          lbl.appendChild(tspan1);
+          if (lblLines.length > 1) {
+            const tspan2 = createEl('tspan', {
+              x: groupX + groupW / 2, dy: '14',
+              fill: '#9ca3af', 'font-size': '11', 'font-weight': '500'
+            });
+            tspan2.textContent = lblLines[1].startsWith('(') ? lblLines[1] : '(' + lblLines[1] + ')';
+            lbl.appendChild(tspan2);
+          }
+          g.appendChild(lbl);
+
+          if (bi > 0) {
+            g.appendChild(createEl('line', {
+              x1: groupX, y1: -margin.top + 4, x2: groupX, y2: innerH,
+              stroke: 'rgba(0,0,0,0.06)', 'stroke-width': 1
+            }));
+          }
+
+          // Compute compact positioning: skip NaN, center valid bars
+          const validIndices = values.map((v, i) => isNaN(v) ? -1 : i).filter(i => i >= 0);
+          const nValid = validIndices.length;
+          const compactBarsW = barW * nValid;
+          const gap = nValid > 1 ? Math.min((barsAreaW - compactBarsW) / (nValid - 1), barW * 0.4) : 0;
+          const totalBarsSpan = compactBarsW + gap * (nValid - 1);
+          const compactStartX = groupX + groupW / 2 - totalBarsSpan / 2;
+
+          values.forEach((val, mi) => {
+            if (isNaN(val)) return;
+            const validPos = validIndices.indexOf(mi);
+            const barH = (val / maxVal) * innerH;
+            const x = compactStartX + validPos * (barW + gap);
+            const color = colors[mi];
+
+            // Bar
+            const bar = createEl('rect', {
+              x, y: innerH - barH, width: barW, height: Math.max(barH, 1),
+              fill: color, rx: 3, 'fill-opacity': 0.88
+            });
+            bar.classList.add('bar-animated');
+            bar.style.animationDelay = `${(bi * nModels + mi) * 30}ms`;
+            animatedEls.push(bar);
+            g.appendChild(bar);
+
+            // Score value above bar — use bar color for labels (darken grays slightly for readability)
+            const graySet = ['#6b7280','#8b93a1','#a8b0bc','#c0c7d0','#d5dae2','#b5a89a'];
+            const labelColor = graySet.includes(color) ? '#5a6070' : color;
+            const valLabel = createEl('text', {
+              x: x + barW / 2, y: innerH - barH - 5,
+              'text-anchor': 'middle', fill: labelColor,
+              'font-size': '9', 'font-weight': '700', 'font-family': 'system-ui, sans-serif'
+            });
+            valLabel.textContent = val.toFixed(1);
+            valLabel.classList.add('bar-label-animated');
+            valLabel.style.animationDelay = `${(bi * nModels + mi) * 30 + 300}ms`;
+            animatedEls.push(valLabel);
+            g.appendChild(valLabel);
+
+            // Logo above score
+            const logoSrc = logos[mi];
+            if (logoSrc) {
+              const lx = x + (barW - logoSize) / 2;
+              const ly = innerH - barH - 5 - 12 - logoSize;
+              const clipId = `ov-clip-${chartId}-${bi}-${mi}`;
+              const defs = createEl('defs', {});
+              const clipPath = createEl('clipPath', { id: clipId });
+              clipPath.appendChild(createEl('rect', { x: lx, y: ly, width: logoSize, height: logoSize, rx: 3, ry: 3 }));
+              defs.appendChild(clipPath);
+              g.appendChild(defs);
+              // Warm yellow background
+              g.appendChild(createEl('rect', {
+                x: lx, y: ly, width: logoSize, height: logoSize,
+                rx: 3, ry: 3, fill: '#fdf6e3'
+              }));
+              const logoEl = createEl('image', {
+                href: logoSrc, x: lx, y: ly, width: logoSize, height: logoSize,
+                'clip-path': `url(#${clipId})`, preserveAspectRatio: 'xMidYMid slice'
+              });
+              logoEl.classList.add('bar-label-animated');
+              logoEl.style.animationDelay = `${(bi * nModels + mi) * 30 + 300}ms`;
+              animatedEls.push(logoEl);
+              g.appendChild(logoEl);
+            }
+          });
+        });
+
+        svgContainer.appendChild(svg);
+
+        // Legend
+        if (legendContainer) {
+          legendContainer.innerHTML = '';
+          models.forEach((model, i) => {
+            const item = document.createElement('div');
+            item.className = 'chart-legend-item';
+            const colorDot = document.createElement('span');
+            colorDot.className = 'chart-legend-dot';
+            colorDot.style.background = colors[i];
+            item.appendChild(colorDot);
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'chart-legend-name';
+            nameSpan.textContent = model.name;
+            item.appendChild(nameSpan);
+            legendContainer.appendChild(item);
+          });
+        }
+
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animatedEls.forEach(el => el.classList.add('animate'));
+              obs.disconnect();
+            }
+          });
+        }, { threshold: 0.15 });
+        obs.observe(svgContainer);
+      }
+
+
+      // Load VLM charts
+      fetch('./assets/data/vlm_benchmarks.json')
+        .then(r => r.json())
+        .then(data => {
+          const colors = data.models.map(m => m.color);
+          const logos = data.models.map(m => m.logo);
+
+          // Render overall charts
+          const overallContainer = document.getElementById('vlm-overall-container');
+          const overallLegend = document.getElementById('vlm-overall-legend');
+          if (overallContainer && data.overalls) {
+            const allNames = Object.keys(data.overalls);
+            // Reorder: Planning first, then Pointing, then Cognition
+            const overallNames = [
+              allNames.find(n => n.includes('Planning')),
+              allNames.find(n => n.includes('Pointing')),
+              allNames.find(n => n.includes('Cognition')),
+            ].filter(Boolean);
+            const overallValues = overallNames.map(name => data.overalls[name]);
+            renderOverallChart(overallContainer, overallLegend, overallNames, data.models, overallValues, colors, logos);
+          }
+
+          // Render best row 1
+          const row1Container = document.getElementById('vlm-best-row1-container');
+          const row1Legend = document.getElementById('vlm-best-row1-legend');
+          if (row1Container && data.best_row1) {
+            const names = data.best_row1.names;
+            const vals = names.map(n => data.best_row1.values[n]);
+            renderOverallChart(row1Container, row1Legend, names, data.models, vals, colors, logos);
+          }
+
+          // Render best row 2
+          const row2Container = document.getElementById('vlm-best-row2-container');
+          const row2Legend = document.getElementById('vlm-best-row2-legend');
+          if (row2Container && data.best_row2) {
+            const names = data.best_row2.names;
+            const vals = names.map(n => data.best_row2.values[n]);
+            renderOverallChart(row2Container, row2Legend, names, data.models, vals, colors, logos);
+          }
+
+          // Render benchmark carousel
+          const carouselTrack = document.getElementById('bench-carousel-track');
+          const carouselLegend = document.getElementById('bench-carousel-legend');
+          const carouselDots = document.getElementById('bench-carousel-dots');
+          const btnLeft = document.getElementById('bench-carousel-left');
+          const btnRight = document.getElementById('bench-carousel-right');
+          if (carouselTrack && data.all_benchmarks) {
+            const benchNames = Object.keys(data.all_benchmarks);
+            const perPage = 4;
+            const totalPages = Math.ceil(benchNames.length / perPage);
+            let currentPage = 0;
+
+            // Build pages - each page is one grouped chart with 4 benchmarks
+            for (let p = 0; p < totalPages; p++) {
+              const page = document.createElement('div');
+              page.className = 'carousel-page';
+              const slice = benchNames.slice(p * perPage, (p + 1) * perPage);
+              const vals = slice.map(n => data.all_benchmarks[n]);
+              const legendEl = p === 0 ? carouselLegend : null;
+              renderOverallChart(page, legendEl, slice, data.models, vals, colors, logos);
+              carouselTrack.appendChild(page);
+            }
+
+            // Dots
+            for (let p = 0; p < totalPages; p++) {
+              const dot = document.createElement('button');
+              dot.className = 'carousel-dot' + (p === 0 ? ' active' : '');
+              dot.addEventListener('click', () => goToPage(p));
+              carouselDots.appendChild(dot);
+            }
+
+            function goToPage(p) {
+              currentPage = p;
+              carouselTrack.style.transform = `translateX(-${p * 100}%)`;
+              carouselDots.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === p));
+              btnLeft.disabled = p === 0;
+              btnRight.disabled = p === totalPages - 1;
+            }
+
+            btnLeft.addEventListener('click', () => { if (currentPage > 0) goToPage(currentPage - 1); });
+            btnRight.addEventListener('click', () => { if (currentPage < totalPages - 1) goToPage(currentPage + 1); });
+            goToPage(2);
+          }
+        })
+        .catch(err => console.warn('VLM chart data load failed:', err));
+
+      // Load VLA charts (data from vla_teaser.xlsx)
+      (function() {
+        const container = document.getElementById('vla-charts-container');
+        const legend = document.getElementById('vla-chart-legend');
+        if (!container) return;
+
+        // Order: Embodied-R1.5-VLA (blue), GR00T N1.6, π0.5, OpenVLA-OFT, π0, π0-FAST, ManipLLM
+        const selectedModels = ['Embodied-R1.5-VLA', 'GR00T N1.6', 'π0.5', 'OpenVLA-OFT', 'π0', 'π0-FAST', 'ManipLLM'];
+        const modelColors = [
+          '#2563eb',  // Embodied-R1.5-VLA — blue
+          '#6b7280',  // GR00T N1.6 — darkest gray
+          '#8b93a1',  // π0.5 — medium-dark gray
+          '#a8b0bc',  // OpenVLA-OFT — medium gray
+          '#c0c7d0',  // π0 — light gray
+          '#d5dae2',  // π0-FAST — lightest gray
+          '#b5a89a',  // ManipLLM — warm gray (distinct)
+        ];
+
+        const benchNames = [
+          'Simpler-Google Robot\n(Visual Matching)',
+          'Simpler-Google Robot\n(Variant Aggregation)',
+          'Simpler-WidowX\n(Visual Matching)',
+          'LIBERO',
+          'LIBERO-Plus',
+          'Maniskill\n(Affordance)'
+        ];
+
+        // Data order: [Embodied-R1.5-VLA, GR00T N1.6, π0.5, OpenVLA-OFT, π0, π0-FAST, ManipLLM]
+        const allValues = [
+          [92.4, 67.7, 72.7, 63.0, 58.8, 61.9, NaN],   // Google Robot VM
+          [71.5, 65.3, 58.9, 54.3, 54.8, 44.3, NaN],   // Google Robot VA
+          [74.0, 62.0, 46.9, 31.3, 27.1, 39.5, NaN],   // WidowX
+          [97.3, 97.0, 96.9, 97.1, 94.1, 85.5, NaN],   // LIBERO
+          [76.0, NaN, NaN, 69.6, 53.6, 61.6, NaN],     // LIBERO-Plus
+          [73.0, NaN, NaN, NaN, NaN, NaN, 57.0]         // Affordance
+        ];
+
+        const models = selectedModels.map(n => ({ name: n }));
+        const logos = selectedModels.map(() => '');
+        renderOverallChart(container, legend, benchNames, models, allValues, modelColors, logos, { h: 230, barW: 18 });
+      })();
+
+      // LIBERO backbone comparison line charts
+      (function() {
+        const data = {
+          steps: ["10K", "50K", "80K"],
+          groot: {
+            'Embodied-R1.5': [92.0, 96.0, 97.3],
+            'Qwen3-VL-8B': [82.0, 96.0, 96.0]
+          },
+          oft: {
+            'Embodied-R1.5': [90.0, 97.0, 97.0],
+            'Qwen3-VL-8B': [89.0, 96.0, 96.0]
+          }
+        };
+        const colors = { 'Embodied-R1.5': '#2563eb', 'Qwen3-VL-8B': '#f59e0b' };
+
+        function renderLineChart(container, title, series) {
+          if (!container) return;
+          const W = 400, H = 300;
+          const margin = { top: 44, right: 24, bottom: 44, left: 54 };
+          const iW = W - margin.left - margin.right;
+          const iH = H - margin.top - margin.bottom;
+          const steps = data.steps;
+          const names = Object.keys(series);
+          const allVals = names.flatMap(n => series[n]);
+          const minVal = Math.floor(Math.min(...allVals) / 5) * 5;
+          const maxVal = Math.ceil(Math.max(...allVals) / 5) * 5;
+          const range = maxVal - minVal || 1;
+
+          function x(i) { return margin.left + (i / (steps.length - 1)) * iW; }
+          function y(v) { return margin.top + (1 - (v - minVal) / range) * iH; }
+
+          let svg = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;display:block;" xmlns="http://www.w3.org/2000/svg">`;
+
+          // Title
+          svg += `<text x="${W/2}" y="20" text-anchor="middle" font-size="14" font-weight="600" fill="#374151" font-family="system-ui,sans-serif">${title}</text>`;
+
+          // Grid lines
+          for (let i = 0; i <= 4; i++) {
+            const val = minVal + (range / 4) * i;
+            const yy = y(val);
+            svg += `<line x1="${margin.left}" y1="${yy}" x2="${W - margin.right}" y2="${yy}" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="3 3"/>`;
+            svg += `<text x="${margin.left - 8}" y="${yy + 4}" text-anchor="end" font-size="11" fill="#9ca3af" font-family="system-ui,sans-serif">${val.toFixed(0)}%</text>`;
+          }
+
+          // X-axis labels
+          steps.forEach((s, i) => {
+            svg += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" font-size="12" font-weight="500" fill="#374151" font-family="system-ui,sans-serif">${s}</text>`;
+          });
+
+          // Lines and points
+          const allSeries = names.map(name => ({ name, vals: series[name], color: colors[name] }));
+          allSeries.forEach(({ vals, color }) => {
+            const pts = vals.map((v, i) => `${x(i)},${y(v)}`).join(' ');
+            svg += `<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+          });
+          // Points and labels (blue above, orange below)
+          allSeries.forEach(({ vals, color, name }) => {
+            const isSecond = name === 'Qwen3-VL-8B';
+            vals.forEach((v, i) => {
+              svg += `<circle cx="${x(i)}" cy="${y(v)}" r="4" fill="${color}" stroke="#fff" stroke-width="2"/>`;
+              const labelY = isSecond ? y(v) + 18 : y(v) - 10;
+              svg += `<text x="${x(i)}" y="${labelY}" text-anchor="middle" font-size="10" font-weight="700" fill="${color}" font-family="system-ui,sans-serif">${v.toFixed(1)}</text>`;
+            });
+          });
+
+          svg += '</svg>';
+          container.innerHTML = svg;
+        }
+
+        renderLineChart(document.getElementById('libero-line-groot'), 'GR00T Action Expert', data.groot);
+        renderLineChart(document.getElementById('libero-line-oft'), 'OFT Action Expert', data.oft);
+
+        // Shared legend
+        const legendEl = document.getElementById('libero-line-legend');
+        if (legendEl) {
+          legendEl.innerHTML = Object.entries(colors).map(([name, color]) =>
+            `<span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:#374151;font-family:system-ui,sans-serif;"><span style="display:inline-block;width:14px;height:3px;border-radius:2px;background:${color};"></span>${name}</span>`
+          ).join('');
+        }
+      })();
+
+      // Radar Chart: VLA + Affordance
+      (function() {
+        const container = document.getElementById('radar-chart-container');
+        const legendEl = document.getElementById('radar-chart-legend');
+        if (!container) return;
+
+        const axes = ['Google Robot\n(VM)', 'Google Robot\n(VA)', 'WidowX\n(VM)', 'LIBERO', 'Affordance\n(Seen)'];
+        const models = [
+          { name: 'Embodied-R1.5-VLA', color: '#2563eb', values: [92.4, 71.5, 74.0, 96.9, 70.0] },
+          { name: 'pi0',               color: '#f59e0b', values: [71.4, 54.7, 27.1, 94.2, 0] },
+          { name: 'SpatialVLA',        color: '#10b981', values: [55.3, 52.2, 42.7, 78.1, 0] },
+          { name: 'GR00T N1.5',        color: '#8b5cf6', values: [35.2, 44.5, 62.0, 93.9, 0] },
+          { name: 'ManipLLM',          color: '#ec4899', values: [0, 0, 0, 0, 59.0] },
+        ];
+
+        const W = 520, H = 480;
+        const cx = W / 2, cy = H / 2 + 10;
+        const R = 170;
+        const levels = 5;
+        const n = axes.length;
+
+        function angleFor(i) { return (Math.PI * 2 * i) / n - Math.PI / 2; }
+        function pt(i, r) {
+          const a = angleFor(i);
+          return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+        }
+
+        let svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="font-family:'Space Grotesk',sans-serif;">`;
+
+        // Grid rings
+        for (let l = 1; l <= levels; l++) {
+          const r = (R / levels) * l;
+          const pts = [];
+          for (let i = 0; i < n; i++) pts.push(pt(i, r).join(','));
+          svg += `<polygon points="${pts.join(' ')}" fill="none" stroke="#e5e7eb" stroke-width="1"/>`;
+        }
+
+        // Axis lines
+        for (let i = 0; i < n; i++) {
+          const [x, y] = pt(i, R);
+          svg += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#d1d5db" stroke-width="1"/>`;
+        }
+
+        // Level labels (0, 20, 40, 60, 80, 100)
+        for (let l = 0; l <= levels; l++) {
+          const r = (R / levels) * l;
+          const val = (100 / levels) * l;
+          const [x, y] = pt(0, r);
+          svg += `<text x="${x + 4}" y="${y - 4}" font-size="10" fill="#9ca3af">${val}</text>`;
+        }
+
+        // Axis labels
+        for (let i = 0; i < n; i++) {
+          const [x, y] = pt(i, R + 30);
+          const anchor = x < cx - 10 ? 'end' : x > cx + 10 ? 'start' : 'middle';
+          const lines = axes[i].split('\n');
+          if (lines.length > 1) {
+            svg += `<text x="${x}" y="${y - 6}" text-anchor="${anchor}" font-size="12.5" font-weight="600" fill="#374151">${lines[0]}</text>`;
+            svg += `<text x="${x}" y="${y + 9}" text-anchor="${anchor}" font-size="11" fill="#6b7280">${lines[1]}</text>`;
+          } else {
+            svg += `<text x="${x}" y="${y + 2}" text-anchor="${anchor}" font-size="12.5" font-weight="600" fill="#374151">${lines[0]}</text>`;
+          }
+        }
+
+        // Model polygons
+        models.forEach((m, mi) => {
+          const pts = [];
+          for (let i = 0; i < n; i++) {
+            const r = (m.values[i] / 100) * R;
+            pts.push(pt(i, r).join(','));
+          }
+          const isOurs = mi === 0;
+          svg += `<polygon points="${pts.join(' ')}" fill="${m.color}" fill-opacity="${isOurs ? 0.15 : 0.05}" stroke="${m.color}" stroke-width="${isOurs ? 2.5 : 1.5}" stroke-opacity="${isOurs ? 1 : 0.7}"/>`;
+        });
+
+        // Data points
+        models.forEach((m, mi) => {
+          const isOurs = mi === 0;
+          for (let i = 0; i < n; i++) {
+            if (m.values[i] === 0) continue;
+            const r = (m.values[i] / 100) * R;
+            const [x, y] = pt(i, r);
+            svg += `<circle cx="${x}" cy="${y}" r="${isOurs ? 4 : 3}" fill="${m.color}" stroke="#fff" stroke-width="1.5"/>`;
+            if (isOurs) {
+              svg += `<text x="${x}" y="${y - 8}" text-anchor="middle" font-size="11" font-weight="700" fill="${m.color}">${m.values[i]}</text>`;
+            }
+          }
+        });
+
+        svg += '</svg>';
+        container.innerHTML = svg;
+
+        // Legend
+        if (legendEl) {
+          legendEl.innerHTML = models.map(m =>
+            `<span class="chart-legend-item"><span class="chart-legend-dot" style="background:${m.color}"></span><span class="chart-legend-name">${m.name}</span></span>`
+          ).join('');
+        }
+      })();
+    });
+  </script>
+  <script>
+    // Leaderboard: highlight best score
+    document.addEventListener('DOMContentLoaded', () => {
+      // VLM table: best per row
+      const vlmRows = document.querySelectorAll('.leaderboard-table:not(.vla-table) tbody tr:not(.category-row)');
+      vlmRows.forEach(row => {
+        const isOverall = row.classList.contains('overall-row');
+        const cells = Array.from(row.querySelectorAll('td:not(.sticky-col)'));
+        const vals = cells.map(c => parseFloat(c.textContent));
+        const valid = vals.filter(v => !isNaN(v));
+        if (valid.length < 2) return;
+        const best = Math.max(...valid);
+        cells.forEach((c, i) => {
+          if (vals[i] === best) c.classList.add(isOverall ? 'score-best-overall' : 'score-best');
+        });
+      });
+
+      // VLA tables: best per column, respecting category-row groups
+      document.querySelectorAll('.vla-table').forEach(table => {
+        // Split rows into groups by category-row separators
+        const allRows = Array.from(table.querySelectorAll('tbody tr'));
+        const groups = [];
+        let current = [];
+        allRows.forEach(row => {
+          if (row.classList.contains('category-row')) {
+            if (current.length) groups.push(current);
+            current = [];
+          } else {
+            current.push(row);
+          }
+        });
+        if (current.length) groups.push(current);
+
+        // If no category-rows found, treat entire table as one group
+        if (groups.length === 0) groups.push(allRows.filter(r => !r.classList.contains('category-row')));
+
+        groups.forEach(rows => {
+          if (rows.length < 2) return;
+          const numCols = Math.max(...rows.map(r => r.querySelectorAll('td:not(.sticky-col)').length));
+          for (let col = 0; col < numCols; col++) {
+            let best = -Infinity;
+            const cellsInCol = [];
+            rows.forEach(row => {
+              const cells = Array.from(row.querySelectorAll('td:not(.sticky-col)'));
+              if (!cells[col]) return;
+              const v = parseFloat(cells[col].textContent);
+              cellsInCol.push({ cell: cells[col], val: v });
+              if (!isNaN(v) && v > best) best = v;
+            });
+            if (best === -Infinity) continue;
+            cellsInCol.forEach(({ cell, val }) => {
+              if (val === best && !isNaN(val)) cell.classList.add('score-best');
+            });
+          }
+        });
+      });
+    });
+  </script>
+  <script>
+    // Progress Sidebar
+    document.addEventListener('DOMContentLoaded', () => {
+      const progressItems = document.querySelectorAll('.progress-item');
+      const progressLineFill = document.querySelector('.progress-line-fill');
+      const progressTrack = document.querySelector('.progress-track');
+
+      // Build sections array from progress items to ensure they match
+      const sections = [];
+      progressItems.forEach(item => {
+        const id = item.dataset.section;
+        let el;
+        if (id === 'hero') {
+          el = document.querySelector('.hero-flow');
+        } else {
+          el = document.getElementById(id);
+        }
+        if (el) {
+          sections.push({ id, el });
+        }
+      });
+
+      const updateProgress = () => {
+        if (sections.length === 0) return;
+
+        const viewportHeight = window.innerHeight;
+        const activationThreshold = viewportHeight * 0.35;
+
+        // Find active section index
+        let activeIdx = 0;
+        for (let idx = 0; idx < sections.length; idx++) {
+          const rect = sections[idx].el.getBoundingClientRect();
+          if (rect.top <= activationThreshold) {
+            activeIdx = idx;
+          } else {
+            break;
+          }
+        }
+
+        // Update progress line fill based on active section
+        if (progressLineFill && progressTrack) {
+          const trackHeight = progressTrack.offsetHeight;
+          const maxFillHeight = trackHeight - 44; // Account for top/bottom padding
+          const fillHeight = (activeIdx / Math.max(sections.length - 1, 1)) * maxFillHeight;
+          progressLineFill.style.height = `${Math.min(Math.max(fillHeight, 0), maxFillHeight)}px`;
+        }
+
+        // Update dot states
+        progressItems.forEach(item => {
+          const sectionId = item.dataset.section;
+          const sectionIdx = sections.findIndex(s => s.id === sectionId);
+
+          item.classList.remove('active', 'passed');
+          if (sectionIdx === activeIdx) {
+            item.classList.add('active');
+          } else if (sectionIdx >= 0 && sectionIdx < activeIdx) {
+            item.classList.add('passed');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    });
+
+  </script>
+</body>
+
+</html>
