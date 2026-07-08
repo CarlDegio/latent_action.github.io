@@ -314,7 +314,7 @@
 
     <!-- Result Tabs -->
     <div class="result-tabs">
-      <button class="result-tab active" data-tab="vlm-tab">Comprehensive Embodied VLM Evaluation<br><span class="tab-sub">(24+ Benchmarks)</span></button>
+      <button class="result-tab active" data-tab="vlm-tab">Brief Result</button>
       <button class="result-tab" data-tab="vla-tab">design 1<br><span class="tab-sub">Consecutive Frame Motion Representations</span></button>
       <button class="result-tab" data-tab="libero-tab">design 2<br><span class="tab-sub">Learning Objectives and Regularization</span></button>
       <button class="result-tab" data-tab="afford-tab">design 3<br><span class="tab-sub">(PartNet-Mobility)</span></button>
@@ -323,31 +323,22 @@
     <!-- Tab 1: VLM -->
     <div class="result-tab-content active" id="vlm-tab">
 
-    <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 20px 0 20px 0;">
-      <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Compared with its predecessor, Embodied-R1.5 features comprehensive advancements in <strong>cognition</strong>, <strong>planning</strong>, and <strong>error correction</strong>, while significantly refining its <strong>pointing and localization precision</strong>. It currently establishes a <strong>new SOTA across 10+ benchmarks</strong>, with its mean performance markedly exceeding that of leading general-purpose and embodied models. Notably, Embodied-R1.5 demonstrates a <strong>clear competitive advantage over Gemini-Robotics-ER-1.5</strong> across all evaluated capability domains.</p>
-    </div>
-
-    <!-- Leaderboard Table Section (Dynamic) -->
-    <section class="leaderboard-section" id="leaderboard">
-      <div class="section-heading">Embodied VLM Leaderboard</div>
-      <p class="section-lead">Comprehensive evaluation across Embodied Planning and Correction (4 Tasks), Embodied Pointing and Location (9 Tasks), and Embodied Cognition and Spatial Reasoning (8 Tasks).</p>
-      <div class="leaderboard-table-wrapper" id="vlm-full-table-wrapper">
-        <div id="vlm-full-table"></div>
-      </div>
+    <section class="leaderboard-section brief-result-section">
+      <div class="section-heading">performance comparison</div>
+      <p class="section-lead">Brief description placeholder.</p>
+      <div class="brief-placeholder-line"></div>
     </section>
 
-    <p class="section-lead" style="margin-top: 20px;">Visual trace prediction evaluation across ShareRobot-V (RMSE↓, DFD↓), VABench-V (RMSE↓, DFD↓), and PIO-S3 (GPT-Score↑).</p>
-    <div class="leaderboard-table-wrapper">
-      <div id="vlm-trace-table"></div>
-    </div>
+    <section class="leaderboard-section brief-result-section">
+      <div class="section-heading">Correlation between proxy metrics and downstream performance</div>
+      <p class="section-lead">Brief description placeholder.</p>
+      <div class="brief-placeholder-line"></div>
+    </section>
 
-    <!-- General Vision Benchmarks -->
-    <section class="leaderboard-section" id="general-bench-section">
-      <div class="section-heading">General Vision Benchmarks</div>
-      <p class="section-lead">Embodied-R1.5 maintains strong general vision capabilities while acquiring comprehensive embodied skills, demonstrating minimal performance trade-off compared to its base model Qwen3-VL-8B.</p>
-      <div class="leaderboard-table-wrapper">
-        <div id="general-bench-table"></div>
-      </div>
+    <section class="leaderboard-section brief-result-section">
+      <div class="section-heading">Heatmap of averaged performance for different regularization methods and action head architectures</div>
+      <p class="section-lead">Brief description placeholder.</p>
+      <div class="brief-placeholder-line"></div>
     </section>
 
     </div><!-- end vlm-tab -->
@@ -619,14 +610,12 @@
                   <th class="sticky-col benchmark-header">Method</th><th>DAP</th><th>LAP</th><th>JAP</th><th>JAP-DAP</th><th>JAP-LAP</th><th>Avg.</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr><td class="sticky-col bench-name">RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;RGB</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;DINO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">CoMo</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAOF</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAPO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
+                            <tbody>
+              <tr><td class="sticky-col bench-name">VAE(1e-7)</td><td>0.872</td><td>0.850</td><td>0.846</td><td>0.822</td><td>0.838</td><td>0.846</td></tr>
+              <tr><td class="sticky-col bench-name">Sparsity(1e-5)</td><td>0.876</td><td>0.854</td><td>0.848</td><td>0.868</td><td>0.862</td><td>0.862</td></tr>
+              <tr><td class="sticky-col bench-name">Sigreg(1e-3)</td><td>0.836</td><td>0.830</td><td>0.810</td><td>0.836</td><td>0.830</td><td>0.828</td></tr>
+              <tr><td class="sticky-col bench-name">AE</td><td>0.886</td><td>0.874</td><td>0.830</td><td>0.848</td><td>0.822</td><td>0.852</td></tr>
+              <tr><td class="sticky-col bench-name">VQ-VAE(1)</td><td>0.860</td><td>0.852</td><td>0.834</td><td>0.858</td><td>0.850</td><td>0.851</td></tr>
               </tbody>
             </table>
           </div>
@@ -641,14 +630,12 @@
                   <th class="sticky-col benchmark-header">Method</th><th>DAP</th><th>LAP</th><th>JAP</th><th>JAP-DAP</th><th>JAP-LAP</th><th>Avg.</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr><td class="sticky-col bench-name">RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;RGB</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;DINO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">CoMo</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAOF</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAPO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
+                            <tbody>
+              <tr><td class="sticky-col bench-name">VAE(1e-7)</td><td>0.964</td><td>0.954</td><td>0.954</td><td>0.950</td><td>0.948</td><td>0.954</td></tr>
+              <tr><td class="sticky-col bench-name">Sparsity(1e-5)</td><td>0.956</td><td>0.962</td><td>0.956</td><td>0.946</td><td>0.934</td><td>0.951</td></tr>
+              <tr><td class="sticky-col bench-name">Sigreg(1e-3)</td><td>0.944</td><td>0.946</td><td>0.944</td><td>0.944</td><td>0.942</td><td>0.944</td></tr>
+              <tr><td class="sticky-col bench-name">AE</td><td>0.972</td><td>0.964</td><td>0.946</td><td>0.952</td><td>0.956</td><td>0.958</td></tr>
+              <tr><td class="sticky-col bench-name">VQ-VAE(1)</td><td>0.968</td><td>0.952</td><td>0.952</td><td>0.950</td><td>0.958</td><td>0.956</td></tr>
               </tbody>
             </table>
           </div>
@@ -663,14 +650,12 @@
                   <th class="sticky-col benchmark-header">Method</th><th>DAP</th><th>LAP</th><th>JAP</th><th>JAP-DAP</th><th>JAP-LAP</th><th>Avg.</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr><td class="sticky-col bench-name">RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;RGB</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;DINO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">CoMo</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAOF</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAPO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
+                            <tbody>
+              <tr><td class="sticky-col bench-name">VAE(1e-7)</td><td>0.974</td><td>0.984</td><td>0.974</td><td>0.978</td><td>0.988</td><td>0.980</td></tr>
+              <tr><td class="sticky-col bench-name">Sparsity(1e-5)</td><td>0.978</td><td>0.982</td><td>0.984</td><td>0.976</td><td>0.986</td><td>0.981</td></tr>
+              <tr><td class="sticky-col bench-name">Sigreg(1e-3)</td><td>0.984</td><td>0.992</td><td>0.976</td><td>0.976</td><td>0.986</td><td>0.983</td></tr>
+              <tr><td class="sticky-col bench-name">AE</td><td>0.982</td><td>0.990</td><td>0.970</td><td>0.978</td><td>0.982</td><td>0.980</td></tr>
+              <tr><td class="sticky-col bench-name">VQ-VAE(1)</td><td>0.986</td><td>0.970</td><td>0.984</td><td>0.974</td><td>0.974</td><td>0.978</td></tr>
               </tbody>
             </table>
           </div>
@@ -685,14 +670,12 @@
                   <th class="sticky-col benchmark-header">Method</th><th>DAP</th><th>LAP</th><th>JAP</th><th>JAP-DAP</th><th>JAP-LAP</th><th>Avg.</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr><td class="sticky-col bench-name">RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;RGB</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;DINO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">CoMo</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAOF</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAPO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
+                            <tbody>
+              <tr><td class="sticky-col bench-name">VAE(1e-7)</td><td>0.872</td><td>0.862</td><td>0.846</td><td>0.866</td><td>0.848</td><td>0.859</td></tr>
+              <tr><td class="sticky-col bench-name">Sparsity(1e-5)</td><td>0.868</td><td>0.860</td><td>0.864</td><td>0.868</td><td>0.880</td><td>0.868</td></tr>
+              <tr><td class="sticky-col bench-name">Sigreg(1e-3)</td><td>0.874</td><td>0.868</td><td>0.876</td><td>0.880</td><td>0.892</td><td>0.878</td></tr>
+              <tr><td class="sticky-col bench-name">AE</td><td>0.872</td><td>0.870</td><td>0.858</td><td>0.846</td><td>0.854</td><td>0.860</td></tr>
+              <tr><td class="sticky-col bench-name">VQ-VAE(1)</td><td>0.866</td><td>0.864</td><td>0.848</td><td>0.846</td><td>0.852</td><td>0.855</td></tr>
               </tbody>
             </table>
           </div>
@@ -709,14 +692,12 @@
                   <th class="sticky-col benchmark-header">Method</th><th>DAP</th><th>LAP</th><th>JAP</th><th>JAP-DAP</th><th>JAP-LAP</th><th>Avg.</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr><td class="sticky-col bench-name">RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;RGB</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;DINO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">CoMo</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAOF</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAPO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
+                            <tbody>
+              <tr><td class="sticky-col bench-name">VAE(1e-7)</td><td>0.410</td><td>0.415</td><td>0.336</td><td>0.336</td><td>0.333</td><td>0.366</td></tr>
+              <tr><td class="sticky-col bench-name">Sparsity(1e-5)</td><td>0.400</td><td>0.400</td><td>0.392</td><td>0.384</td><td>0.387</td><td>0.393</td></tr>
+              <tr><td class="sticky-col bench-name">Sigreg(1e-3)</td><td>0.432</td><td>0.412</td><td>0.400</td><td>0.346</td><td>0.400</td><td>0.398</td></tr>
+              <tr><td class="sticky-col bench-name">AE</td><td>0.407</td><td>0.417</td><td>0.415</td><td>0.422</td><td>0.420</td><td>0.416</td></tr>
+              <tr><td class="sticky-col bench-name">VQ-VAE(1)</td><td>0.498</td><td>0.534</td><td>0.443</td><td>0.468</td><td>0.499</td><td>0.488</td></tr>
               </tbody>
             </table>
           </div>
@@ -731,14 +712,12 @@
                   <th class="sticky-col benchmark-header">Method</th><th>DAP</th><th>LAP</th><th>JAP</th><th>JAP-DAP</th><th>JAP-LAP</th><th>Avg.</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr><td class="sticky-col bench-name">RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;RGB</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;DINO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">CoMo</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAOF</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAPO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
+                            <tbody>
+              <tr><td class="sticky-col bench-name">VAE(1e-7)</td><td>0.487</td><td>0.509</td><td>0.443</td><td>0.509</td><td>0.494</td><td>0.488</td></tr>
+              <tr><td class="sticky-col bench-name">Sparsity(1e-5)</td><td>0.511</td><td>0.553</td><td>0.518</td><td>0.531</td><td>0.521</td><td>0.527</td></tr>
+              <tr><td class="sticky-col bench-name">Sigreg(1e-3)</td><td>0.504</td><td>0.533</td><td>0.521</td><td>0.562</td><td>0.555</td><td>0.535</td></tr>
+              <tr><td class="sticky-col bench-name">AE</td><td>0.457</td><td>0.474</td><td>0.516</td><td>0.538</td><td>0.538</td><td>0.505</td></tr>
+              <tr><td class="sticky-col bench-name">VQ-VAE(1)</td><td>0.560</td><td>0.555</td><td>0.518</td><td>0.521</td><td>0.553</td><td>0.541</td></tr>
               </tbody>
             </table>
           </div>
@@ -753,14 +732,12 @@
                   <th class="sticky-col benchmark-header">Method</th><th>DAP</th><th>LAP</th><th>JAP</th><th>JAP-DAP</th><th>JAP-LAP</th><th>Avg.</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr><td class="sticky-col bench-name">RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;RGB</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;DINO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">CoMo</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAOF</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAPO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
+                            <tbody>
+              <tr><td class="sticky-col bench-name">VAE(1e-7)</td><td>0.452</td><td>0.475</td><td>0.405</td><td>0.417</td><td>0.405</td><td>0.431</td></tr>
+              <tr><td class="sticky-col bench-name">Sparsity(1e-5)</td><td>0.475</td><td>0.508</td><td>0.432</td><td>0.420</td><td>0.425</td><td>0.452</td></tr>
+              <tr><td class="sticky-col bench-name">Sigreg(1e-3)</td><td>0.495</td><td>0.488</td><td>0.465</td><td>0.417</td><td>0.447</td><td>0.462</td></tr>
+              <tr><td class="sticky-col bench-name">AE</td><td>0.462</td><td>0.455</td><td>0.402</td><td>0.422</td><td>0.387</td><td>0.426</td></tr>
+              <tr><td class="sticky-col bench-name">VQ-VAE(1)</td><td>0.545</td><td>0.528</td><td>0.510</td><td>0.515</td><td>0.540</td><td>0.528</td></tr>
               </tbody>
             </table>
           </div>
@@ -775,14 +752,12 @@
                   <th class="sticky-col benchmark-header">Method</th><th>DAP</th><th>LAP</th><th>JAP</th><th>JAP-DAP</th><th>JAP-LAP</th><th>Avg.</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr><td class="sticky-col bench-name">RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;RGB</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;DINO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">CoMo</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAOF</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAPO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
+                            <tbody>
+              <tr><td class="sticky-col bench-name">VAE(1e-7)</td><td>0.457</td><td>0.454</td><td>0.417</td><td>0.432</td><td>0.466</td><td>0.445</td></tr>
+              <tr><td class="sticky-col bench-name">Sparsity(1e-5)</td><td>0.497</td><td>0.543</td><td>0.492</td><td>0.469</td><td>0.511</td><td>0.502</td></tr>
+              <tr><td class="sticky-col bench-name">Sigreg(1e-3)</td><td>0.494</td><td>0.480</td><td>0.463</td><td>0.443</td><td>0.474</td><td>0.471</td></tr>
+              <tr><td class="sticky-col bench-name">AE</td><td>0.434</td><td>0.472</td><td>0.411</td><td>0.414</td><td>0.443</td><td>0.435</td></tr>
+              <tr><td class="sticky-col bench-name">VQ-VAE(1)</td><td>0.546</td><td>0.517</td><td>0.506</td><td>0.486</td><td>0.494</td><td>0.510</td></tr>
               </tbody>
             </table>
           </div>
@@ -799,14 +774,12 @@
                   <th class="sticky-col benchmark-header">Method</th><th>DAP</th><th>LAP</th><th>JAP</th><th>JAP-DAP</th><th>JAP-LAP</th><th>Avg.</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr><td class="sticky-col bench-name">RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;RGB</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;DINO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">CoMo</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAOF</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAPO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
+                            <tbody>
+              <tr><td class="sticky-col bench-name">VAE(1e-7)</td><td>0.838</td><td>0.883</td><td>0.858</td><td>0.872</td><td>0.851</td><td>0.860</td></tr>
+              <tr><td class="sticky-col bench-name">Sparsity(1e-5)</td><td>0.816</td><td>0.845</td><td>0.788</td><td>0.833</td><td>0.838</td><td>0.824</td></tr>
+              <tr><td class="sticky-col bench-name">Sigreg(1e-3)</td><td>0.815</td><td>0.836</td><td>0.817</td><td>0.861</td><td>0.854</td><td>0.837</td></tr>
+              <tr><td class="sticky-col bench-name">AE</td><td>0.824</td><td>0.840</td><td>0.850</td><td>0.868</td><td>0.844</td><td>0.845</td></tr>
+              <tr><td class="sticky-col bench-name">VQ-VAE(1)</td><td>0.807</td><td>0.803</td><td>0.807</td><td>0.808</td><td>0.837</td><td>0.812</td></tr>
               </tbody>
             </table>
           </div>
@@ -821,14 +794,12 @@
                   <th class="sticky-col benchmark-header">Method</th><th>DAP</th><th>LAP</th><th>JAP</th><th>JAP-DAP</th><th>JAP-LAP</th><th>Avg.</th>
                 </tr>
               </thead>
-              <tbody>
-              <tr><td class="sticky-col bench-name">RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;RGB</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">&Delta;DINO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">CoMo</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAOF</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
-              <tr><td class="sticky-col bench-name">LAPO</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td><td class="empty-score">&mdash;</td></tr>
+                            <tbody>
+              <tr><td class="sticky-col bench-name">VAE(1e-7)</td><td>0.838</td><td>0.867</td><td>0.862</td><td>0.868</td><td>0.853</td><td>0.858</td></tr>
+              <tr><td class="sticky-col bench-name">Sparsity(1e-5)</td><td>0.828</td><td>0.842</td><td>0.802</td><td>0.862</td><td>0.854</td><td>0.838</td></tr>
+              <tr><td class="sticky-col bench-name">Sigreg(1e-3)</td><td>0.818</td><td>0.857</td><td>0.840</td><td>0.868</td><td>0.843</td><td>0.845</td></tr>
+              <tr><td class="sticky-col bench-name">AE</td><td>0.832</td><td>0.847</td><td>0.867</td><td>0.878</td><td>0.868</td><td>0.858</td></tr>
+              <tr><td class="sticky-col bench-name">VQ-VAE(1)</td><td>0.815</td><td>0.794</td><td>0.852</td><td>0.833</td><td>0.852</td><td>0.829</td></tr>
               </tbody>
             </table>
           </div>
@@ -1602,254 +1573,6 @@
         bestCells.forEach(cell => cell.classList.add('score-best-overall'));
       });
     }
-
-    // ─── 1. VLM-Full Table ───
-    fetch('./assets/data/vlm_full.json')
-      .then(r => r.json())
-      .then(data => {
-        const container = document.getElementById('vlm-full-table');
-        if (!container) return;
-
-        const bms = data.benchmarks;
-        const cats = data.categories;
-        // Reorder: Planning → Pointing → Cognition
-        const catsOrdered = [cats[2], cats[1], cats[0]];
-
-        // Only show these 9 models, in this order and grouping
-        const SELECTED = [
-          { name: 'Embodied-R1.5',        display: 'Embodied-R1.5', inst: 'ER',         group: 'Ours' },
-          { name: 'Gemini-2.5-Pro',        display: 'Gemini-2.5-Pro', inst: 'Google',     group: 'Generalist' },
-          { name: 'GPT-5.4',              display: 'GPT-5.4',        inst: 'OpenAI',     group: 'Generalist' },
-          { name: 'GPT-5',                 display: 'GPT-5',          inst: 'OpenAI',     group: 'Generalist' },
-          { name: 'Gemini-Robotics-ER-1.5',display: 'Gemini-ER-1.5',  inst: 'Google',     group: 'Generalist' },
-          { name: 'RoboBrain2.0-7B',       display: 'RoboBrain2.0',   inst: 'BAAI',       group: 'Embodied' },
-          { name: 'Mimo-Embodied',         display: 'Mimo-Embodied',  inst: 'Xiaomi',     group: 'Embodied' },
-          { name: 'Pelican-VL 1.0',        display: 'Pelican-VL',     inst: 'X-Humanoid', group: 'Embodied' },
-          { name: 'Embodied-R1',           display: 'Embodied-R1',    inst: 'ER',         group: 'Embodied' },
-        ];
-
-        // Build a lookup from all models in data
-        const modelMap = {};
-        data.groups.forEach(g => g.models.forEach(m => { modelMap[m.name] = m; }));
-
-        // Resolve selected models with their scores
-        const allModels = SELECTED.map(s => {
-          const m = modelMap[s.name];
-          return { ...s, scores: m ? m.scores : [] };
-        });
-
-        // Group headers
-        const groupLabels = [
-          { name: 'Ours', count: SELECTED.filter(s => s.group === 'Ours').length },
-          { name: 'Generalist', count: SELECTED.filter(s => s.group === 'Generalist').length },
-          { name: 'Embodied', count: SELECTED.filter(s => s.group === 'Embodied').length },
-        ];
-
-        // Build table HTML
-        let html = '<table class="leaderboard-table">';
-
-        // Header row 1: group spans
-        html += '<thead><tr><th class="sticky-col benchmark-header" rowspan="2">Benchmark</th>';
-        groupLabels.forEach(g => {
-          const cls = g.name === 'Ours' ? 'group-header ours-group' : 'group-header';
-          html += `<th class="${cls}" colspan="${g.count}">${g.name}</th>`;
-        });
-        html += '</tr>';
-
-        // Header row 2: model names
-        html += '<tr class="model-row">';
-        allModels.forEach(m => {
-          const isOurs = m.group === 'Ours';
-          const cls = isOurs ? 'model-name ours' : 'model-name';
-          html += `<th class="${cls}"><span class="m-name">${m.display}</span><span class="m-inst">${m.inst}</span></th>`;
-        });
-        html += '</tr></thead><tbody>';
-
-        // Data rows grouped by category
-        catsOrdered.forEach(cat => {
-          html += `<tr class="category-row"><td class="sticky-col category-label" colspan="${allModels.length + 1}">${cat.name}</td></tr>`;
-          for (let bi = cat.start; bi < cat.end; bi++) {
-            const bm = bms[bi];
-            const isOverall = bm.name === 'Overall';
-            const rowClass = isOverall ? ' class="overall-row"' : '';
-            html += `<tr${rowClass}>`;
-            const nameClass = isOverall ? 'bench-name overall-name' : 'bench-name';
-            const splitHtml = bm.split ? `<span class="bench-split">${bm.split}</span>` : '';
-            html += `<td class="sticky-col ${nameClass}">${bm.name}${splitHtml}</td>`;
-            allModels.forEach(m => {
-              const v = m.scores[bi];
-              const isOurs = m.group === 'Ours';
-              let cls = isOurs ? 'ours-col' : '';
-              if (isOverall) cls += (cls ? ' ' : '') + 'overall-val';
-              html += `<td${cls ? ' class="' + cls + '"' : ''}>${fmt(v)}</td>`;
-            });
-            html += '</tr>';
-          }
-        });
-
-        html += '</tbody></table>';
-        container.innerHTML = html;
-
-        // Highlight best per ROW (max value in each row gets bold blue)
-        const table = container.querySelector('table');
-        table.querySelectorAll('tbody tr:not(.category-row):not(.overall-row)').forEach(row => {
-          const cells = Array.from(row.querySelectorAll('td')).slice(1); // skip name col
-          let bestVal = -Infinity, bestCells = [];
-          cells.forEach(cell => {
-            const v = parseFloat(cell.textContent);
-            if (!isNaN(v) && v > bestVal) { bestVal = v; bestCells = [cell]; }
-            else if (v === bestVal) bestCells.push(cell);
-          });
-          bestCells.forEach(cell => cell.classList.add('score-best'));
-        });
-        // Overall rows: also highlight max
-        table.querySelectorAll('tbody tr.overall-row').forEach(row => {
-          const cells = Array.from(row.querySelectorAll('td')).slice(1);
-          let bestVal = -Infinity, bestCells = [];
-          cells.forEach(cell => {
-            const v = parseFloat(cell.textContent);
-            if (!isNaN(v) && v > bestVal) { bestVal = v; bestCells = [cell]; }
-            else if (v === bestVal) bestCells.push(cell);
-          });
-          bestCells.forEach(cell => cell.classList.add('score-best-overall'));
-        });
-      })
-      .catch(err => console.warn('VLM-Full data load failed:', err));
-
-    // ─── 2. VLM-Trace Table ───
-    fetch('./assets/data/vlm_trace.json')
-      .then(r => r.json())
-      .then(data => {
-        const container = document.getElementById('vlm-trace-table');
-        if (!container) return;
-
-        const bms = data.benchmarks;
-        // Flatten models, skip SFT row and Qwen variants
-        const allModels = [];
-        data.groups.forEach(g => g.models.forEach(m => {
-          if (m.name === 'Embodied-R1.5-SFT') return;
-          if (m.name === 'Qwen2.5VL-7B' || m.name === 'Qwen3VL-8b') return;
-          allModels.push({ ...m, group: g.group });
-        }));
-
-        // Reorder: Embodied-R1.5 first (Ours), then Generalist, then Embodied
-        const ours = allModels.filter(m => m.name === 'Embodied-R1.5');
-        const generalist = allModels.filter(m => m.group === 'Generlist' && m.name !== 'Embodied-R1.5');
-        const embodied = allModels.filter(m => m.group !== 'Generlist' && m.name !== 'Embodied-R1.5');
-        const orderedModels = [...ours, ...generalist, ...embodied];
-
-        // Transposed: benchmarks as rows, models as columns
-        // Group benchmarks by parent (ShareRobot-V, VABench-V, PIO-S3)
-        const bmGroups = [
-          { parent: 'ShareRobot-V', indices: [] },
-          { parent: 'VABench-V', indices: [] },
-          { parent: 'PIO-S3', indices: [] },
-        ];
-        bms.forEach((b, bi) => {
-          const g = bmGroups.find(g => b.name.startsWith(g.parent));
-          if (g) g.indices.push(bi);
-        });
-
-        let html = '<table class="leaderboard-table vla-table">';
-        // Group header row
-        html += '<thead><tr><th class="sticky-col benchmark-header" rowspan="2">Benchmark</th>';
-        html += `<th class="group-header ours-col" colspan="${ours.length}">Ours</th>`;
-        if (generalist.length) html += `<th class="group-header" colspan="${generalist.length}">Generalist</th>`;
-        if (embodied.length) html += `<th class="group-header" colspan="${embodied.length}">Embodied</th>`;
-        html += '</tr><tr>';
-        orderedModels.forEach(m => {
-          const isOurs = m.name === 'Embodied-R1.5';
-          const cls = isOurs ? ' class="ours-col"' : '';
-          html += `<th${cls}>${m.name}</th>`;
-        });
-        html += '</tr></thead><tbody>';
-
-        const dataRowBmIndices = [];
-        bmGroups.forEach(g => {
-          if (g.indices.length > 1) {
-            // Category row spanning all columns
-            html += `<tr class="category-row"><td class="sticky-col category-label" colspan="${orderedModels.length + 1}">${g.parent}</td></tr>`;
-            g.indices.forEach(bi => {
-              const b = bms[bi];
-              const arrow = b.lower_is_better ? ' ↓' : ' ↑';
-              const metric = b.name.replace(g.parent + ' ', '');
-              html += `<tr><td class="sticky-col bench-name" style="padding-left: 24px;">${metric}${arrow}</td>`;
-              orderedModels.forEach(m => {
-                const v = m.scores[bi];
-                const isOurs = m.name === 'Embodied-R1.5';
-                const cls = isOurs ? ' class="ours-col"' : '';
-                html += `<td${cls}>${fmt(v)}</td>`;
-              });
-              html += '</tr>';
-              dataRowBmIndices.push(bi);
-            });
-          } else if (g.indices.length === 1) {
-            const bi = g.indices[0];
-            const b = bms[bi];
-            const arrow = b.lower_is_better ? ' ↓' : ' ↑';
-            const metric = b.name.replace(g.parent + ' ', '');
-            html += `<tr class="category-row"><td class="sticky-col category-label" colspan="${orderedModels.length + 1}">${g.parent}</td></tr>`;
-            html += `<tr><td class="sticky-col bench-name" style="padding-left: 24px;">${metric}${arrow}</td>`;
-            orderedModels.forEach(m => {
-              const v = m.scores[bi];
-              const isOurs = m.name === 'Embodied-R1.5';
-              const cls = isOurs ? ' class="ours-col"' : '';
-              html += `<td${cls}>${fmt(v)}</td>`;
-            });
-            html += '</tr>';
-            dataRowBmIndices.push(bi);
-          }
-        });
-
-        html += '</tbody></table>';
-        container.innerHTML = html;
-
-        // Highlight specific best values — one per row
-        const table = container.querySelector('table');
-        const bestPerRow = ['13.23', '19.63', '7', '9.83', '49.56'];
-        const dataRows = Array.from(table.querySelectorAll('tbody tr:not(.category-row)'));
-        dataRows.forEach((row, ri) => {
-          if (ri >= bestPerRow.length) return;
-          const target = bestPerRow[ri];
-          Array.from(row.querySelectorAll('td')).slice(1).forEach(cell => {
-            if (cell.textContent.trim() === target) cell.classList.add('score-best');
-          });
-        });
-      })
-      .catch(err => console.warn('VLM-Trace data load failed:', err));
-
-    // ─── 3. General Benchmark Table ───
-    fetch('./assets/data/general_benchmark.json')
-      .then(r => r.json())
-      .then(data => {
-        const container = document.getElementById('general-bench-table');
-        if (!container) return;
-
-        let html = '<table class="leaderboard-table vla-table">';
-        html += '<thead><tr><th class="sticky-col benchmark-header">Model</th>';
-        data.benchmarks.forEach(b => {
-          const splitHtml = b.split ? `<br><span style="font-size:10px;color:#999">${b.split}</span>` : '';
-          html += `<th>${b.name}${splitHtml}</th>`;
-        });
-        html += '</tr></thead><tbody>';
-
-        data.models.forEach(m => {
-          const isOurs = m.name.includes('Embodied-R1.5');
-          const rowCls = isOurs ? ' class="ours-row"' : '';
-          const nameCls = isOurs ? 'bench-name ours-model' : 'bench-name';
-          html += `<tr${rowCls}><td class="sticky-col ${nameCls}">${m.name}</td>`;
-          m.scores.forEach(v => {
-            const cls = isOurs ? ' class="ours-col"' : '';
-            html += `<td${cls}>${fmt(v)}</td>`;
-          });
-          html += '</tr>';
-        });
-
-        html += '</tbody></table>';
-        container.innerHTML = html;
-        highlightBest(container.querySelector('table'), false);
-      })
-      .catch(err => console.warn('General benchmark data load failed:', err));
 
     // ─── 4. LIBERO-Plus Table ───
     fetch('./assets/data/vla_benchmarks.json')

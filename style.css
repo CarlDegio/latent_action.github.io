@@ -546,6 +546,17 @@ h1, h2, h3, h4, h5, h6, .section-heading {
   padding: 0;
 }
 
+.brief-result-section {
+  margin-top: 26px;
+}
+
+.brief-placeholder-line {
+  height: 1px;
+  width: 100%;
+  margin-top: 16px;
+  background: linear-gradient(90deg, rgba(148, 163, 184, 0), rgba(148, 163, 184, 0.42), rgba(148, 163, 184, 0));
+}
+
 .leaderboard-table-wrapper {
   overflow: hidden;
   border: 1.5px solid #d0d0d0;
