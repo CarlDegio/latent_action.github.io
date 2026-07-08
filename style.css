@@ -1427,7 +1427,7 @@ html {
 
 .hero-title-art {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(38px, 3.35vw, 46px);
+  font-size: clamp(28px, 3vw, 40px);
   font-weight: 700;
   font-style: italic;
   letter-spacing: 0;
@@ -1439,12 +1439,12 @@ html {
 
 .hero-title-full {
   display: inline-block;
-  max-width: 1160px;
+  max-width: 100%;
   line-height: 1.18;
   white-space: nowrap;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 760px) {
   .hero-title-full {
     white-space: normal;
   }
