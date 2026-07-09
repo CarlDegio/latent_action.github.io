@@ -37,12 +37,6 @@
           <span class="progress-label">Models</span>
         </a>
       </div>
-      <div class="progress-item" data-section="multi-agent">
-        <a href="#multi-agent">
-          <span class="progress-dot"></span>
-          <span class="progress-label">Multi-agent</span>
-        </a>
-      </div>
       <div class="progress-item" data-section="results">
         <a href="#results">
           <span class="progress-dot"></span>
@@ -80,7 +74,7 @@
         </div>
         <div class="hero-team-expand">
           <div class="hero-team-authors" style="font-family: 'STIX Two Text', serif; font-size: 18px; line-height: 2.4; color: var(--text-secondary); margin-top: 12px; max-width: 900px; margin-left: auto; margin-right: auto;">
-            <span style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--text-muted);">Xizhou Bu</span><sup style="color: var(--honey-bronze); font-size: 13px; margin-left: 2px;">&#9830;</sup><sup style="font-size: 11px; color: var(--text-muted); margin-left: 1px;">1</sup>,
+            <span style="color: inherit; text-decoration: none;">Xizhou Bu</span><sup style="color: var(--honey-bronze); font-size: 13px; margin-left: 2px;">&#9830;</sup><sup style="font-size: 11px; color: var(--text-muted); margin-left: 1px;">1</sup>,
             Qingda Hu<sup style="color: var(--honey-bronze); font-size: 13px; margin-left: 2px;">&#9830;</sup><sup style="font-size: 11px; color: var(--text-muted); margin-left: 1px;">1</sup>,
             Lei Zhou<sup style="color: var(--honey-bronze); font-size: 13px; margin-left: 2px;">&#9830;</sup><sup style="font-size: 11px; color: var(--text-muted); margin-left: 1px;">8</sup>,
             Lingfeng Zhang<sup style="font-size: 11px; color: var(--text-muted); margin-left: 1px;">3</sup>,
@@ -114,12 +108,19 @@
       </div>
 
       <div class="hero-actions">
-        <a class="cta gray" href="https://embodied-r.github.io/" target="_blank">
+        <a class="cta gray" href="https://carldegio.github.io/latent_action.github.io/" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
             style="vertical-align: -2px; margin-right: 6px;">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z" />
           </svg>
           Project Page
+        </a>
+        <a class="cta gray" href="./paper_raw/What_Matters_for_Latent_Actions_in_Robot_Learning.pdf" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+            style="vertical-align: -2px; margin-right: 6px;">
+            <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-5 4h8v2H8v-2zm0 4h8v2H8v-2zm0-8h3v2H8V9z" />
+          </svg>
+          Arxiv
         </a>
         <a class="cta gray" href="https://github.com/XizoB/What-Matters-for-Latent-Actions-in-Robot-Learning" target="_blank">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
@@ -292,27 +293,13 @@
     <!-- ═══════════════════════════════════════════ -->
     <div class="tagline" id="models">Framework</div>
 
+    <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 0 0 24px 0;">
+      <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">The framework studies <strong>three key design choices for latent action learning</strong>: action modeling paradigms, learning objectives and regularization, and physical action prediction architectures. It follows a <strong>three-stage training pipeline</strong>: Stage I learns latent actions from unlabeled consecutive video frames, Stage II uses generated latent actions to fine-tune the VLM backbone, and Stage III adapts the resulting representation to downstream robot policy learning with physical action data.</p>
+    </div>
+
     <div class="card-surface" style="padding: 0; overflow: hidden;">
       <img src="./images/main_fig.png" alt="Main figure for What Matters for Latent Actions in Robot Learning" style="width: 100%; height: auto; display: block;">
     </div>
-
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- Section 5: Multi-agent System -->
-    <!-- ═══════════════════════════════════════════ -->
-    <div class="tagline" id="multi-agent">Closed-Loop Autonomy Framework for Long-horizon Tasks</div>
-
-    <div class="card-surface">
-      <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 0 0 24px 0;">
-        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Embodied-R1.5 integrates <strong>Planner</strong>, <strong>Grounder</strong>, and <strong>Corrector</strong> into a unified closed-loop pipeline, where a single model orchestrates the full autonomy stack &mdash; from <strong>high-level task decomposition</strong> and <strong>precise spatial grounding</strong> to <strong>autonomous reflection and self-correction</strong>. This enables complex, long-horizon embodied tasks across diverse robotic embodiments without human intervention.</p>
-      </div>
-      <div class="video-demo-wrapper" style="margin: 0;">
-        <video autoplay muted loop playsinline class="demo-video">
-          <source src="./videos/demo2_cropped.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-
 
     <!-- ═══════════════════════════════════════════ -->
     <!-- Section 6: Results -->
