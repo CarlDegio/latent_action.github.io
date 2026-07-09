@@ -227,35 +227,7 @@
     </div>
 
     <div class="card-surface charts-section">
-      <div class="section-heading">Embodied VLM Evaluation</div>
-      <div id="vlm-overall-container"></div>
-      <div class="chart-legend" id="vlm-overall-legend"></div>
-
-      <p class="section-lead" style="margin-top: 20px;">Per-benchmark scores across all evaluated tasks.</p>
-      <div class="carousel-wrapper">
-        <button class="carousel-arrow carousel-arrow-left" id="bench-carousel-left" aria-label="Previous">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </button>
-        <div class="carousel-viewport" id="bench-carousel-viewport">
-          <div class="carousel-track" id="bench-carousel-track"></div>
-        </div>
-        <button class="carousel-arrow carousel-arrow-right" id="bench-carousel-right" aria-label="Next">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-      </div>
-      <div class="carousel-dots" id="bench-carousel-dots"></div>
-      <div class="chart-legend" id="bench-carousel-legend"></div>
-
-      <div class="section-heading" style="margin-top: 24px;">VLA Benchmark Comparisons</div>
-      <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin-bottom: 16px;">
-        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">
-          Embodied-R1.5-VLA is built upon Embodied-R1.5 as the backbone, augmented with an action head for VLA training &mdash; <em>without</em> large-scale action pretraining. We demonstrate that broad improvements in embodied capabilities effectively transfer to downstream VLA manipulation performance.
-        </p>
-      </div>
-      <div id="vla-charts-container"></div>
-      <div class="chart-legend" id="vla-chart-legend"></div>
-
-      <div class="section-heading" style="margin-top: 32px;">What the Study Covers</div>
+      <div class="section-heading">What the Study Covers</div>
       <p class="section-lead">The paper evaluates latent action learning across diverse robots and manipulation tasks, connecting self-supervised latent action pretraining to downstream VLA policy learning.</p>
       <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin-bottom: 16px;">
         <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">
@@ -1417,82 +1389,54 @@
 
     <div class="card-surface">
       <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 0 0 20px 0;">
-        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Embodied-R1.5 demonstrates strong real-world manipulation capabilities across 5 diverse tasks, significantly outperforming prior models in both <strong>tool affordance understanding</strong> and <strong>complex multi-step reasoning</strong>.</p>
+        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">We further evaluate whether latent-action representations transfer from the controlled benchmark setting to physical robot manipulation. The real-world experiments cover successful execution across four tasks, robustness under external disturbances, and representative failure cases. Together, these videos show that latent actions can provide a useful motion-centric initialization for downstream policies while also exposing remaining challenges in recovery, precision, and out-of-distribution interaction.</p>
       </div>
 
       <section class="leaderboard-section" id="realworld-results">
         <div class="section-heading">Real-World Manipulation Results</div>
-        <div class="leaderboard-table-wrapper">
-          <div id="realworld-table"></div>
+        <div class="rw-video-feature">
+          <video autoplay loop muted controls playsinline><source src="./videos/success_4tasks_50MB.mp4" type="video/mp4"></video>
         </div>
+        <p class="rw-video-caption">Latent actions are deployed across four real-world manipulation tasks and complete them successfully.</p>
       </section>
 
-      <div class="rw-video-grid" style="margin-top: 24px;">
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Pick up [X] and put it on the plate (Pick&Place).mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Pick up [X] and put it on the plate<br>(Pick&Place)</p>
+      <section class="leaderboard-section">
+        <div class="section-heading">Disturbance Robustness of Latent Actions</div>
+        <div class="rw-video-grid rw-video-grid-two">
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/anti-disturbance/ours_good1.mp4" type="video/mp4"></video>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/anti-disturbance/ours_good2.mp4" type="video/mp4"></video>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/anti-disturbance/qwen_fail1.mp4" type="video/mp4"></video>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/anti-disturbance/qwen_fail2.mp4" type="video/mp4"></video>
+          </div>
         </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Put the third duck toy from the left on the plate (Spatial Reasoning).mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Put the third duck toy from the left on the plate<br>(Spatial Reasoning)</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Door Open (Articulated Object Manipulation).mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Door Open<br>(Articulated Object Manipulation)</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/1-Move [X] to the empty space on the right side of the table (Tool Affordance).mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Move [X] to the empty space on the right side of the table<br>(Tool Affordance) #1</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/2-Move [X] to the empty space on the right side of the table (Tool Affordance).mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Move [X] to the empty space on the right side of the table<br>(Tool Affordance) #2</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/3-Move [X] to the empty space on the right side of the table (Tool Affordance).mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Move [X] to the empty space on the right side of the table<br>(Tool Affordance) #3</p>
-        </div>
-      </div>
+        <p class="rw-video-caption">Our latent-action representation succeeds on two disturbed real-world tasks, while the two corresponding trials based on Qwen representations fail.</p>
+      </section>
 
-      <div class="section-heading" style="margin-top: 28px;">Demo Videos</div>
-      <div class="rw-video-grid">
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Clean the vase.mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Clean the vase</p>
+      <section class="leaderboard-section">
+        <div class="section-heading">Failure Cases</div>
+        <div class="rw-video-grid rw-video-grid-two">
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/fail/fail_bowl.mp4" type="video/mp4"></video>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/fail/fail_close_drawer.mp4" type="video/mp4"></video>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/fail/fail_cube.mp4" type="video/mp4"></video>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/fail/fail_open_drawer.mp4" type="video/mp4"></video>
+          </div>
         </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Open the Drawer.mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Open the Drawer</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Plug the charger into the socket.mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Plug the charger into the socket</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Put all the clutter on the table into the box.mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Put all the clutter on the table into the box</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Put the specified object into the empty space of t.mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Put the specified object into the empty space of the table</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Stack the cups into three layers.mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Stack the cups into three layers</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Sweep the garbage on the ground into the dustpan.mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Sweep the garbage on the ground into the dustpan</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Make the milk tea.mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Make the milk tea</p>
-        </div>
-        <div class="rw-video-item">
-          <video autoplay loop muted controls playsinline><source src="./assets/videos/Take out the blue cup and place it on the coaster.mp4" type="video/mp4"></video>
-          <p class="rw-video-caption">Take out the blue cup and place it on the coaster</p>
-        </div>
-      </div>
+        <p class="rw-video-caption">Representative failures show remaining challenges in precise object localization, drawer interaction, cube manipulation, and recovery from imperfect initial execution.</p>
+      </section>
     </div>
 
     <!-- ═══════════════════════════════════════════ -->
@@ -1655,34 +1599,34 @@
       .catch(err => console.warn('LIBERO-Plus data load failed:', err));
 
     // ─── 5. Real-World Table ───
-    fetch('./assets/data/realworld.json')
-      .then(r => r.json())
-      .then(data => {
-        const container = document.getElementById('realworld-table');
-        if (!container) return;
+    const realworldTableContainer = document.getElementById('realworld-table');
+    if (realworldTableContainer) {
+      fetch('./assets/data/realworld.json')
+        .then(r => r.json())
+        .then(data => {
+          let html = '<table class="leaderboard-table vla-table">';
+          html += '<thead><tr><th class="sticky-col benchmark-header">Model</th>';
+          data.tasks.forEach(t => html += `<th>${t}</th>`);
+          html += '</tr></thead><tbody>';
 
-        let html = '<table class="leaderboard-table vla-table">';
-        html += '<thead><tr><th class="sticky-col benchmark-header">Model</th>';
-        data.tasks.forEach(t => html += `<th>${t}</th>`);
-        html += '</tr></thead><tbody>';
-
-        data.models.forEach(m => {
-          const isOurs = m.name.includes('Embodied-R1.5');
-          const rowCls = isOurs ? ' class="ours-row"' : '';
-          const nameCls = isOurs ? 'bench-name ours-model' : 'bench-name';
-          html += `<tr${rowCls}><td class="sticky-col ${nameCls}">${m.name}</td>`;
-          m.scores.forEach(v => {
-            const cls = isOurs ? ' class="ours-col"' : '';
-            html += `<td${cls}>${fmt(v)}</td>`;
+          data.models.forEach(m => {
+            const isOurs = m.name.includes('Embodied-R1.5');
+            const rowCls = isOurs ? ' class="ours-row"' : '';
+            const nameCls = isOurs ? 'bench-name ours-model' : 'bench-name';
+            html += `<tr${rowCls}><td class="sticky-col ${nameCls}">${m.name}</td>`;
+            m.scores.forEach(v => {
+              const cls = isOurs ? ' class="ours-col"' : '';
+              html += `<td${cls}>${fmt(v)}</td>`;
+            });
+            html += '</tr>';
           });
-          html += '</tr>';
-        });
 
-        html += '</tbody></table>';
-        container.innerHTML = html;
-        highlightBest(container.querySelector('table'), false);
-      })
-      .catch(err => console.warn('Real-world data load failed:', err));
+          html += '</tbody></table>';
+          realworldTableContainer.innerHTML = html;
+          highlightBest(realworldTableContainer.querySelector('table'), false);
+        })
+        .catch(err => console.warn('Real-world data load failed:', err));
+    }
 
 
   })();

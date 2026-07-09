@@ -1698,6 +1698,22 @@ html {
   gap: 14px;
 }
 
+.rw-video-grid-two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.rw-video-feature {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.rw-video-feature video {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
 .rw-video-item {
   border-radius: 10px;
   overflow: hidden;
@@ -2168,6 +2184,7 @@ html {
   .kc-title { font-size: 14px; }
   .kc-desc { font-size: 13px; }
   .rw-video-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .rw-video-grid-two { grid-template-columns: 1fr; }
 
   body {
     padding: 8px 6px;
