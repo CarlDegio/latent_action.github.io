@@ -192,43 +192,36 @@
         <div class="kc-item">
           <div class="kc-num">1</div>
           <div class="kc-body">
-            <h3 class="kc-title">A Unified Empirical Study of LAM Design</h3>
-            <p class="kc-desc">We cast representative latent action variants into a common autoencoding framework and isolate the effects of <strong>motion representations</strong>, <strong>objectives and regularization</strong>, <strong>action heads</strong>, <strong>latent dimensionality</strong>, and <strong>normalization</strong>.</p>
+            <h3 class="kc-title">Latent Action Modeling Paradigms</h3>
+            <p class="kc-desc">We show that under mixed-data pretraining, the original LAPO method remains a remarkably strong baseline. We further find that simple semantic feature differencing using off-the-shelf visual encoders is sufficient to learn competitive latent action representations.</p>
           </div>
         </div>
         <div class="kc-item">
           <div class="kc-num">2</div>
           <div class="kc-body">
-            <h3 class="kc-title">Better Proxy Metrics for Latent Actions</h3>
-            <p class="kc-desc"><strong>Forward dynamics reconstruction</strong> is a more reliable proxy for latent action quality than MLP probing, while proxy metrics are most useful for <strong>coarse model screening</strong> rather than fine-grained ranking.</p>
+            <h3 class="kc-title">Learning Objectives and  Physical Action Prediction</h3>
+            <p class="kc-desc">We identify effective hyperparameter settings for different regularization methods, showing that properly tuned methods achieve comparable downstream performance. We evaluate five physical action prediction architectures and derive practical design guidelines for integrating latent actions into downstream policy learning.</p>
           </div>
         </div>
         <div class="kc-item">
           <div class="kc-num">3</div>
           <div class="kc-body">
-            <h3 class="kc-title">Strong Baselines from Simple Motion Signals</h3>
-            <p class="kc-desc">Under mixed-data pretraining, the original <strong>LAPO</strong> framework remains a strong baseline, and off-the-shelf visual encoders can produce competitive latent actions through simple <strong>consecutive-frame feature differencing</strong>.</p>
+            <h3 class="kc-title">Latent Action Dimensionality and Normalization</h3>
+            <p class="kc-desc">We show that a latent action dimensionality of 32 consistently achieves the best overall performance across both 7-DoF single-arm and 14-DoF dual-arm robot platforms. Additional latent action normalization is unnecessary when appropriate pretraining regularization is applied.</p>
           </div>
         </div>
         <div class="kc-item">
           <div class="kc-num">4</div>
           <div class="kc-body">
-            <h3 class="kc-title">Practical Architecture and Regularization Guidance</h3>
-            <p class="kc-desc">We compare regularization strategies and five action head architectures, showing that properly tuned methods can achieve comparable performance while different continuous and discrete latent-action settings favor different heads.</p>
+            <h3 class="kc-title">Proxy Metrics for Latent Action Quality</h3>
+            <p class="kc-desc">We find that FDM reconstruction metrics provide more reliable proxy measures of latent action quality than probe metrics. These proxy metrics are better suited for coarse-grained model selection than for fine-grained model ranking.</p>
           </div>
         </div>
         <div class="kc-item">
           <div class="kc-num">5</div>
           <div class="kc-body">
-            <h3 class="kc-title">A Robust Default Latent Action Space</h3>
-            <p class="kc-desc">Across both <strong>7-DoF single-arm</strong> and <strong>14-DoF dual-arm</strong> robots, a latent action dimension of <strong>32</strong> consistently performs best overall, and extra normalization is unnecessary when pretraining regularization already structures the latent space.</p>
-          </div>
-        </div>
-        <div class="kc-item">
-          <div class="kc-num">6</div>
-          <div class="kc-body">
-            <h3 class="kc-title">Scaling and Real-World Transfer</h3>
-            <p class="kc-desc">Scaling latent-action data for VLM fine-tuning improves downstream VLA performance, and experiments on <strong>Franka</strong> and <strong>Cobot Magic</strong> show that latent-action-tuned backbones provide stronger initialization for real-world manipulation.</p>
+            <h3 class="kc-title">Scaling Laws of Latent Action Pretraining</h3>
+            <p class="kc-desc">We demonstrate through both simulation and real-world experiments that fine-tuning VLM backbones with latent actions provides stronger initialization for downstream policy learning. Scaling up latent action pretraining consistently improves downstream robotic manipulation performance across diverse benchmarks.</p>
           </div>
         </div>
       </div>
