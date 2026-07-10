@@ -851,47 +851,55 @@
       <section class="leaderboard-section" id="realworld-results">
         <div class="section-heading">Real-World Manipulation Results</div>
         <div class="rw-video-feature">
-          <video autoplay loop muted controls playsinline><source src="./videos/success_4tasks_50MB.mp4" type="video/mp4"></video>
+          <video autoplay loop muted controls playsinline><source src="./videos/real_world_experiments.mp4" type="video/mp4"></video>
         </div>
         <p class="rw-video-caption">Latent actions are deployed across four real-world manipulation tasks and complete them successfully.</p>
       </section>
 
       <section class="leaderboard-section">
-        <div class="section-heading">Disturbance Robustness of Latent Actions</div>
-        <div class="rw-video-grid rw-video-grid-two">
+        <div class="section-heading">LA-Tuned Comparison</div>
+        <div class="rw-video-grid rw-video-grid-five">
           <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/anti-disturbance/ours_good1.mp4" type="video/mp4"></video>
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/close_drawer_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Close Drawer</p>
           </div>
           <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/anti-disturbance/ours_good2.mp4" type="video/mp4"></video>
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/disturb_close_drawer_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Disturbance Recovery</p>
           </div>
           <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/anti-disturbance/qwen_fail1.mp4" type="video/mp4"></video>
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/open_drawer_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Open Drawer</p>
           </div>
           <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/anti-disturbance/qwen_fail2.mp4" type="video/mp4"></video>
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/place_block_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Place Block</p>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/stack_bowls_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Stack Bowls</p>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/close_drawer_OpenVLA-OFT.mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT<br>Close Drawer</p>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/disturb_OpenVLA-OFT.mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT<br>Disturbance Recovery</p>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/open_drawer_OpenVLA-OFT.mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT<br>Open Drawer</p>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/place_block_OpenVLA-OFT.mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT<br>Place Block</p>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/stack_bowls_OpenVLA-OFT.mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT<br>Stack Bowls</p>
           </div>
         </div>
-        <p class="rw-video-caption">Our latent-action representation succeeds on two disturbed real-world tasks, while the two corresponding trials based on Qwen representations fail.</p>
-      </section>
-
-      <section class="leaderboard-section">
-        <div class="section-heading">Failure Cases</div>
-        <div class="rw-video-grid rw-video-grid-two">
-          <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/fail/fail_bowl.mp4" type="video/mp4"></video>
-          </div>
-          <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/fail/fail_close_drawer.mp4" type="video/mp4"></video>
-          </div>
-          <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/fail/fail_cube.mp4" type="video/mp4"></video>
-          </div>
-          <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/fail/fail_open_drawer.mp4" type="video/mp4"></video>
-          </div>
-        </div>
-        <p class="rw-video-caption">Representative failures show remaining challenges in precise object localization, drawer interaction, cube manipulation, and recovery from imperfect initial execution.</p>
       </section>
     </div>
 

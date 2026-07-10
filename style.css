@@ -1708,6 +1708,11 @@ html {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.rw-video-grid-five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
 .rw-video-feature {
   width: 100%;
   border-radius: 10px;
@@ -1727,8 +1732,19 @@ html {
 
 .rw-video-item video {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   display: block;
   border-radius: 10px;
+}
+
+.rw-video-label {
+  min-height: 34px;
+  margin: 6px 2px 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .rw-video-caption {
@@ -2190,6 +2206,7 @@ html {
   .kc-title { font-size: 14px; }
   .kc-desc { font-size: 13px; }
   .rw-video-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .rw-video-grid-five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .rw-video-grid-two { grid-template-columns: 1fr; }
 
   body {
