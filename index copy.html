@@ -108,11 +108,11 @@
         </div>
       </div>
 
-      <div class="hero-pill-row">
+      <!-- <div class="hero-pill-row">
         <span class="hero-pill">Latent Action Models</span>
         <span class="hero-pill">VLM backbone fine-tuning</span>
         <span class="hero-pill">VLA Policy Learning</span>
-      </div>
+      </div> -->
 
       <div class="hero-actions">
         <a class="cta gray" href="https://carldegio.github.io/latent_action.github.io/" target="_blank">
@@ -169,9 +169,9 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <!-- Section 1: Highlight -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <div class="tagline" id="highlight">Highlight</div>
 
     <!-- TL;DR + Key Contributions -->
@@ -264,77 +264,80 @@
 
     </div>
 
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <!-- Section 2: Models -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <div class="tagline" id="models">Framework</div>
 
-    <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 0 0 24px 0;">
-      <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Design I examines the impact of latent action modeling paradigms by comparing the implicit IDM-FDM framework with the explicit CFM-AE framework. Design II investigates how different learning objectives and regularization methods shape latent action representations and affect downstream policy learning. Design III explores different physical action prediction architectures and evaluates the necessity of latent action normalization. Stage I is trained on unlabeled video data consisting only of image frames, Stage II uses labeled video data paired with latent actions, and Stage III uses robot action data paired with physical actions.</p>
+    <div class="card-surface">
+      <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 0 0 24px 0;">
+        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Design I examines the impact of latent action modeling paradigms by comparing the implicit IDM-FDM framework with the explicit CFM-AE framework. Design II investigates how different learning objectives and regularization methods shape latent action representations and affect downstream policy learning. Design III explores different physical action prediction architectures and evaluates the necessity of latent action normalization. Stage I is trained on unlabeled video data consisting only of image frames, Stage II uses labeled video data paired with latent actions, and Stage III uses robot action data paired with physical actions.</p>
+      </div>
+
+      <div style="overflow: hidden;">
+        <img src="./images/main_fig.png" alt="Main figure for What Matters for Latent Actions in Robot Learning" style="width: 100%; height: auto; display: block;">
+      </div>
+
+      <!-- <div style="overflow: hidden; margin-top: 20px;">
+        <img src="./images/arch.png" alt="Latent action learning architecture" style="width: 100%; height: auto; display: block;">
+      </div> -->
     </div>
 
-    <div class="card-surface" style="padding: 0; overflow: hidden;">
-      <img src="./images/main_fig.png" alt="Main figure for What Matters for Latent Actions in Robot Learning" style="width: 100%; height: auto; display: block;">
-    </div>
-
-    <div class="card-surface" style="padding: 0; overflow: hidden; margin-top: 20px;">
-      <img src="./images/arch.png" alt="Latent action learning architecture" style="width: 100%; height: auto; display: block;">
-    </div>
-
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <!-- Section 6: Results -->
-    <!-- ═══════════════════════════════════════════ -->
-    <div class="tagline" id="results">Core Result</div>
+    <!-- ══════════════════════════════════════════�?-->
+    <div class="tagline" id="results">Ablation Experiments</div>
 
-    <!-- Result Tabs -->
-    <div class="result-tabs">
-      <button class="result-tab active" data-tab="vlm-tab">Brief Result</button>
-      <button class="result-tab" data-tab="vla-tab">design 1<br><span class="tab-sub">Consecutive Frame Motion Representations</span></button>
-      <button class="result-tab" data-tab="libero-tab">design 2<br><span class="tab-sub">Learning Objectives and Regularization</span></button>
-      <button class="result-tab" data-tab="regularization-tab">Regularization Parameter<br><span class="tab-sub">Balance Reconstruction and Latent Space Structure</span></button>
-    </div>
-
-    <!-- Tab 1: VLM -->
-    <div class="result-tab-content active" id="vlm-tab">
-
-    <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 20px 0 20px 0;">
-      <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">These results summarize the main empirical message of the paper: <strong>latent action design matters across representation choice, action-head integration, and video fine-tuning scale</strong>. LAPO and semantic frame differencing provide strong latent-action supervision, action heads benefit when latent actions remain involved during downstream policy learning, and scaling Stage-II VLM fine-tuning with more diverse video data consistently improves downstream robotic manipulation.</p>
-    </div>
-
-    <section class="leaderboard-section brief-result-section">
-      <div class="section-heading">Main Performance Comparison</div>
-      <p class="section-lead">This table compares latent action designs across LIBERO, LIBERO-Plus, and RoboTwin2.0 under five action-head architectures. It highlights the overall strength of LAPO, the competitiveness of semantic frame differencing such as &Delta;DINO, and the weaker robustness of optical-flow based representations under perturbations.</p>
-      <div class="brief-result-figure">
-        <img src="./images/main_performance.png" alt="Main performance comparison">
+    <div class="card-surface">
+      <!-- Result Tabs -->
+      <div class="result-tabs">
+        <button class="result-tab active" data-tab="vlm-tab">Brief Result</button>
+        <button class="result-tab" data-tab="vla-tab">Design I<br><span class="tab-sub">Latent Action Modeling Paradigms</span></button>
+        <button class="result-tab" data-tab="libero-tab">Design II<br><span class="tab-sub">Learning Objectives and Regularization</span></button>
+        <button class="result-tab" data-tab="regularization-tab">Design III<br><span class="tab-sub">Physical Action Prediction Architectures</span></button>
       </div>
-    </section>
 
-    <section class="leaderboard-section brief-result-section">
-      <div class="section-heading">Different Action Head Comparison</div>
-      <p class="section-lead">Each cell reports the mean score over LIBERO, LIBERO-Plus, and RoboTwin2.0 for a specific combination of consecutive-frame motion representation (or regularization method) and action-head architecture. Darker colors indicate better average performance. DAP and LAP use the Action Inaccessible setting, while JAP, JAP-DAP, and JAP-LAP use the Action Accessible setting where latent actions and physical actions are jointly used to fine-tune the VLM backbone.</p>
-      <div class="brief-result-figure">
-        <img src="./images/action_head.png" alt="Different action head comparison">
+      <!-- Tab 1: VLM -->
+      <div class="result-tab-content active" id="vlm-tab">
+
+      <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 20px 0 20px 0;">
+        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">These results summarize the main empirical message of the paper: <strong>latent action design matters across representation choice, action-head integration, and video fine-tuning scale</strong>. LAPO and semantic frame differencing provide strong latent-action supervision, action heads benefit when latent actions remain involved during downstream policy learning, and scaling Stage-II VLM fine-tuning with more diverse video data consistently improves downstream robotic manipulation.</p>
       </div>
-    </section>
 
-    <section class="leaderboard-section brief-result-section">
-      <div class="section-heading">Effect of VLM Fine-Tuning Data Scale on Downstream Robotic Manipulation Performance</div>
-      <p class="section-lead">This result isolates the effect of Stage-II VLM backbone fine-tuning data scale while keeping Stage-III policy training fixed. Increasing the amount and diversity of video-only latent-action fine-tuning data improves downstream manipulation performance, with the largest gains on benchmarks requiring stronger generalization.</p>
-      <div class="brief-result-figure">
-        <img src="./images/scaling_law.png" alt="Effect of VLM fine-tuning data scale on downstream robotic manipulation performance">
+      <section class="leaderboard-section brief-result-section">
+        <div class="section-heading">Main Performance Comparison</div>
+        <p class="section-lead">This table compares latent action designs across LIBERO, LIBERO-Plus, and RoboTwin2.0 under five action-head architectures. It highlights the overall strength of LAPO, the competitiveness of semantic frame differencing such as &Delta;DINO, and the weaker robustness of optical-flow based representations under perturbations.</p>
+        <div class="brief-result-figure">
+          <img src="./images/main_performance.png" alt="Main performance comparison">
+        </div>
+      </section>
+
+      <section class="leaderboard-section brief-result-section">
+        <div class="section-heading">Different Action Head Comparison</div>
+        <p class="section-lead">Each cell reports the mean score over LIBERO, LIBERO-Plus, and RoboTwin2.0 for a specific combination of consecutive-frame motion representation (or regularization method) and action-head architecture. Darker colors indicate better average performance. DAP and LAP use the Action Inaccessible setting, while JAP, JAP-DAP, and JAP-LAP use the Action Accessible setting where latent actions and physical actions are jointly used to fine-tune the VLM backbone.</p>
+        <div class="brief-result-figure">
+          <img src="./images/action_head.png" alt="Different action head comparison">
+        </div>
+      </section>
+
+      <section class="leaderboard-section brief-result-section">
+        <div class="section-heading">Effect of VLM Fine-Tuning Data Scale on Downstream Robotic Manipulation Performance</div>
+        <p class="section-lead">This result isolates the effect of Stage-II VLM backbone fine-tuning data scale while keeping Stage-III policy training fixed. Increasing the amount and diversity of video-only latent-action fine-tuning data improves downstream manipulation performance, with the largest gains on benchmarks requiring stronger generalization.</p>
+        <div class="brief-result-figure">
+          <img src="./images/scaling_law.png" alt="Effect of VLM fine-tuning data scale on downstream robotic manipulation performance">
+        </div>
+      </section>
+
+      </div><!-- end vlm-tab -->
+
+      <!-- Tab 2: VLA -->
+      <div class="result-tab-content" id="vla-tab">
+
+      <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 20px 0 20px 0;">
+        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Across LIBERO, LIBERO-Plus, and RoboTwin2.0, <strong>LAPO</strong> achieves the strongest overall performance, while <strong>&Delta;DINO</strong> remains highly competitive and consistently outperforms optical-flow based representations. This suggests that semantic consecutive-frame differences capture action-relevant motion more robustly than pure geometric flow, especially under visual perturbations and distribution shifts.</p>
       </div>
-    </section>
 
-    </div><!-- end vlm-tab -->
-
-    <!-- Tab 2: VLA -->
-    <div class="result-tab-content" id="vla-tab">
-
-    <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 20px 0 20px 0;">
-      <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Across LIBERO, LIBERO-Plus, and RoboTwin2.0, <strong>LAPO</strong> achieves the strongest overall performance, while <strong>&Delta;DINO</strong> remains highly competitive and consistently outperforms optical-flow based representations. This suggests that semantic consecutive-frame differences capture action-relevant motion more robustly than pure geometric flow, especially under visual perturbations and distribution shifts.</p>
-    </div>
-
-    <div class="sub-result-group">
+      <div class="sub-result-group">
       <div class="sub-result-tabs" aria-label="design 1 benchmark groups">
         <button class="sub-result-tab active" data-subtab="design1-libero">LIBERO</button>
         <button class="sub-result-tab" data-subtab="design1-libero-plus">LIBERO-Plus</button>
@@ -835,12 +838,13 @@
         </div>
       </section>
     </div><!-- end regularization-tab -->
+    </div>
 
 
 
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <!-- Section: Real-World Experiments -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <div class="tagline" id="realworld">Real-World Experiments</div>
 
     <div class="card-surface">
@@ -903,9 +907,9 @@
       </section>
     </div>
 
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <!-- Section: Acknowledgements -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <div class="tagline">Acknowledgements</div>
 
     <div class="card-surface acknowledgements-section">
@@ -914,9 +918,9 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <!-- Section: Bibtex -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════�?-->
     <div class="tagline" id="bibtex">BibTeX</div>
 
     <div class="bibtex-card">
@@ -974,15 +978,15 @@
     });
   </script>
 
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════�?-->
   <!-- Dynamic Table Renderers (VLM-Full, Trace, General, LIBERO-Plus, Real-World, Training Data) -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════�?-->
   <script>
   (function() {
     // ─── Utility: format number for display ───
     function fmt(v) {
-      if (v === null || v === undefined) return '—';
-      if (typeof v === 'string') return v === '-' ? '—' : v;
+      if (v === null || v === undefined) return '�?;
+      if (typeof v === 'string') return v === '-' ? '�? : v;
       // Round to max 2 decimal places, drop trailing zeros
       return parseFloat(v.toFixed(2)).toString();
     }
@@ -1097,9 +1101,9 @@
   </script>
 
   <script>
-    // ═══════════════════════════════════════════
+    // ══════════════════════════════════════════�?
     // Grouped Benchmark Bar Chart Renderer
-    // ═══════════════════════════════════════════
+    // ══════════════════════════════════════════�?
     document.addEventListener('DOMContentLoaded', () => {
       const createEl = (tag, attrs) => {
         const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -1205,7 +1209,7 @@
             animatedEls.push(bar);
             g.appendChild(bar);
 
-            // Score value above bar — use bar color for labels (darken grays slightly for readability)
+            // Score value above bar �?use bar color for labels (darken grays slightly for readability)
             const graySet = ['#6b7280','#8b93a1','#a8b0bc','#c0c7d0','#d5dae2','#b5a89a'];
             const labelColor = graySet.includes(color) ? '#5a6070' : color;
             const valLabel = createEl('text', {
@@ -1404,7 +1408,7 @@
             animatedEls.push(bar);
             g.appendChild(bar);
 
-            // Score value above bar — use bar color for labels (darken grays slightly for readability)
+            // Score value above bar �?use bar color for labels (darken grays slightly for readability)
             const graySet = ['#6b7280','#8b93a1','#a8b0bc','#c0c7d0','#d5dae2','#b5a89a'];
             const labelColor = graySet.includes(color) ? '#5a6070' : color;
             const valLabel = createEl('text', {
@@ -1573,13 +1577,13 @@
         // Order: Embodied-R1.5-VLA (blue), GR00T N1.6, π0.5, OpenVLA-OFT, π0, π0-FAST, ManipLLM
         const selectedModels = ['Embodied-R1.5-VLA', 'GR00T N1.6', 'π0.5', 'OpenVLA-OFT', 'π0', 'π0-FAST', 'ManipLLM'];
         const modelColors = [
-          '#2563eb',  // Embodied-R1.5-VLA — blue
-          '#6b7280',  // GR00T N1.6 — darkest gray
-          '#8b93a1',  // π0.5 — medium-dark gray
-          '#a8b0bc',  // OpenVLA-OFT — medium gray
-          '#c0c7d0',  // π0 — light gray
-          '#d5dae2',  // π0-FAST — lightest gray
-          '#b5a89a',  // ManipLLM — warm gray (distinct)
+          '#2563eb',  // Embodied-R1.5-VLA �?blue
+          '#6b7280',  // GR00T N1.6 �?darkest gray
+          '#8b93a1',  // π0.5 �?medium-dark gray
+          '#a8b0bc',  // OpenVLA-OFT �?medium gray
+          '#c0c7d0',  // π0 �?light gray
+          '#d5dae2',  // π0-FAST �?lightest gray
+          '#b5a89a',  // ManipLLM �?warm gray (distinct)
         ];
 
         const benchNames = [
