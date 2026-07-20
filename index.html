@@ -312,13 +312,13 @@
         </div>
       </section>
 
-      <section class="leaderboard-section brief-result-section">
+      <!-- <section class="leaderboard-section brief-result-section">
         <div class="section-heading">Different Action Head Comparison</div>
         <p class="section-lead">Each cell reports the mean score over LIBERO, LIBERO-Plus, and RoboTwin2.0 for a specific combination of consecutive-frame motion representation (or regularization method) and action-head architecture. Darker colors indicate better average performance. DAP and LAP use the Action Inaccessible setting, while JAP, JAP-DAP, and JAP-LAP use the Action Accessible setting where latent actions and physical actions are jointly used to fine-tune the VLM backbone.</p>
         <div class="brief-result-figure">
           <img src="./images/action_head.png" alt="Different action head comparison">
         </div>
-      </section>
+      </section> -->
 
       <section class="leaderboard-section brief-result-section">
         <div class="section-heading">Effect of VLM Fine-Tuning Data Scale on Downstream Robotic Manipulation Performance</div>
@@ -468,7 +468,7 @@
               </thead>
               <tbody>
               <tr><td class="sticky-col bench-name">RAFT</td><td>0.274</td><td>0.306</td><td>0.394</td><td>0.430</td><td>0.438</td><td>0.368</td></tr>
-              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td>0.176</td><td>0.220</td><td>0.338</td><td>0.318</td><td>0.369</td><td>0.284</td></tr>
+              <tr><td class="sticky-col bench-name">SEA-RAFT</td><td>0.176</td><td>0.262</td><td>0.338</td><td>0.318</td><td>0.369</td><td>0.284</td></tr>
               <tr><td class="sticky-col bench-name">&Delta;RGB</td><td>0.438</td><td>0.399</td><td>0.457</td><td>0.462</td><td>0.477</td><td>0.447</td></tr>
               <tr><td class="sticky-col bench-name">&Delta;DINO</td><td>0.462</td><td>0.482</td><td>0.435</td><td>0.438</td><td>0.438</td><td>0.451</td></tr>
               <tr><td class="sticky-col bench-name">CoMo</td><td>0.381</td><td>0.416</td><td>0.418</td><td>0.462</td><td>0.452</td><td>0.426</td></tr>
@@ -798,6 +798,14 @@
 
     <!-- Tab 3: Regularization Parameter -->
     <div class="result-tab-content" id="regularization-tab">
+      <section class="leaderboard-section brief-result-section">
+        <div class="section-heading">Different Action Head Comparison</div>
+        <p class="section-lead">Each cell reports the mean score over LIBERO, LIBERO-Plus, and RoboTwin2.0 for a specific combination of consecutive-frame motion representation (or regularization method) and action-head architecture. Darker colors indicate better average performance. DAP and LAP use the Action Inaccessible setting, while JAP, JAP-DAP, and JAP-LAP use the Action Accessible setting where latent actions and physical actions are jointly used to fine-tune the VLM backbone.</p>
+        <div class="brief-result-figure">
+          <img src="./images/action_head.png" alt="Different action head comparison">
+        </div>
+      </section>
+
       <section class="leaderboard-section latent-grid-section">
         <div class="section-heading">Correlation Between Proxy Metrics and Downstream Robotic Manipulation</div>
         <p class="section-lead">The purple and red panels report Pearson correlation and Spearman correlation, respectively. The Regularization Methods setting computes correlations over AE plus VAE, Sparsity, SIGReg, and VQ-VAE configurations under different regularization strengths, while the + Latent Action Dimensionality setting further adds configurations with different latent dimensions. LIBERO DAP/LAP and RoboTwin2.0 DAP/LAP denote downstream evaluations with different action heads, and -Linear Prob, -MLP Prob, SSIM Gain, and MSE Gain are the four proxy metrics used to assess latent action quality.</p>
