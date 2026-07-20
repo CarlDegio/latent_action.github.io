@@ -2274,3 +2274,68 @@ html {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
+
+
+/* ===========================================
+   Unified Page Width
+   =========================================== */
+
+.main-content{
+    width:100%;
+    max-width:1280px;
+    margin:0 auto;
+    box-sizing:border-box;
+}
+
+/* 所有主要 section 统一宽度 */
+.tagline,
+.card-surface,
+.leaderboard-section,
+.video-demo-section,
+.charts-section,
+.evalkit-section,
+.bibtex-card{
+    width:100%;
+    max-width:1280px;
+    margin-left:auto;
+    margin-right:auto;
+    box-sizing:border-box;
+}
+
+/* Leaderboard 不再无限宽 */
+.leaderboard-section{
+    margin-top:56px;
+    margin-bottom:48px;
+    padding:0;
+}
+
+/* BibTeX 与其它部分一致 */
+.bibtex-card{
+    margin-top:16px;
+    margin-bottom:16px;
+    padding:24px 32px;
+}
+
+/* Framework 图 */
+#framework img,
+.framework img{
+    width:100%;
+    display:block;
+}
+
+/* Real-world */
+.rw-video-grid,
+.rw-video-grid-two,
+.rw-video-grid-five{
+    width:100%;
+}
+
+/* Charts */
+.charts-grid{
+    width:100%;
+}
+
+/* Tables */
+.leaderboard-table-wrapper{
+    width:100%;
+}
