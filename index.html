@@ -322,7 +322,7 @@
 
       <section class="leaderboard-section brief-result-section">
         <div class="section-heading">Effect of VLM Fine-Tuning Data Scale on Downstream Robotic Manipulation Performance</div>
-        <p class="section-lead">This result isolates the effect of Stage-II VLM backbone fine-tuning data scale while keeping Stage-III policy training fixed. Increasing the amount and diversity of video-only latent-action fine-tuning data improves downstream manipulation performance, with the largest gains on benchmarks requiring stronger generalization.</p>
+        <p class="section-lead">The left panel illustrates the data mixtures used for VLM backbone fine-tuning, where \texttt{OXE} includes all datasets except \texttt{Robotwin} and \texttt{Liberoplus}. The right panel compares downstream robotic manipulation performance under the same Stage III training configuration using VLM backbones fine-tuned with the two data scales shown on the left. This result isolates the effect of Stage-II VLM backbone fine-tuning data scale while keeping Stage-III policy training fixed. Increasing the amount and diversity of video-only latent-action fine-tuning data improves downstream manipulation performance, with the largest gains on benchmarks requiring stronger generalization.</p>
         <div class="brief-result-figure">
           <img src="./images/scaling_law.png" alt="Effect of VLM fine-tuning data scale on downstream robotic manipulation performance">
         </div>
