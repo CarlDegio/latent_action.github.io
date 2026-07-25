@@ -330,7 +330,7 @@
 
       <section class="leaderboard-section brief-result-section">
         <div class="section-heading">Effect of VLM Fine-Tuning Data Scale on Downstream Robotic Manipulation Performance</div>
-        <p class="section-lead">This result isolates the effect of Stage-II VLM backbone fine-tuning data scale while keeping Stage-III policy training fixed. Increasing the amount and diversity of video-only latent-action fine-tuning data improves downstream manipulation performance, with the largest gains on benchmarks requiring stronger generalization.</p>
+        <p class="section-lead">The left panel illustrates our 7-DoF single-arm Franka Panda platform equipped with a 1-DoF UMI gripper and 4 representative manipulation tasks. For each task, 50 robot demonstrations are collected under joint position control. The right panel compares the task performance of OpenVLA-OFT and our OpenVLA-OFT (LA-Tuned) throughout training. We evaluate checkpoints at 6k, 8k, 10k, 20k, and 40k training steps. Each checkpoint is evaluated over 20 independent trials, resulting in 100 evaluations per task for each method. All experiments use only a single front-view RGB camera as the visual input.</p>
         <div class="brief-result-figure">
           <img src="./images/realworld.png" alt="Effect of VLM fine-tuning data scale on downstream robotic manipulation performance">
         </div>
@@ -916,40 +916,40 @@
             <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Close Drawer</p>
           </div>
           <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/disturb_close_drawer_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
-            <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Disturbance Recovery</p>
-          </div>
-          <div class="rw-video-item">
             <video autoplay loop muted controls playsinline><source src="./videos/small_videos/open_drawer_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
             <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Open Drawer</p>
-          </div>
-          <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/place_block_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
-            <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Place Block</p>
           </div>
           <div class="rw-video-item">
             <video autoplay loop muted controls playsinline><source src="./videos/small_videos/stack_bowls_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
             <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Stack Bowls</p>
           </div>
           <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/close_drawer_OpenVLA-OFT.mp4" type="video/mp4"></video>
-            <p class="rw-video-label">OpenVLA-OFT<br>Close Drawer</p>
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/place_block_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Place Block</p>
           </div>
           <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/disturb_OpenVLA-OFT.mp4" type="video/mp4"></video>
-            <p class="rw-video-label">OpenVLA-OFT<br>Disturbance Recovery</p>
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/disturb_close_drawer_OpenVLA-OFT(LA-Tuned).mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT (LA-Tuned)<br>Disturbance Recovery</p>
+          </div>
+          <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/close_drawer_OpenVLA-OFT.mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT<br>Close Drawer</p>
           </div>
           <div class="rw-video-item">
             <video autoplay loop muted controls playsinline><source src="./videos/small_videos/open_drawer_OpenVLA-OFT.mp4" type="video/mp4"></video>
             <p class="rw-video-label">OpenVLA-OFT<br>Open Drawer</p>
           </div>
           <div class="rw-video-item">
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/stack_bowls_OpenVLA-OFT.mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT<br>Stack Bowls</p>
+          </div>
+          <div class="rw-video-item">
             <video autoplay loop muted controls playsinline><source src="./videos/small_videos/place_block_OpenVLA-OFT.mp4" type="video/mp4"></video>
             <p class="rw-video-label">OpenVLA-OFT<br>Place Block</p>
           </div>
           <div class="rw-video-item">
-            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/stack_bowls_OpenVLA-OFT.mp4" type="video/mp4"></video>
-            <p class="rw-video-label">OpenVLA-OFT<br>Stack Bowls</p>
+            <video autoplay loop muted controls playsinline><source src="./videos/small_videos/disturb_OpenVLA-OFT.mp4" type="video/mp4"></video>
+            <p class="rw-video-label">OpenVLA-OFT<br>Disturbance Recovery</p>
           </div>
         </div>
       </section>
@@ -958,13 +958,13 @@
     <!-- ══════════════════════════════════════════�?-->
     <!-- Section: Acknowledgements -->
     <!-- ══════════════════════════════════════════�?-->
-    <div class="tagline">Acknowledgements</div>
+    <!-- <div class="tagline">Acknowledgements</div>
 
     <div class="card-surface acknowledgements-section">
       <div class="ack-content" style="font-family: 'STIX Two Text', serif; font-size: 15.5px; line-height: 1.8;">
         <p>Contribution details will be updated after the author order and affiliations are finalized.</p>
       </div>
-    </div>
+    </div> -->
 
     <!-- ══════════════════════════════════════════�?-->
     <!-- Section: Bibtex -->
