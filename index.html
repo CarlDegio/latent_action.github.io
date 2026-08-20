@@ -196,14 +196,14 @@
           <div class="kc-num">1</div>
           <div class="kc-body">
             <h3 class="kc-title">Latent Action Modeling Paradigms</h3>
-            <p class="kc-desc">We show that under mixed-data pretraining, the original LAPO method remains a remarkably strong baseline. We further find that simple semantic feature differencing using off-the-shelf visual encoders is sufficient to learn competitive latent action representations.</p>
+            <p class="kc-desc">We show that the original LAPO method remains a remarkably strong baseline when trained directly on raw data, while simple semantic feature differencing using off-the-shelf visual encoders is also sufficient to yield competitive latent action representations.</p>
           </div>
         </div>
         <div class="kc-item">
           <div class="kc-num">2</div>
           <div class="kc-body">
             <h3 class="kc-title">Learning Objectives and  Physical Action Prediction</h3>
-            <p class="kc-desc">We identify effective hyperparameter settings for different regularization methods, showing that properly tuned methods achieve comparable downstream performance. We evaluate five physical action prediction architectures and derive practical design guidelines for integrating latent actions into downstream policy learning.</p>
+            <p class="kc-desc">We identify effective hyperparameter settings for different regularization methods, showing that properly tuned methods achieve comparable downstream performance. We further evaluate five latent action integration strategies and derive practical guidelines for effectively incorporating latent actions into physical action prediction.</p>
           </div>
         </div>
         <div class="kc-item">
@@ -217,7 +217,7 @@
           <div class="kc-num">4</div>
           <div class="kc-body">
             <h3 class="kc-title">Proxy Metrics for Latent Action Quality</h3>
-            <p class="kc-desc">We find that FDM reconstruction metrics provide more reliable proxy measures of latent action quality than probe metrics. These proxy metrics are better suited for coarse-grained model selection than for fine-grained model ranking.</p>
+            <p class="kc-desc">We find that FDM reconstruction metrics provide more reliable proxy measures of latent action quality than metrics derived from additionally trained probes. These proxy metrics are more suitable for coarse-grained model selection than for fine-grained ranking and are insufficient for reliably identifying the best-performing model.</p>
           </div>
         </div>
         <div class="kc-item">
