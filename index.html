@@ -271,11 +271,13 @@
 
     <div class="card-surface">
       <div style="background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(147,51,234,0.06) 100%); border-left: 3px solid var(--blue-energy); border-radius: 12px; padding: 18px 24px; margin: 0 0 24px 0;">
-        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Design I examines the impact of latent action modeling paradigms by comparing the implicit IDM-FDM framework with the explicit CFM-AE framework. Design II investigates how different learning objectives and regularization methods shape latent action representations and affect downstream policy learning. Design III explores different physical action prediction architectures and evaluates the necessity of latent action normalization. Stage I is trained on unlabeled video data consisting only of image frames, Stage II uses labeled video data paired with latent actions, and Stage III uses robot action data paired with physical actions.</p>
+        <p style="color: var(--text-primary); font-size: 15.5px; line-height: 1.8; margin: 0; font-weight: 500;">Design I examines the impact of latent action modeling paradigms by comparing the implicit IDM-FDM framework with the explicit CFD-AE framework. Design II investigates how different regularization methods and their regularization strengths shape latent action representations and affect downstream policy learning. Design III evaluates the necessity of latent action normalization and investigates different strategies for integrating latent actions into physical action prediction. Stage I is trained on unlabeled video data consisting only of image frames, Stage II uses labeled video data paired with latent actions, and Stage III uses robot action data paired with physical actions.</p>
       </div>
 
       <div style="overflow: hidden;">
-        <img src="./images/main.png" alt="Main figure for What Matters for Latent Actions in Robot Learning" style="width: 90%; height: auto; display: block;">
+        <img src="./images/main.png"
+            alt="Main figure for What Matters for Latent Actions in Robot Learning"
+            style="width: 90%; height: auto; display: block; margin: 0 auto;">
       </div>
 
       <!-- <div style="overflow: hidden; margin-top: 20px;">
