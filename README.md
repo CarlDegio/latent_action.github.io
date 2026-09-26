@@ -23,7 +23,7 @@ Visit `http://127.0.0.1:8765`. The site supports GitHub Pages under a repository
 - `downloads/table-1.csv`: manuscript Table 1, with success rates in the original 0–1 scale.
 - `source-manifest.json`: relative source paths and SHA-256 hashes for the imported snapshot.
 
-Author names, affiliations, and public paper/code/model/dataset links are retained from the existing project page. The anonymous submission PDF is not republished; the paper link points to the public arXiv preprint. Website findings follow the newer local manuscript, which can differ from that public version.
+Author names and public paper/code/model/dataset links are retained from the existing project page. Affiliations include the author's September 26 correction: Zihao Liu, Xinyi Tao, and Zhiqiang Ma are with the Research Center for Intelligent Robotics, School of Astronautics, Northwestern Polytechnical University, Xi’an, 710072, China. The anonymous submission PDF is not republished; the paper link points to the public arXiv preprint. Website findings follow the newer local manuscript, which can differ from that public version.
 
 The paper's scope is preserved: 32 dimensions is the best cross-benchmark average, proxy metrics support screening rather than exact ranking, corpus expansion changes both size and composition, and the real-world aggregate spans four tasks and five checkpoints. LIBERO-Plus uses liberoplus videos in Stages I/II and LIBERO-only policy training in Stage III.
 
