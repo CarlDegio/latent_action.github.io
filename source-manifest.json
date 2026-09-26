@@ -1,0 +1,170 @@
+{
+  "snapshot_date": "2026-09-26",
+  "files": [
+    {
+      "source": "iclr2027/images/main.pdf",
+      "sha256": "5c3371a814df1f1ab9cff03c2b3787d3eaf6c2cb0273de55281610778e8968cb",
+      "output": "assets/figures/pipeline.webp"
+    },
+    {
+      "source": "iclr2027/images/cfm.pdf",
+      "sha256": "afb46c63313c829ee9ff365202ba145b75d55f1d84db4552f9870e9d6b7d701c",
+      "output": "assets/figures/modeling.webp"
+    },
+    {
+      "source": "iclr2027/images/lambda_all_final.pdf",
+      "sha256": "ba6bd49a8b8b2ae57b06b1f73be27233409edad19f39d824f7230bfbe5264eb0",
+      "output": "assets/figures/regularization.webp"
+    },
+    {
+      "source": "iclr2027/images/actionhead.pdf",
+      "sha256": "63313ba5a4aedad5a2016dd8906cb88acac68b17ae7de731f9e7d97442f63c35",
+      "output": "assets/figures/integration.webp"
+    },
+    {
+      "source": "iclr2027/images/metrics.pdf",
+      "sha256": "7b3e449d4c330d84b8c57eb021b5176ea38853f92fa323ec8b19798c0ba6cd4f",
+      "output": "assets/figures/metrics.webp"
+    },
+    {
+      "source": "iclr2027/images/latentdims.pdf",
+      "sha256": "01b1bf93c791674615ff2d640f5662143724d368c7ffd6742f7e939828f4f2e1",
+      "output": "assets/figures/dimensions.webp"
+    },
+    {
+      "source": "iclr2027/images/denorm.pdf",
+      "sha256": "3b7100ed065cd7473c5f5bb1ac8585d8900771c957475becccb0d63d0ba24427",
+      "output": "assets/figures/normalization.webp"
+    },
+    {
+      "source": "iclr2027/images/scalelaw.pdf",
+      "sha256": "ab216f9cc49d877df215148e150ee39abaabe2b81bdba10e53f935b8ecffbf25",
+      "output": "assets/figures/corpus.webp"
+    },
+    {
+      "source": "iclr2027/images/realworld.pdf",
+      "sha256": "ed505f7d65f9206415ac84df221fc29091f67a37b09898af1cfe07740bb95b6b",
+      "output": "assets/figures/real-world.webp"
+    },
+    {
+      "source": "iclr2027/images/training_process.pdf",
+      "sha256": "bb2b84e4fd8c5801828278aad123291de5ac468e0e444166eb46f517388a463d",
+      "output": "assets/figures/training.webp"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/close_drawer__openvla_oft__demo01.mp4",
+      "sha256": "a3724dab92020a2bd625638c92a134991a4a0c2c2ddad931af466ba7ac432d57",
+      "output": "assets/videos/close_drawer__openvla_oft__demo01.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/close_drawer__openvla_oft_la_tuned__demo01.mp4",
+      "sha256": "402e4665cc5ae5f9ed6925884cc41b8fc2e9fb0bb32ce36aee28ce60045c7a6c",
+      "output": "assets/videos/close_drawer__openvla_oft_la_tuned__demo01.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/disturbance_recovery__openvla_oft__demo01.mp4",
+      "sha256": "188bffbdf568a1b21a44b5d43baf82a6a77f8bbe76ad5b1c22ccc7acf6fc107f",
+      "output": "assets/videos/disturbance_recovery__openvla_oft__demo01.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/disturbance_recovery__openvla_oft__demo02.mp4",
+      "sha256": "4f0756c29bd4048a03645401bb82c91b6320adff0ee8421897d4cace4687a53b",
+      "output": "assets/videos/disturbance_recovery__openvla_oft__demo02.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/disturbance_recovery__openvla_oft_la_tuned__demo01.mp4",
+      "sha256": "9dfd64f683bf8b81bf6f0598516e2d96db80f3a0d26a469a212b91da469ada73",
+      "output": "assets/videos/disturbance_recovery__openvla_oft_la_tuned__demo01.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/disturbance_recovery__openvla_oft_la_tuned__demo02.mp4",
+      "sha256": "2ab4d847e892cd2022ca9bdf5ca124787af2a337b1bd42e21954fbd174184fa0",
+      "output": "assets/videos/disturbance_recovery__openvla_oft_la_tuned__demo02.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/open_drawer__openvla_oft__demo01.mp4",
+      "sha256": "d0de8a51940a4bc004525be5b19c87e6a1957905a65ae54d88e767e6c0b435d6",
+      "output": "assets/videos/open_drawer__openvla_oft__demo01.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/open_drawer__openvla_oft_la_tuned__demo01.mp4",
+      "sha256": "25a5d443a99a6e833929457f4876361ecbfb93fe2c6cdcc3aaba373ddea7c4d3",
+      "output": "assets/videos/open_drawer__openvla_oft_la_tuned__demo01.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/place_block__openvla_oft__demo01.mp4",
+      "sha256": "f42ee7175f0ba84613fc6c9856b0b0a0044ecb24b7d0258e68d71d2f26ca9d08",
+      "output": "assets/videos/place_block__openvla_oft__demo01.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/place_block__openvla_oft_la_tuned__demo01.mp4",
+      "sha256": "0010fcf52628213d0da83263bfd12825ae5cfa1f1a85ff0d0317bf19b0527712",
+      "output": "assets/videos/place_block__openvla_oft_la_tuned__demo01.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/real_world__comparison__overview.mp4",
+      "sha256": "d2c5235839dd6619183a797690fb52d0fb0bb63acd4e5c6addb48546891a710a",
+      "output": "assets/videos/real_world__comparison__overview.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/stack_bowls__openvla_oft__demo01.mp4",
+      "sha256": "3ededfdfde590361229af2c1a739198ee8b24a5d8ad254550c67c4bde343b174",
+      "output": "assets/videos/stack_bowls__openvla_oft__demo01.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/stack_bowls__openvla_oft_la_tuned__demo01.mp4",
+      "sha256": "9804dedb07ddb75b40055f05211f9383d4dd53dc9fdfd12e1f95207899d03066",
+      "output": "assets/videos/stack_bowls__openvla_oft_la_tuned__demo01.mp4"
+    },
+    {
+      "source": "materials/ICLR2027_materials/videos/index.html",
+      "sha256": "93e61f88fbf1caba998e2fed4b63c7ab1e986636b42202c45ce3583117752a14",
+      "output": null
+    },
+    {
+      "source": "materials/ICLR2027_materials/analysis.html",
+      "sha256": "a600477437ae35717bb33e78fd2ba9900650b5a6086f748f07cf1b426993e4cf",
+      "output": "analysis/index.html"
+    },
+    {
+      "source": "materials/ICLR2027_materials/results.xlsx",
+      "sha256": "82f35b883522cbdf22a22ee009022c8bf3cf86103c16586ffabf704d46ce844d",
+      "output": "downloads/results.xlsx"
+    },
+    {
+      "source": "iclr2027/sec/results_summary.tex",
+      "sha256": "d3254c793fe33b0dd0437597cdf2d3522ff5a2c44c0bd5bb6e11b432a3006574",
+      "output": "assets/results.js"
+    },
+    {
+      "source": "iclr2027/iclr2027_conference.tex",
+      "sha256": "1441daaa344a80a2217d19ea48f2f1eb82d147930f48d4606e9cf697bddc193d",
+      "output": null
+    },
+    {
+      "source": "iclr2027/iclr2027_conference.pdf",
+      "sha256": "0121f1fe8fa35b6305eef5c92d0b08938e9f3c8765214fcc1de6756452a247ce",
+      "output": null
+    },
+    {
+      "source": "iclr2027/sec/experiments.tex",
+      "sha256": "19e7824821e5597102c8706366b264419c212d42880c1215d890b9a660aabe46",
+      "output": null
+    },
+    {
+      "source": "iclr2027/sec/introduction.tex",
+      "sha256": "70595cf10c865a65516619a17a827d453d9a72f33f420c3c22252f10d212108f",
+      "output": null
+    },
+    {
+      "source": "iclr2027/sec/methodology.tex",
+      "sha256": "2992db0c6800c0fbd43ff37ea981a73170b7ec93d7dcf0b4a8a99d250b955f90",
+      "output": null
+    },
+    {
+      "source": "materials/ICLR2027_materials/README.md",
+      "sha256": "54077338ab07b209983363e2b5e4a283918819bf2b7b7b39637763c6d5b71486",
+      "output": null
+    }
+  ]
+}
