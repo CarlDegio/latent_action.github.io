@@ -9,6 +9,7 @@ import shutil
 import subprocess
 
 from PIL import Image, ImageOps, ImageDraw
+from localize_analysis import write_english
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT.parent / 'iclr2027'
@@ -51,7 +52,8 @@ posters = json.loads(re.search(r'const posters=(\{.*?\});', poster_source.read_t
 for filename, uri in posters.items():
     (OUT / 'posters' / filename.replace('.mp4', '.jpg')).write_bytes(base64.b64decode(uri.split(',', 1)[1]))
 record(poster_source)
-copy(MATERIALS / 'analysis.html', ROOT / 'analysis' / 'index.html')
+write_english(MATERIALS / 'analysis.html', ROOT / 'analysis' / 'index.html')
+record(MATERIALS / 'analysis.html', ROOT / 'analysis' / 'index.html')
 copy(MATERIALS / 'results.xlsx', ROOT / 'downloads' / 'results.xlsx')
 
 source = PAPER / 'sec' / 'results_summary.tex'

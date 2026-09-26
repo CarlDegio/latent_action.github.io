@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 from urllib.parse import unquote, urlsplit
+from localize_analysis import analysis_data, localize, scientific_data
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -52,8 +53,15 @@ for record in manifest['files']:
     source = ROOT.parent / record['source']
     if hashlib.sha256(source.read_bytes()).hexdigest() != record['sha256']:
         changed_sources.append(record['source'])
-assert not changed_sources, f'Source files changed since import: {changed_sources}'
-for name in ['analysis/index.html', 'downloads/results.xlsx']:
+for name in ['downloads/results.xlsx']:
     record = next(item for item in manifest['files'] if item['output'] == name)
     assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == record['sha256']
+english_analysis = (ROOT / 'analysis/index.html').read_text(encoding='utf-8')
+assert analysis_data(english_analysis)['source_sha256'] == hashlib.sha256((ROOT / 'downloads/results.xlsx').read_bytes()).hexdigest(), 'Explorer workbook hash mismatch'
+assert '<html lang="en">' in english_analysis and not re.search(r'[\u3400-\u9fff]', english_analysis), 'Explorer is not fully English'
+print('PASS: website references, table values, English text, video/poster pairs, and downloaded workbook snapshot.')
+assert not changed_sources, f'Source files changed since import: {changed_sources}'
+original_analysis = (ROOT.parent / 'materials/ICLR2027_materials/analysis.html').read_text(encoding='utf-8')
+assert scientific_data(analysis_data(original_analysis)) == scientific_data(analysis_data(english_analysis)), 'Explorer scientific data changed'
+assert english_analysis == localize(original_analysis), 'Explorer translation differs from its source and translation map'
 print(f'PASS: {len(page.links)} references; 216 paper/website/CSV values; 13 video/poster pairs; {len(manifest["files"])} source hashes unchanged.')

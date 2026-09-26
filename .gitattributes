@@ -1,5 +1,5 @@
 * text=auto
-# Preserve the supplementary tool byte-for-byte, including its CRLF endings.
+# Keep the translated supplementary tool in its original CRLF format.
 analysis/index.html -text whitespace=cr-at-eol
 *.webp binary
 *.jpg binary

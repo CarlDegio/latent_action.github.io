@@ -18,7 +18,7 @@ Visit `http://127.0.0.1:8765`. The site supports GitHub Pages under a repository
 - `assets/results.js`: the 216 values in manuscript Table 1. Displayed as percentages; paper-reported averages are preserved rather than recomputed from rounded cells.
 - `assets/figures/`: WebP renders of the latest manuscript figures. The original PDFs are read only.
 - `assets/videos/` and `assets/posters/`: 13 H.264 demonstration videos and existing poster frames from the supplementary package. Clips are independent recordings, not time-aligned trials.
-- `analysis/index.html`: exact copy of the supplementary offline metric explorer (Chinese interface), containing 29 experiment labels and 17 metrics. Browser edits do not modify the workbook.
+- `analysis/index.html`: English version of the supplementary offline metric explorer, containing the original 29 experiment labels and 17 metrics. All experimental values, source identifiers, and calculation logic are preserved. Browser edits do not modify the workbook.
 - `downloads/results.xlsx`: exact copy of the supplementary results workbook.
 - `downloads/table-1.csv`: manuscript Table 1, with success rates in the original 0–1 scale.
 - `source-manifest.json`: relative source paths and SHA-256 hashes for the imported snapshot.
@@ -29,7 +29,7 @@ The paper's scope is preserved: 32 dimensions is the best cross-benchmark averag
 
 ## Updating assets
 
-With Pillow and Poppler available, run `python tools/prepare_assets.py`. It reads the sibling `iclr2027` and `materials/ICLR2027_materials` directories and writes only into this website repository. It never compiles or edits the paper or material sources. Update the manually written research summaries when the manuscript changes.
+With Pillow and Poppler available, run `python tools/prepare_assets.py`. It reads the sibling `iclr2027` and `materials/ICLR2027_materials` directories and writes only into this website repository. It never compiles or edits the paper or material sources. The explorer is translated using `tools/analysis-en.json`; run `python tools/localize_analysis.py` to regenerate only that page. Translation checks preserve all scientific data and reject untranslated Chinese text. Update the manually written research summaries when the manuscript changes.
 
 ```sh
 python tools/verify_site.py
