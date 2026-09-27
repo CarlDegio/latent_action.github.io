@@ -52,14 +52,17 @@ for (const mode of ['pearson', 'spearman']) {
   vm.runInNewContext(exportCode, exportContext);
   button.onclick();
   const [headers, ...rows] = output.trim().split('\r\n').map(line => line.replace(/^\uFEFF/, '').split(','));
-  const absolute = headers.indexOf('absolute_correlation');
+  assert.equal(headers.indexOf('absolute_correlation'), -1, 'Export must contain only original signed coefficients');
+  const metricName = headers.indexOf('metric_raw');
   const signed = headers.indexOf(mode === 'pearson' ? 'pearson_r' : 'spearman_rho');
   let last = Infinity;
   for (const row of rows) {
-    const magnitude = row[absolute] === '' ? -Infinity : Number(row[absolute]);
+    const expected = analyses[row[metricName]][mode === 'pearson' ? 'r' : 'rho'];
+    assert.equal(row[signed] === '' ? null : Number(row[signed]), expected, 'Exported coefficient changed');
+    const magnitude = row[signed] === '' ? -Infinity : Math.abs(Number(row[signed]));
     assert.ok(magnitude <= last);
-    if (magnitude !== -Infinity) assert.equal(magnitude, Math.abs(Number(row[signed])));
     last = magnitude;
   }
 }
+assert.ok(!html.includes('id="absoluteHeading"') && !html.includes('class="absolute-coef"'), 'Do not display an extra absolute-value column');
 console.log(`PASS: signed values, ties, zeros, undefined values, legacy sessions, both CSV export modes, and ${checked} real-data absolute rankings; all scripts compile.`);

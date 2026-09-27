@@ -39,7 +39,7 @@ node tools/verify_analysis_ranking.cjs
 
 The verifier checks local references, all 216 values against the paper and CSV, video/poster pairs, and unchanged source hashes. Visual and interaction checks should also cover desktop/mobile layouts, all findings and benchmarks, table ordering, paired playback, both disturbance examples, figure dialog, and citation copy.
 
-The metric explorer sorts by absolute correlation in descending order (Pearson by default, or Spearman). The highlighted magnitude column and statistics CSV use the selected sort key; signed coefficients remain unchanged. Legacy sessions using source order reopen with absolute Pearson sorting. Equal magnitudes share a rank and undefined coefficients appear last.
+The metric explorer sorts by absolute correlation in descending order (Pearson by default, or Spearman). The table and statistics CSV display the original signed coefficients; no absolute-value column is added. Legacy sessions using source order reopen with absolute Pearson sorting. Equal magnitudes share a rank and undefined coefficients appear last.
 
 ## Publishing
 

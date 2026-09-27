@@ -11,8 +11,6 @@
 .analysis-actions{padding:18px 20px;margin-bottom:20px}.direction-row{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:10px}.direction-row label{font-weight:600;font-size:.9rem;color:#234e86}.direction-row span{font-size:.8rem;color:var(--muted)}.export-actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 10px}.editor-panel{margin-top:22px}.editor-panel>summary{padding:18px 20px;cursor:pointer;font-weight:600}.editor-panel>summary span{font-size:.8rem;font-weight:400;color:var(--muted);margin-left:12px}.editor-panel>p{padding:0 20px 15px}.data-editor input{width:145px;max-width:100%;padding:7px;border:1px solid #c7d4e4;border-radius:4px;font-size:.8rem;font-variant-numeric:tabular-nums}.data-editor input[readonly]{background:#f3f6fa;border-color:transparent;color:var(--muted)}.data-editor td{padding:8px 10px;height:auto}.data-editor td:first-child{min-width:155px}.data-editor td small{display:block;color:var(--muted);font-size:.7rem;margin-top:3px}.data-editor th{min-width:165px}#operationStatus{overflow-wrap:anywhere}.controls fieldset{max-width:750px}
 
 footer{overflow-wrap:anywhere}
-
-.correlations table{min-width:520px}.correlations .absolute-coef{font-weight:600;color:#174e96;background:#edf3ff}#absoluteHeading{color:#174e96;font-weight:600}.analysis-grid{grid-template-columns:minmax(540px,1.1fr) minmax(380px,.9fr)}@media(max-width:1350px){.analysis-grid{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -40,9 +38,9 @@ footer{overflow-wrap:anywhere}
   <div class="analysis-grid">
     <section class="panel correlations">
       <div class="panel-heading"><h2>Correlation coefficients</h2><span>Select a metric to view its fit</span></div>
-      <div class="ranking-control"><label for="ranking">Sort by absolute value</label><select id="ranking"><option value="pearson">|Pearson r|: descending</option><option value="spearman">|Spearman ρ|: descending</option></select></div>
-      <div class="table-wrap"><table><thead><tr><th scope="col" id="rankHeading">Rank</th><th scope="col">Proxy metric</th><th scope="col" id="absoluteHeading">|Pearson r| ↓</th><th scope="col">Pearson <i>r</i></th><th scope="col">Spearman <i>ρ</i></th><th scope="col"><abbr title="Number of valid pairs">n</abbr></th></tr></thead><tbody id="results"></tbody></table></div>
-      <p class="table-note">Sorted by absolute correlation, highest first. The highlighted column shows the value used for sorting; the original coefficients keep their signs. Equal magnitudes share a rank; undefined values appear last.<br>Positive <span class="legend-swatch positive"></span> Negative <span class="legend-swatch negative"></span> — means undefined. Scroll horizontally on small screens to see all columns.</p>
+      <div class="ranking-control"><label for="ranking">Sort by absolute value</label><select id="ranking" data-ranking="absolute"><option value="pearson">|Pearson r|: descending</option><option value="spearman">|Spearman ρ|: descending</option></select></div>
+      <div class="table-wrap"><table><thead><tr><th scope="col" id="rankHeading">Rank</th><th scope="col">Proxy metric</th><th scope="col">Pearson <i>r</i></th><th scope="col">Spearman <i>ρ</i></th><th scope="col"><abbr title="Number of valid pairs">n</abbr></th></tr></thead><tbody id="results"></tbody></table></div>
+      <p class="table-note">Sorted by absolute correlation, highest first. Displayed and exported coefficients retain their original signs. Equal magnitudes share a rank; undefined values appear last.<br>Positive <span class="legend-swatch positive"></span> Negative <span class="legend-swatch negative"></span> — means undefined.</p>
     </section>
     <section class="panel fit-panel">
       <div class="panel-heading"><div><span class="eyebrow">ORDINARY LEAST SQUARES</span><h2 id="chartTitle"></h2></div><span id="sampleLabel"></span></div>
@@ -242,8 +240,8 @@ footer{overflow-wrap:anywhere}
   }
   function coefficient(v){const bg=v===null?'transparent':v>=0?`rgba(52,113,206,${.06+.19*Math.abs(v)})`:`rgba(206,119,46,${.06+.19*Math.abs(v)})`;return `<span class="coef" style="background:${bg}">${number(v)}</span>`;}
   function renderTable(){
-    $('absoluteHeading').textContent=ranking==='spearman'?'|Spearman ρ| ↓':'|Pearson r| ↓';
-    $('results').innerHTML=core.rankResults(data.metric_names,analyses,ranking).map(({name,index,rank,value})=>{const a=analyses[name];return `<tr class="metric-row ${name===metric?'selected':''}"><td class="rank-cell">${rank??'—'}</td><td class="metric-name"><button data-metric="${index}" aria-pressed="${name===metric}" title="${esc(metricLabel(name))}">${esc(metricLabel(name))}</button></td><td class="absolute-coef">${number(value===null?null:Math.abs(value))}</td><td title="${esc(a.reason)}">${coefficient(a.r)}</td><td title="${esc(a.reason)}">${coefficient(a.rho)}</td><td>${a.n}</td></tr>`;}).join('');
+    $('rankHeading').textContent='Rank';
+    $('results').innerHTML=core.rankResults(data.metric_names,analyses,ranking).map(({name,index,rank})=>{const a=analyses[name];return `<tr class="metric-row ${name===metric?'selected':''}"><td class="rank-cell">${rank??'—'}</td><td class="metric-name"><button data-metric="${index}" aria-pressed="${name===metric}" title="${esc(metricLabel(name))}">${esc(metricLabel(name))}</button></td><td title="${esc(a.reason)}">${coefficient(a.r)}</td><td title="${esc(a.reason)}">${coefficient(a.rho)}</td><td>${a.n}</td></tr>`;}).join('');
   }
   function renderChart(){
     pinnedPoint=null;
@@ -285,8 +283,8 @@ footer{overflow-wrap:anywhere}
   function stamp(message){$('operationStatus').textContent=message;}
   $('paperDirection').onchange=event=>{paperDirection=event.target.checked;render();};
   $('exportStats').onclick=()=>{
-    const rows=[['dataset','proxy_dataset','head','metric_raw','metric_used','direction','rank_mode','rank','absolute_correlation','n','pearson_r','spearman_rho','slope','intercept','r_squared','undefined_reason','edited_values','selected_ids','source_sha256']];
-    core.rankResults(data.metric_names,analyses,ranking).forEach(({name,rank,value})=>{const a=analyses[name];rows.push([dataset,data.proxy_dataset[dataset],head,name,metricLabel(name),paperDirection?'negative_probe_loss':'raw',ranking,rank,value===null?null:Math.abs(value),a.n,a.r,a.rho,a.slope,a.intercept,a.r2,a.reason,session.changed,[...selected].join(';'),data.source_sha256]);});
+    const rows=[['dataset','proxy_dataset','head','metric_raw','metric_used','direction','rank_mode','rank','n','pearson_r','spearman_rho','slope','intercept','r_squared','undefined_reason','edited_values','selected_ids','source_sha256']];
+    core.rankResults(data.metric_names,analyses,ranking).forEach(({name,rank})=>{const a=analyses[name];rows.push([dataset,data.proxy_dataset[dataset],head,name,metricLabel(name),paperDirection?'negative_probe_loss':'raw',ranking,rank,a.n,a.r,a.rho,a.slope,a.intercept,a.r2,a.reason,session.changed,[...selected].join(';'),data.source_sha256]);});
     download(`${stem()}_statistics.csv`,work.csv(rows),'text/csv;charset=utf-8');stamp('Statistics exported for all 17 metrics. The CSV includes the selection, direction, edit count, and source hash.');
   };
   $('exportPairs').onclick=()=>{

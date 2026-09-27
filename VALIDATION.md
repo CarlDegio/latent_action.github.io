@@ -2,7 +2,7 @@
 
 ## Absolute metric ranking — 2026-09-27
 
-- Made absolute descending correlation the only ranking mode: Pearson by default, with a Spearman option. Added a highlighted magnitude column and an `absolute_correlation` field to statistics CSV exports; original signed coefficients are preserved. Legacy source-order sessions switch to absolute Pearson ranking.
+- Made absolute descending correlation the only ranking mode: Pearson by default, with a Spearman option. Table and CSV values retain their original signs, with no additional absolute-value column. Legacy source-order sessions switch to absolute Pearson ranking.
 - Confirmed the entire embedded analysis dataset is identical to the version before this change. The workbook, paper data, figures, and videos are untouched.
 - `node tools/verify_analysis_ranking.cjs` passes mixed-sign values, tied magnitudes, zeros, undefined values, legacy-session handling, both actual CSV handlers, and 36 real-data ranking configurations.
 - Browser checks verified the default and alternate sort columns, descending values, CSV export status, and no page overflow at desktop / 390 px. The table fits the desktop panel and scrolls within its container on mobile.
