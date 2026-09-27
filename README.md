@@ -34,9 +34,12 @@ With Pillow and Poppler available, run `python tools/prepare_assets.py`. It read
 ```sh
 python tools/verify_site.py
 node --check app.js
+node tools/verify_analysis_ranking.cjs
 ```
 
 The verifier checks local references, all 216 values against the paper and CSV, video/poster pairs, and unchanged source hashes. Visual and interaction checks should also cover desktop/mobile layouts, all findings and benchmarks, table ordering, paired playback, both disturbance examples, figure dialog, and citation copy.
+
+The metric explorer sorts by absolute correlation in descending order (Pearson by default, or Spearman). The highlighted magnitude column and statistics CSV use the selected sort key; signed coefficients remain unchanged. Legacy sessions using source order reopen with absolute Pearson sorting. Equal magnitudes share a rank and undefined coefficients appear last.
 
 ## Publishing
 
